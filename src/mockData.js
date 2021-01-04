@@ -1,8 +1,8 @@
 //user_id might only be so helpful, we might want user name instead?
 export const allRecipes = [
   {
-    id: 01,
-    user_id: 01,
+    id: 1,
+    user_id: 1,
     image: "https://www.chasinglenscapes.com/wp-content/uploads/2020/06/food-photography-on-the-go-tips.jpg",
     title: 'Egg Stuff',
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
@@ -11,8 +11,8 @@ export const allRecipes = [
     ingredients: ["eggs", "bread"]
   },
   {
-    id: 02,
-    user_id: 01,
+    id: 2,
+    user_id: 1,
     image: "https://i.pinimg.com/originals/13/7a/9b/137a9bf3d78351ca949776a3cc5b0bf3.jpg",
     title: 'Ramen',
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
@@ -21,8 +21,8 @@ export const allRecipes = [
     ingredients: ["eggs", "ramen", "bok choy", "broth"]
   },
   {
-    id: 03,
-    user_id: 02,
+    id: 3,
+    user_id: 2,
     image: "https://assets.bonappetit.com/photos/597f6564e85ce178131a6475/master/w_1200,c_limit/0817-murray-mancini-dried-tomato-pie.jpg",
     title: 'Tomato Pie',
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
@@ -47,8 +47,8 @@ export const individualUserData = {
   billing_info: "string we may not even use",
   recipes_created: [
     {
-      id: 01,
-      user_id: 01,
+      id: 1,
+      user_id: 1,
       image: "https://www.chasinglenscapes.com/wp-content/uploads/2020/06/food-photography-on-the-go-tips.jpg",
       title: 'Egg Stuff',
       description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
@@ -57,8 +57,8 @@ export const individualUserData = {
       ingredients: ["eggs", "bread"]
     },
     {
-      id: 02,
-      user_id: 01,
+      id: 2,
+      user_id: 1,
       image: "https://i.pinimg.com/originals/13/7a/9b/137a9bf3d78351ca949776a3cc5b0bf3.jpg",
       title: 'Ramen',
       description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
@@ -69,8 +69,8 @@ export const individualUserData = {
   ],
   recipes_payed_for: [
     {
-      id: 03,
-      user_id: 02,
+      id: 3,
+      user_id: 2,
       image: "https://assets.bonappetit.com/photos/597f6564e85ce178131a6475/master/w_1200,c_limit/0817-murray-mancini-dried-tomato-pie.jpg",
       title: 'Tomato Pie',
       description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
