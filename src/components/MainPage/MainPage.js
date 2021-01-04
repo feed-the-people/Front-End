@@ -17,7 +17,7 @@ function MainPage() {
     <div className="MainPage">
       <header className="MainPage-sidebar">
         <Link to='/profile'><img src={profile} alt='navigate to user profile'/></Link>
-        <Link to='recipeBook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
+        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
       <section className='recipe-section'>
         {recipeDisplay}
