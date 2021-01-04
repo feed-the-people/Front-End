@@ -1,12 +1,18 @@
 import './App.css';
+import MainPage from '../MainPage/MainPage'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <h1> Feed The People </h1>
-      </header>
+      <MainPage />
     </div>
+    </BrowserRouter>
   );
 }
 
