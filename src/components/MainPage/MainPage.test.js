@@ -9,6 +9,8 @@ test('basic title', () => {
       <MainPage />
     </MemoryRouter>
   );
-  const title = screen.getByText("Main Page");
-  expect(title).toBeInTheDocument();
+  const profileNav = screen.getByAltText("navigate to user profile");
+  const recipeNav = screen.getByAltText("navigate to user recipe book");
+  expect(profileNav).toBeInTheDocument();
+  expect(recipeNav).toBeInTheDocument();
 });

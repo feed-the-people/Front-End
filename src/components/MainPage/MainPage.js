@@ -8,9 +8,9 @@ import RecipeCard from '../RecipeCard/RecipeCard'
 function MainPage() {
   //will ordinarily map over props being passed in, but in this case taking the direct import
 
-  let recipeDisplay = allRecipes.map(recipe => {
+  let recipeDisplay = allRecipes.map((recipe, index)=> {
     return (
-      <RecipeCard recipe={recipe}/>
+      <RecipeCard recipe={recipe} key={index}/>
     )
   })
   return (
