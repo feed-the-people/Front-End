@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SignInPage from './SignInPage';
 
 test('basic title', () => {

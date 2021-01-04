@@ -11,7 +11,7 @@ function MainPage() {
         <Link to='/profile'><img src={profile} alt='navigate to user profile'/></Link>
         <Link to='recipeBook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
-
+      <h1>Main Page</h1>
     </div>
   );
 }
