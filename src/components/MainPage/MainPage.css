@@ -1,0 +1,27 @@
+.MainPage {
+  display: flex;
+  flex-direction: row;
+}
+.MainPage-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 10vw;
+  background-color: grey;
+}
+img {
+  width: 6vw;
+  height: 6vw;
+  margin: 2vw;
+}
+.recipe-section {
+  margin: 5vh 5vw 5vh 5vw;
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  background-color: hsl(0, 0%, 90%);
+}

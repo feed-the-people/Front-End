@@ -1,11 +1,27 @@
 import './MainPage.css';
+import profile from '../../icons/user-icon.svg'
+import recipeBook from '../../icons/recipe-book-icon.svg'
+import {Link} from 'react-router-dom'
+import {allRecipes} from '../../mockData.js'
+import RecipeCard from '../RecipeCard/RecipeCard'
 
 function MainPage() {
+  //will ordinarily map over props being passed in, but in this case taking the direct import
+
+  let recipeDisplay = allRecipes.map((recipe, index)=> {
+    return (
+      <RecipeCard recipe={recipe} key={index}/>
+    )
+  })
   return (
     <div className="MainPage">
-      <header className="MainPage-header">
-        <h1> Main Page </h1>
+      <header className="MainPage-sidebar">
+        <Link to='/profile'><img src={profile} alt='navigate to user profile'/></Link>
+        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
+      <section className='recipe-section'>
+        {recipeDisplay}
+      </section>
     </div>
   );
 }
