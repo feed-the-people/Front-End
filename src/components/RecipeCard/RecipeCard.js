@@ -1,3 +1,7 @@
+import './RecipeCard.css';
+import { allRecipes, individualUserData, allNPOs } from '../../mockData.js'
+import {Link} from 'react-router-dom'
+
 
 
 function RecipeCard() {
