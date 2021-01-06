@@ -1,8 +1,10 @@
 import './App.css';
+import { Component } from 'react';
 import MainPage from '../MainPage/MainPage'
 import SignInPage from '../SignIn/SignInPage'
 import SignUpPage from '../SignUp/SignUpPage'
 import RecipePage from '../RecipePage/RecipePage'
+import ProfilePage from '../ProfilePage/ProfilePage'
 
 import {
   BrowserRouter,
@@ -10,12 +12,19 @@ import {
   Route,
 } from "react-router-dom";
 
-function App() {
-  return (
-    <BrowserRouter>
-    <Switch>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signedIn: false,
+      user: '',
+    }
+  }
+  render() {
+    return (
+      <BrowserRouter>
+      <Switch>
       <div className="App">
-        <h1>Feed The People </h1>
         <Route path='/signin'>
           <SignInPage />
         </Route>
@@ -25,8 +34,8 @@ function App() {
         <Route path='/recipepage'>
           <RecipePage />
         </Route>
-        <Route path='/profile'>
-
+        <Route path='/profilepage'>
+          <ProfilePage signedIn={this.state.signedIn}/>
         </Route>
         <Route path='/recipebook'>
 
@@ -35,9 +44,10 @@ function App() {
           <MainPage />
         </Route>
       </div>
-    </Switch>
-    </BrowserRouter>
-  );
+      </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
