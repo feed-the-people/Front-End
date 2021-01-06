@@ -1,0 +1,27 @@
+.RecipeCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  width: 60vw;
+  padding: .3vw;
+  /* border: 2px solid black; */
+}
+
+.left-section {
+  margin: 1vw;
+  border: 2px solid black;
+  width: 50%;
+}
+
+.right-section {
+  margin: 1vw;
+  /* border: 2px solid black; */
+  width: 50%;
+}
+
+.leftHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
