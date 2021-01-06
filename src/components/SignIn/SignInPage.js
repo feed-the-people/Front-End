@@ -1,10 +1,23 @@
+import './SignInPage.css'
+import {Link} from 'react-router-dom'
 
 function SignInPage() {
   return (
     <div className="SignInPage">
-      <header className="SignInPage-header">
-        <h1> Sign In Page </h1>
-      </header>
+      <form>
+        <label>
+          email
+          <input type='email'/>
+        </label>
+        <label>
+          password
+          <input type='password'/>
+        </label>
+        <button> Submit </button>
+      </form>
+      <footer className="SignInPage-footer">
+        <Link to='/'><button> Take Me Back </button></Link>
+      </footer>
     </div>
   );
 }
