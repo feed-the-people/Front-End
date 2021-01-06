@@ -9,25 +9,23 @@ import {Link} from 'react-router-dom'
 function RecipeCard() {
   return (
     <div className="RecipeCard">
-      <section className='leftSection'>
+      <section className='left-section'>
         <div className='leftHeader'>
-          <h1>Recipe Title</h1>
-          <h3>Rating</h3>
+          <h1 className='recipe-name'>{allRecipes[0].title}</h1>
+          <h3 className='recipe-rating'>4.5</h3>
         </div>
-        <img alt='recipeImage'>
-        <div className='leftFooter'>
-          <h3>NPO</h3>
+        <div className='left-footer'>
+          <h3 >NPO</h3>
           <h3>Give N' Get Recipe!</h3>
         </div>
       </section>
-      <section className='rightSection'>
+      <section className='right-section'>
         <h4>Tag Filter :</h4>
-        <section className='starRating'>
-          <img alt='theStarRatingImagesHere'>
+        <section className='star-rating'>
         </section>
-        <p className='recipeStory'></p>
-        <h4>Tags</h4>
-        <h5>#this #is #where #tags #go</h5>
+        <p className='recipe-story'></p>
+        <h4 className='tags'>Tags</h4>
+        <h5 className='recipe-tags'>#this #is #where #tags #go</h5>
       </section>
     </div>
   );
