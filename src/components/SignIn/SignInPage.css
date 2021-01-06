@@ -1,0 +1,20 @@
+.SignInPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 20vh;
+  width: 30vw;
+  margin: 20vh;
+  align-self: center;
+}
+.SignInPage-footer {
+  align-self: baseline;
+}
