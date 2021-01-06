@@ -24,26 +24,26 @@ class App extends Component {
     return (
       <BrowserRouter>
       <Switch>
-      <div className="App">
-        <Route path='/signin'>
-          <SignInPage />
-        </Route>
-        <Route path='/signup'>
-          <SignUpPage />
-        </Route>
-        <Route path='/recipepage'>
-          <RecipePage />
-        </Route>
-        <Route path='/profilepage'>
-          <ProfilePage signedIn={this.state.signedIn}/>
-        </Route>
-        <Route path='/recipebook'>
+        <div className="App">
+          <Route path='/signin'>
+            <SignInPage />
+          </Route>
+          <Route path='/signup'>
+            <SignUpPage />
+          </Route>
+          <Route path='/recipepage'>
+            <RecipePage />
+          </Route>
+          <Route path='/profilepage'>
+            <ProfilePage signedIn={this.state.signedIn}/>
+          </Route>
+          <Route path='/recipebook'>
 
-        </Route>
-        <Route path='/'>
-          <MainPage />
-        </Route>
-      </div>
+          </Route>
+          <Route exact path='/'>
+            <MainPage />
+          </Route>
+        </div>
       </Switch>
       </BrowserRouter>
     );
