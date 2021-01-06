@@ -23,6 +23,7 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
+      <h1> Welcome Back! Sign In Below: </h1>
         <form>
           <label>
             email
