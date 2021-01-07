@@ -5,6 +5,7 @@ import SignInPage from '../SignIn/SignInPage'
 import SignUpPage from '../SignUp/SignUpPage'
 import RecipePage from '../RecipePage/RecipePage'
 import ProfilePage from '../ProfilePage/ProfilePage'
+import RecipeBook from '../RecipeBook/RecipeBook'
 
 import {
   BrowserRouter,
@@ -38,7 +39,7 @@ class App extends Component {
             <ProfilePage signedIn={this.state.signedIn}/>
           </Route>
           <Route path='/recipebook'>
-
+            <RecipeBook />
           </Route>
           <Route exact path='/'>
             <MainPage />
