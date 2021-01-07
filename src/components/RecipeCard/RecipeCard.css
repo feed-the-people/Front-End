@@ -42,7 +42,6 @@
 .left-footer {
   display: flex;
   flex-direction: column;
-
 }
 
 .nonprofit-name {
@@ -57,7 +56,8 @@
   background: none;
   padding-bottom: 1vh;
   padding-top: 1vh;
-  margin-top: -2vh;
+  margin-top: -5vh;
+  width: 100%;
 }
 
 /* .recipe-image {
