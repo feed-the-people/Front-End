@@ -26,8 +26,8 @@ class SignInPage extends Component {
       <h1> Welcome Back! Sign In Below: </h1>
         <form>
           <label>
-            email
-            <input type='email' onChange={this.updateInput}/>
+            username
+            <input type='text' onChange={this.updateInput}/>
           </label>
           <label>
             password
