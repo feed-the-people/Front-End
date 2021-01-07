@@ -21,6 +21,7 @@ function RecipeBook() {
       </header>
       <section className='my-recipe-section'>
         <h1>Recipes you have uploaded: </h1>
+        <Link to='/recipeform'><button>Upload another recipe</button></Link>
         {recipeDisplay}
       </section>
       <section className='purchased-recipe-section'>
