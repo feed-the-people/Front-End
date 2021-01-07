@@ -8,7 +8,7 @@ function RecipeCard() {
     <div className="RecipeCard">
       <section className='left-section'>
         <div className='leftHeader'>
-          <h1 className='recipe-name'>{allRecipes[0].title}</h1>
+          <h1 className='recipe-name' data-testId='recipeTitle'>{allRecipes[0].title}</h1>
           <h3 className='recipe-rating'>5</h3>
         </div>
         <img className='recipe-image' src={allRecipes[0].image} />
