@@ -4,10 +4,6 @@ import {Link} from 'react-router-dom'
 
 function RecipeCard() {
 
-  let displayRecipeName = () => {
-
-  }
-
   return (
     <div className="RecipeCard">
       <section className='left-section'>
