@@ -1,4 +1,6 @@
 //user_id might only be so helpful, we might want user name instead?
+//can be pulled already
+
 export const allRecipes = [
   {
     id: 1,
@@ -8,7 +10,6 @@ export const allRecipes = [
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
     instructions: "1. Crack and egg. 2. Cook it. 3. Then do more stuff. 4. Then even more.",
     charity_id: 3,
-    ingredients: ["eggs", "bread"]
   },
   {
     id: 2,
@@ -18,7 +19,6 @@ export const allRecipes = [
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
     instructions: "1. Crack and egg. 2. Cook it. 3. Then do more stuff. 4. Then even more.",
     charity_id: 2,
-    ingredients: ["eggs", "ramen", "bok choy", "broth"]
   },
   {
     id: 3,
@@ -28,7 +28,6 @@ export const allRecipes = [
     description: "It looks like bread... and eggs? I think you want it. Donate to make it.",
     instructions: "1. Crack and egg. 2. Cook it. 3. Then do more stuff. 4. Then even more.",
     charity_id: 1,
-    ingredients: ["eggs", "flour", "tomatoes", "olive oil"]
   }
 ];
 
@@ -104,3 +103,12 @@ export const allNPOs = [
     state: 'Massachusets'
   }
 ];
+
+//research what to do with a token
+//are we using tokens just for secure data transfer jwt token
+//and potentially a way of authenticating future requests with an auth token
+//rbac role bases acess control
+
+//jwt tokens
+
+//sign in stored in local storage
