@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const ProfilePage = (props) => {
   const callToAction = (
       <section className ='callToAction'>
-        <h1>Looks like you aren't sign in yet!</h1>
+        <h1>Looks like you aren't signed in yet!</h1>
         <p> Sign in if you already have an acount with us,
         or signing up is easy. Get started sharing recipes and helping
         folks today! </p>
