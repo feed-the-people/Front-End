@@ -1,9 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 import RecipeCard from './RecipeCard';
+import { MemoryRouter } from 'react-router-dom';
 
 test('basic title', () => {
-  render(<RecipeCard />);
-  const donate = screen.getByTestId("Give N' Get Recipe!");
+  render(
+    <MemoryRouter>
+      <RecipeCard />
+    </MemoryRouter>);
+  const donate = screen.getByTestId("recipeTitle");
   expect(donate).toBeInTheDocument();
 });
