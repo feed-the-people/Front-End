@@ -3,17 +3,3 @@
   flex-direction: column;
   height: 100vh;
 }
-
-.callToAction {
-  display: flex;
-  flex-direction: column;
-  height: 40vh;
-  align-self: center;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.callToAction-footer{
-  align-self: flex-end;
-  margin-top: 10vh;
-}

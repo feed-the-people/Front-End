@@ -22,6 +22,5 @@ section {
   height: 90vh;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
   background-color: hsl(0, 0%, 90%);
 }

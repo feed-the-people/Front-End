@@ -1,0 +1,14 @@
+
+.CallToAction {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CallToAction-footer{
+  align-self: flex-end;
+  margin-top: 10vh;
+}
