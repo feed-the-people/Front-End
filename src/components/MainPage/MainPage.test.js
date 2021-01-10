@@ -14,3 +14,7 @@ test('main page renders', () => {
   expect(profileNav).toBeInTheDocument();
   expect(recipeNav).toBeInTheDocument();
 });
+
+test('recipe card renders', () => {
+  //integration test goes here! 
+});
