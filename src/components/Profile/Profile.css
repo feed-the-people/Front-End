@@ -1,0 +1,11 @@
+.Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+ .profileInfo {
+   height: 85vh;
+   width: 80vw;
+   margin: 2vw;
+ }
