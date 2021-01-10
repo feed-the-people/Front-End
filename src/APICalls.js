@@ -1,7 +1,7 @@
 // Queries
 
 export const getAllRecipes = () => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -24,7 +24,7 @@ export const getAllRecipes = () => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
@@ -100,7 +100,7 @@ export const boughtRecipesByUser = (id) => {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
       query {
-        boughtRecipesByUser( userId: ${id} ) { 
+        boughtRecipesByUser( userId: ${id} ) {
           id
           userId
           recipeId
@@ -135,7 +135,7 @@ export const recipeById = (id) => {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
       query {
-        recipeById( id: ${id} ) { 
+        recipeById( id: ${id} ) {
           id
           image
           title
@@ -165,7 +165,7 @@ export const searchNonProfits = (searchTerm) => {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
       query {
-        getNpo( searchTerm: "${searchTerm}" ) { 
+        getNpo( searchTerm: "${searchTerm}" ) {
           city
           ein
           name
@@ -188,7 +188,7 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
       mutation {
-        registerUser(input: { 
+        registerUser(input: {
           image: "${image}"
           email: "${email}"
           firstName: "${firstName}"
@@ -303,12 +303,12 @@ export const createRecipe = (userId, title, description, instructions, charityId
     body: JSON.stringify( { query:`
     mutation {
       createRecipe(input: {params: {
-          userId: ${userId}, 
-          title: "${title}", 
-          description: "${description}", 
-          instructions: "${instructions}", 
-          charityId: ${charityId}, 
-          charityName: "${charityName}", 
+          userId: ${userId},
+          title: "${title}",
+          description: "${description}",
+          instructions: "${instructions}",
+          charityId: ${charityId},
+          charityName: "${charityName}",
           ingredients: "${ingredients}"}}) {
           recipe {
             id
@@ -338,12 +338,12 @@ export const createRecipe = (userId, title, description, instructions, charityId
 //     body: JSON.stringify( { query:`
 //     mutation {
 //       updateRecipe(input: {params: {
-//           userId: ${userId}, 
-//           title: ${title}, 
-//           description: ${description}, 
-//           instructions: ${instructions}, 
-//           charityId: ${charityId}, 
-//           charityName: ${charityName}, 
+//           userId: ${userId},
+//           title: ${title},
+//           description: ${description},
+//           instructions: ${instructions},
+//           charityId: ${charityId},
+//           charityName: ${charityName},
 //           ingredients: ${ingredients}}}) {
 //           recipe {
 //             id
@@ -372,8 +372,8 @@ export const createIngredient = (recipeId, name, amount) => {
     body: JSON.stringify( { query:`
     mutation {
       createIngredient(input: {params: {
-          recipeId: ${recipeId}, 
-          name: "${name}", 
+          recipeId: ${recipeId},
+          name: "${name}",
           amount: "${amount}"}}) {
           ingredient {
             id
@@ -397,8 +397,8 @@ export const updateIngredient = (id, name, amount) => {
     body: JSON.stringify( { query:`
     mutation {
       updateIngredient(input: {params: {
-          id: ${id}, 
-          name: "${name}", 
+          id: ${id},
+          name: "${name}",
           amount: "${amount}"}}) {
           ingredient {
             id
@@ -422,8 +422,8 @@ export const createUserRecipe = (userId, recipeId, amountDonated) => {
     body: JSON.stringify( { query:`
     mutation {
       createUserRecipe(input: {params: {
-          recipeId: ${recipeId}, 
-          userId: ${userId}, 
+          recipeId: ${recipeId},
+          userId: ${userId},
           amountDonated: "${amountDonated}"}}) {
           userRecipe {
             recipeId
@@ -462,4 +462,3 @@ export const updateUserRecipeRating = (id, recipeRating) => {
   .then(response => console.log(response))
   .catch(error => console.log(error))
 }
-
