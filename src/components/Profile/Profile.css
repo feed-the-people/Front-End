@@ -1,11 +1,23 @@
 .Profile {
   display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+.Profile-sidebar {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  width: 10vw;
+  background-color: grey;
 }
  .profileInfo {
-   height: 85vh;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   height: 90vh;
    width: 80vw;
    margin: 2vw;
  }
