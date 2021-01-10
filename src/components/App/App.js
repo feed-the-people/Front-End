@@ -41,8 +41,15 @@ class App extends Component {
     this.state = {
       signedIn: false,
       user: '',
+      allRecipes: [],
+      loading: true,
     }
   }
+  async componentDidMount() {
+    const response = await getAllRecipes()
+    this.setState({allRecipes: response.allRecipes, loading: false})
+  }
+
   render() {
     // working
     // getAllRecipes()
@@ -88,7 +95,7 @@ class App extends Component {
             <RecipeForm />
           </Route>
           <Route exact path='/'>
-            <MainPage />
+            <MainPage allRecipes={this.state.allRecipes} loading={this.state.loading}/>
           </Route>
         </div>
       </Switch>

@@ -10,7 +10,7 @@ function MainPage(props) {
   if (props.allRecipes){
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
       return (
-        <RecipeCard recipe={recipe} key={index}/>
+        <RecipeCard title={recipe.title} charityName={recipe.charityName} description={recipe.description} key={index}/>
       )
     })
   }
@@ -21,7 +21,7 @@ function MainPage(props) {
         <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
       <section className='recipe-section'>
-        {props.loading ? recipeDisplay : <h2> Loading Global Recipes...</h2>}
+        {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}
       </section>
     </div>
   );
