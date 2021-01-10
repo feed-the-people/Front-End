@@ -29,7 +29,7 @@ export const getAllRecipes = () => {
 }
 
 export const getUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -223,7 +223,7 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
 }
 
 export const userSignIn = (username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -250,7 +250,7 @@ export const userSignIn = (username, password) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response => response)
   .catch(error => console.log(error))
 }
 
