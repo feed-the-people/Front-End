@@ -6,6 +6,8 @@
   justify-content: space-around;
   align-self: center;
   width: 60vw;
+  height: 30vh;
+  padding: 3vh;
   /* border: 2px solid black; */
 }
 
@@ -14,7 +16,8 @@
 .left-section {
   margin: 1vw;
   border: 2px solid black;
-  width: 50%;
+  height: inherit;
+  /* width: 50%; */
 }
 
 .leftHeader {
@@ -70,5 +73,6 @@ height: 100%
 .right-section {
   margin: 1vw;
   border: 2px dotted black;
+  height: inherit;
   width: 50%;
 }

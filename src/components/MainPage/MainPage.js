@@ -5,14 +5,15 @@ import {Link} from 'react-router-dom'
 import {allRecipes} from '../../mockData.js'
 import RecipeCard from '../RecipeCard/RecipeCard'
 
-function MainPage() {
-  //will ordinarily map over props being passed in, but in this case taking the direct import
-
-  let recipeDisplay = allRecipes.map((recipe, index)=> {
-    return (
-      <RecipeCard recipe={recipe} key={index}/>
-    )
-  })
+function MainPage(props) {
+  let recipeDisplay;
+  if (props.allRecipes){
+    recipeDisplay = props.allRecipes.map((recipe, index)=> {
+      return (
+        <RecipeCard recipe={recipe} key={index}/>
+      )
+    })
+  }
   return (
     <div className="MainPage">
       <header className="MainPage-sidebar">
@@ -20,7 +21,7 @@ function MainPage() {
         <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
       <section className='recipe-section'>
-        {recipeDisplay}
+        {props.loading ? recipeDisplay : <h2> Loading Global Recipes...</h2>}
       </section>
     </div>
   );
