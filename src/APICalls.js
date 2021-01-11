@@ -296,33 +296,47 @@ export const updateUser = (id, firstName, lastName, email, street, city, state, 
   .catch(error => console.log(error))
 }
 
-export const createRecipe = (userId, title, description, instructions, charityId, charityName, ingredients) => {
+export const createRecipe = (userId, image, title, description, instructions, charityId, charityName, ingredients) => {
+  let variables = {
+    "params": {
+      "params": {
+       "userId": userId,
+       "title": title,
+       "image": image,
+       "description": description,
+       "instructions": instructions,
+       "charityId": charityId,
+       "charityName": charityName,
+       "ingredients": ingredients
+      }
+    }
+  }
   return fetch("http://localhost:8000/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
-    mutation {
-      createRecipe(input: {params: {
-          userId: ${userId},
-          title: "${title}",
-          description: "${description}",
-          instructions: "${instructions}",
-          charityId: ${charityId},
-          charityName: "${charityName}",
-          ingredients: "${ingredients}"}}) {
-          recipe {
-            id
-            title
-            description
-            instructions
-            ingredients {
-              name
-              amount
+      mutation createNewRecipe($params: CreateRecipeInput!) {
+            createRecipe(input: $params) {
+              recipe {
+                id
+                title
+                image
+                description
+                instructions
+                avgRating
+                createdAt
+                updatedAt
+                charityId
+                charityName
+                ingredients {
+                  id
+                  name
+                  amount
+                }
+              }
             }
           }
-        }
-      }
-      `
+      `, variables: variables
     })
   })
   .then(response => response.json())

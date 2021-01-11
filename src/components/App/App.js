@@ -19,8 +19,6 @@ import { updateUserRecipeRating } from '../../APICalls.js'
 import { searchNonProfits } from '../../APICalls.js'
 import { registerUser } from '../../APICalls.js'
 import { userSignIn } from '../../APICalls.js'
-
-// parse errors
 import { createRecipe } from '../../APICalls.js'
 
 // Need autopopulated form
@@ -63,9 +61,7 @@ class App extends Component {
     // updateUserRecipeRating(2, 4) working but I found a bug in BE
     // registerUser("John", "Doe", "JD@gmail.com", "a street", "a city", "a state", "a zip", "an image", "new user", "1234")
     // userSignIn("mr_cook", "123")
-
-    // parse errors (coming back to this one later, I cant figure out how to pass the ingredients in a way it likes)
-    // createRecipe(1, "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", 533423, "Give Logan Money", {name: "Chicken", amount: "2 lbs"}, {name: "Parmesan", amount: "5 gallons"})
+    // createRecipe(1, "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/7/11/0/FNK_the-best-chicken-parmesan_H_s4x3.jpg.rend.hgtvcom.826.620.suffix/1562853897238.jpeg", "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", "533423", "Give Logan Money", [{name:"Chicken",amount:"2 lbs"},{name:"Parmesan",amount:"5 gallons"}])
 
     // Must have form fields autopopulated in order for these to work
     // updateUser()
