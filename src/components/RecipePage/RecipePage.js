@@ -14,7 +14,7 @@ function RecipePage() {
       </header>
       <section className="recipe-section">
         <h3>{recipe1.title}</h3>
-        <p><img src={recipe1.image} /></p>
+        <p><img src={recipe1.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
         <p>{recipe1.description}</p>
         <p>{recipe1.instructions}</p>
         {/* {recipeIngredients} */}
