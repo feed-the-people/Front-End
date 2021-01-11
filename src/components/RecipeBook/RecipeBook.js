@@ -1,10 +1,10 @@
 import './RecipeBook.css';
-import profile from '../../icons/user-icon.svg'
-import home from '../../icons/global.svg'
-import {Link} from 'react-router-dom'
-import {allRecipes} from '../../mockData.js'
-import RecipeCard from '../RecipeCard/RecipeCard'
-import CallToAction from '../CallToAction/CallToAction.js'
+import profile from '../../icons/user-icon.svg';
+import home from '../../icons/global.svg';
+import { Link } from 'react-router-dom';
+import { allRecipes } from '../../mockData.js';
+import RecipeCard from '../RecipeCard/RecipeCard';
+import CallToAction from '../CallToAction/CallToAction.js';
 
 function RecipeBook(props) {
   //will ordinarily map over props being passed in, but in this case taking the direct import
