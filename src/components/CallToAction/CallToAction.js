@@ -5,7 +5,7 @@ const CallToAction = (props) => {
   return (
     <section className ='CallToAction'>
       <h1>{props.title || "Looks like you aren't signed in yet!"}</h1>
-      <p> Sign in if you already have an acount with us,
+      <p> Sign in if you already have an account with us,
       or signing up is easy. Get started sharing recipes and helping
       folks today! </p>
       <div className='buttons'>
