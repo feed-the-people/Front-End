@@ -58,17 +58,23 @@ class App extends Component {
     // searchNonProfits("Food Bank of the Rockies")
     // createUserRecipe(1, 3, 2.5)
     // createIngredient(1, "name", "amount")
-    // updateUserRecipeRating(2, 4) working but I found a bug in BE
+    // updateUserRecipeRating(1, 4)
     // registerUser("John", "Doe", "JD@gmail.com", "a street", "a city", "a state", "a zip", "an image", "new user", "1234")
     // userSignIn("mr_cook", "123")
 
     // parse errors (coming back to this one later, I cant figure out how to pass the ingredients in a way it likes)
-    // createRecipe(1, "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", 533423, "Give Logan Money", {name: "Chicken", amount: "2 lbs"}, {name: "Parmesan", amount: "5 gallons"})
+    // createRecipe(1, "an image", "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", 533423, "Give Logan Money", {name: "Chicken", amount: "2 lbs"}, {name: "Parmesan", amount: "5 gallons"})
 
     // Must have form fields autopopulated in order for these to work
     // updateUser()
     // updateIngredient()
-    // updateRecipe() (Does not exist on BE yet)
+    // updateRecipe(93, 
+    //             "https://www.tasteofhome.com/wp-content/uploads/2018/01/Ginger-Pork-Stir-Fry_EXPS_QEBZ20_17024_E01_23_3b.jpg",
+    //             "Easy Stir-Fry",
+    //             "It's actually not easy",
+    //             "Updated instructions",
+    //             "4593516",
+    //             "HUNGRY NO MORE") 
 
     return (
       <BrowserRouter>
