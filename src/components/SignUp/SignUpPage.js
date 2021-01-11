@@ -1,5 +1,5 @@
 import './SignUpPage.css'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'
 
@@ -16,7 +16,8 @@ class SignUpPage extends Component {
       street: '',
       city: '',
       state: '',
-      zip: ''
+      zip: '',
+      redirect: false,
     }
   }
   updateInput = (e) => {
@@ -40,6 +41,12 @@ class SignUpPage extends Component {
       this.state.password,
     );
     console.log(response)
+    if(response.error) {
+      alert('Something went wrong')
+    } else {
+      alert('Success! Log in to your new account!')
+      this.setState({redirect: true})
+    }
   }
 
   render() {
@@ -97,6 +104,7 @@ class SignUpPage extends Component {
         <footer className="SignUpPage-footer">
           <Link to='/'><button> Take Me Back </button></Link>
         </footer>
+        {this.state.redirect && <Redirect to="/signin"/>}
       </div>
     );
   }
