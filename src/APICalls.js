@@ -373,6 +373,7 @@ export const updateRecipe = (id, image, title, description, instructions, charit
             instructions
             charityId
             charityName
+            avgRating
             ingredients {
               id
               name
