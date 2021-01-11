@@ -11,7 +11,7 @@ class RecipeForm extends Component {
     }
   }
   updateInput = (e) => {
-    let type = e.target.type
+    let type = e.target.className
     let value = e.target.value
     this.setState({[type]: value})
   }
@@ -29,23 +29,23 @@ class RecipeForm extends Component {
         <form>
           <label>
             Recipe Name:
-            <input type='text' onChange={this.updateInput}/>
+            <input className='title' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Recipe Description:
-            <input type='text' onChange={this.updateInput}/>
+            <input className='description' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Ingredients
-            <input type='text' onChange={this.updateInput}/>
+            <input className='ingredients' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Steps
-            <input type='email' onChange={this.updateInput}/>
+            <input className='steps' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             None Profit Organization
-            <input type='text' onChange={this.updateInput}/>
+            <input className='NPO' type='text' onChange={this.updateInput}/>
           </label>
           <button type='submit' onClick={this.submitForm}> Submit My Recipe </button>
         </form>
