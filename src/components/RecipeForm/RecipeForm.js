@@ -1,5 +1,5 @@
-import './RecipeForm.css'
-import {Link} from 'react-router-dom'
+import './RecipeForm.css';
+import { Link } from 'react-router-dom';
 import { Component } from 'react';
 
 class RecipeForm extends Component {
