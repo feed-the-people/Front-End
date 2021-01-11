@@ -21,9 +21,9 @@ function RecipeCard(props) {
         <h4>Tag Filter :</h4>
         <section className='star-rating'>
         </section>
-        <p className='recipe-story'>{props.description}</p>
-        <h4 className='tags'>Tags</h4>
-        <h5 className='recipe-tags'></h5>
+        <p className='recipe-story' data-testid='recipeStory'>{props.description}</p>
+        <h4 className='tags' >Tags</h4>
+        <h5 className='recipe-tags' data-testid='recipeTags'></h5>
       </section>
     </div>
   );
