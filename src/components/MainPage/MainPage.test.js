@@ -1,7 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
+import { allRecipes } from '../../mockData.js'
+
 
 test('main page renders', () => {
   render(
@@ -16,5 +18,11 @@ test('main page renders', () => {
 });
 
 test('recipe card renders', () => {
-  //integration test goes here! 
+  render(
+    <MemoryRouter>
+      <MainPage allRecipes={allRecipes} loading={false}/>
+    </MemoryRouter>
+  );
+  const recipeName = screen.getByText('Egg Stuff')
+  expect(recipeName).toBeInTheDocument();
 });
