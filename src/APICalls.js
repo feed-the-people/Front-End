@@ -203,7 +203,7 @@ export const searchNonProfits = (searchTerm) => {
 // Mutations
 
 export const registerUser = (firstName, lastName, email, street, city, state, zip, image, username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -238,7 +238,7 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 

@@ -1,23 +1,51 @@
 import './SignUpPage.css'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
+import { registerUser } from '../../APICalls.js'
 
 class SignUpPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username:'',
+      image:'',
+      firstName:'',
+      lastName:'',
       email: '',
       password: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      redirect: false,
     }
   }
   updateInput = (e) => {
-    let type = e.target.type
+    let type = e.target.className
     let value = e.target.value
     this.setState({[type]: value})
   }
 
-  submitForm = () => {
-    console.log('Submitted!')
+  submitForm = async (e) => {
+    e.preventDefault()
+    let response = registerUser(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.email,
+      this.state.street,
+      this.state.city,
+      this.state.state,
+      this.state.zip,
+      this.state.image,
+      this.state.username,
+      this.state.password,
+    );
+    if(!response.ok) {
+      alert('Something went wrong')
+    } else {
+      alert('Success! Log in to your new account!')
+      this.setState({redirect: true})
+    }
   }
 
   render() {
@@ -29,29 +57,53 @@ class SignUpPage extends Component {
         <form>
           <label>
             Username
-            <input type='text' onChange={this.updateInput}/>
+            <input className='username'type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            Image
+            <input className='image'type='text' onChange={this.updateInput}/>
           </label>
           <label>
             First Name
-            <input type='text' onChange={this.updateInput}/>
+            <input className='firstName'type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Last Name
-            <input type='text' onChange={this.updateInput}/>
+            <input className='lastName'type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Email
-            <input type='email' onChange={this.updateInput}/>
+            <input className='email'type='email' onChange={this.updateInput}/>
           </label>
           <label>
             Password
-            <input type='text' onChange={this.updateInput}/>
+            <input className='password'type='text' onChange={this.updateInput}/>
           </label>
+          Address Section
+            <div className='addressSection'>
+              <label>
+                Street
+                <input className='street'type='text' onChange={this.updateInput}/>
+              </label>
+              <label>
+                City
+                <input className='city'type='text' onChange={this.updateInput}/>
+              </label>
+              <label>
+                State
+                <input className='state'type='text' onChange={this.updateInput}/>
+              </label>
+              <label>
+                Zip Code
+                <input className='zip'type='text' onChange={this.updateInput}/>
+              </label>
+            </div>
           <button type='submit' onClick={this.submitForm}> Sign Me Up! </button>
         </form>
         <footer className="SignUpPage-footer">
           <Link to='/'><button> Take Me Back </button></Link>
         </footer>
+        {this.state.redirect && <Redirect to="/signin"/>}
       </div>
     );
   }
