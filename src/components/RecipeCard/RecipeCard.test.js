@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import RecipeCard from './RecipeCard';
 import { MemoryRouter } from 'react-router-dom';
 
-test('Left half of RecipeCard renders properly', () => {
+test('Ensure RecipeCard renders properly', () => {
   render(
     <MemoryRouter>
       <RecipeCard />
@@ -12,9 +12,13 @@ test('Left half of RecipeCard renders properly', () => {
   const rating = screen.getByTestId("recipeRating");
   const image = screen.getByTestId("image");
   const nonProfit = screen.getByTestId("NPO");
+  const recipeStory = screen.getByTestId("recipeStory");
+  const recipeTags = screen.getByTestId("recipeTags");
 
   expect(recipeName).toBeInTheDocument();
   expect(rating).toBeInTheDocument();
   expect(image).toBeInTheDocument();
   expect(nonProfit).toBeInTheDocument();
+  expect(recipeStory).toBeInTheDocument();
+  expect(recipeTags).toBeInTheDocument();
 });
