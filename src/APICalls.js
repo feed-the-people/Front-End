@@ -84,13 +84,33 @@ export const getUserWithRecipes = (id) => {
             charityId
             userId
           }
+          userRecipes {
+            id
+            userId
+            recipeId
+            recipe {
+              id
+              image
+              title
+              description
+              instructions
+              charityId
+              userId
+              avgRating
+              ingredients {
+                id
+                name
+                amount
+              }
+            }
+          }
         }
       }
       `
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => console.log(response))
   .catch(error => console.log(error))
 }
 
