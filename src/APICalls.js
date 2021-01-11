@@ -316,7 +316,7 @@ export const updateUser = (id, firstName, lastName, email, street, city, state, 
   .catch(error => console.log(error))
 }
 
-export const createRecipe = (userId, title, description, instructions, charityId, charityName, ingredients) => {
+export const createRecipe = (userId, image, title, description, instructions, charityId, charityName, ingredients) => {
   return fetch("http://localhost:8000/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -324,12 +324,13 @@ export const createRecipe = (userId, title, description, instructions, charityId
     mutation {
       createRecipe(input: {params: {
           userId: ${userId},
+          image: "${image}",
           title: "${title}",
           description: "${description}",
           instructions: "${instructions}",
-          charityId: ${charityId},
+          charityId: "${charityId}",
           charityName: "${charityName}",
-          ingredients: "${ingredients}"}}) {
+          ingredients: ${ingredients}}}) {
           recipe {
             id
             title
@@ -350,40 +351,43 @@ export const createRecipe = (userId, title, description, instructions, charityId
   .catch(error => console.log(error))
 }
 
-// Not an available mutation yet
-// export const updateRecipe = (userId, title, description, instructions, charityId, charityName, ingredients) => {
-//   return fetch("http://localhost:8000/graphql", {
-//     method: "POST",
-//     headers: {"Content-Type": "application/json"},
-//     body: JSON.stringify( { query:`
-//     mutation {
-//       updateRecipe(input: {params: {
-//           userId: ${userId},
-//           title: ${title},
-//           description: ${description},
-//           instructions: ${instructions},
-//           charityId: ${charityId},
-//           charityName: ${charityName},
-//           ingredients: ${ingredients}}}) {
-//           recipe {
-//             id
-//             title
-//             description
-//             instructions
-//             ingredients {
-//               name
-//               amount
-//             }
-//           }
-//         }
-//       }
-//       `
-//     })
-//   })
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(error => console.log(error))
-// }
+export const updateRecipe = (id, image, title, description, instructions, charityId, charityName) => {
+  return fetch("http://localhost:8000/graphql", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify( { query:`
+    mutation {
+      updateRecipe(input: {params: {
+          id: ${id},
+          image: "${image}",
+          title: "${title}",
+          description: "${description}",
+          instructions: "${instructions}",
+          charityId: "${charityId}",
+          charityName: "${charityName}"}}) {
+          recipe {
+            id
+            image
+            title
+            description
+            instructions
+            charityId
+            charityName
+            ingredients {
+              id
+              name
+              amount
+            }
+          }
+        }
+      }
+      `
+    })
+  })
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(error => console.log(error))
+}
 
 export const createIngredient = (recipeId, name, amount) => {
   return fetch("http://localhost:8000/graphql", {
