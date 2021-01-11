@@ -1,19 +1,32 @@
 import './RecipeForm.css'
 import {Link} from 'react-router-dom'
 import { Component } from 'react';
-
+import { searchNonProfits } from '../../APICalls.js'
 class RecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: '',
+      viableNPOs: [],
     }
   }
   updateInput = (e) => {
     let type = e.target.className
     let value = e.target.value
     this.setState({[type]: value})
+  }
+
+  searchNPOS = async (e) => {
+    let searchTerm = e.target.value
+    let results = await searchNonProfits(searchTerm)
+    console.log(results)
+    // if (results.ok) {
+    //   results.map(result => {
+    //     return <option value={result.name}> result.name </option>
+    //   })
+    // }
+    console.log(searchTerm)
   }
 
   submitForm = () => {
@@ -41,11 +54,21 @@ class RecipeForm extends Component {
           </label>
           <label>
             Steps
-            <input className='steps' type='text' onChange={this.updateInput}/>
+            <input className='instructions' type='text' onChange={this.updateInput}/>
           </label>
           <label>
-            None Profit Organization
-            <input className='NPO' type='text' onChange={this.updateInput}/>
+            Recipe Image
+            <input className='image' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            Non-Profit Organization Search
+            <input className='NPO' type='text' onChange={this.searchNPOS}/>
+          </label>
+          <label>
+            Non-Profit Organization Options
+            <select onChange={this.chooseNPO}>
+              {this.state.viableNPOs}
+            </select>
           </label>
           <button type='submit' onClick={this.submitForm}> Submit My Recipe </button>
         </form>
