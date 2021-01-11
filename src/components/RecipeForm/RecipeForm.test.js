@@ -1,7 +1,10 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
+import { submitForm } from './RecipeForm.js';
+
 
 
 
@@ -24,7 +27,7 @@ test('prompt and instructions render', () => {
     <MemoryRouter>
       <RecipeForm />
     </MemoryRouter>);
-    
+
   const formPrompt = screen.getByTestId("formPrompt");
   const formInstructions = screen.getByTestId("formInstructions")
 
@@ -37,4 +40,9 @@ test('function fires on click', () => {
     <MemoryRouter>
       <RecipeForm />
     </MemoryRouter>);
+
+    const formSubmit = screen.getByText("Submit My Recipe")
+    expect(formSubmit).toBeInTheDocument();
+    userEvent.click(formSubmit);
+    expect(submitForm).toHaveBeenCalledTimes(1);
 })
