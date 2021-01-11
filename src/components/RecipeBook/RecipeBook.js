@@ -26,19 +26,19 @@ function RecipeBook(props) {
   } else {
     return (
       <div className="RecipeBook">
-      <header className="RecipeBook-sidebar">
-      <Link to='/profilepage'><img src={profile} alt='navigate to user profile page'/></Link>
-      <Link to='/'><img src={home} alt='navigate to main page'/></Link>
-      </header>
-      <section className='my-recipe-section'>
-      <h1>Recipes you have uploaded: </h1>
-      <Link to='/recipeform'><button>Upload another recipe</button></Link>
-      {myUploadedRecipes || <h4>You haven't uploaded any recipes</h4>}
-      </section>
-      <section className='purchased-recipe-section'>
-      <h1>Recipes you have purchased: </h1>
-      {myPurchasedRecipes || <h4>You haven't purchased any recipes</h4>}
-      </section>
+        <header className="RecipeBook-sidebar">
+          <Link to='/profilepage'><img src={profile} alt='navigate to user profile page'/></Link>
+          <Link to='/'><img src={home} alt='navigate to main page'/></Link>
+        </header>
+        <section className='my-recipe-section'>
+          <h1>Recipes you have uploaded: </h1>
+          <Link to='/recipeform'><button>Upload another recipe</button></Link>
+          {myUploadedRecipes || <h4>You haven't uploaded any recipes</h4>}
+        </section>
+        <section className='purchased-recipe-section'>
+          <h1>Recipes you have purchased: </h1>
+          {myPurchasedRecipes || <h4>You haven't purchased any recipes</h4>}
+        </section>
       </div>
     );
   }
