@@ -10,7 +10,6 @@ import RecipeForm from '../RecipeForm/RecipeForm'
 // working
 import { getAllRecipes } from '../../APICalls.js'
 import { getUserWithRecipes } from '../../APICalls.js'
-import { boughtRecipesByUser } from '../../APICalls.js'
 import { recipeById } from '../../APICalls.js'
 import { getUser } from '../../APICalls.js'
 import { createIngredient } from '../../APICalls.js'
@@ -53,8 +52,7 @@ class App extends Component {
   render() {
     // working
     // getAllRecipes()
-    // getUserWithRecipes(1)
-    // boughtRecipesByUser(1)
+    // getUserWithRecipes(84)
     // recipeById(1)
     // getUser(1)
     // searchNonProfits("Food Bank of the Rockies")
