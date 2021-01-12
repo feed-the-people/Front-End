@@ -57,7 +57,7 @@ export const getUser = (id) => {
 }
 
 export const getUserWithRecipes = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -110,12 +110,12 @@ export const getUserWithRecipes = (id) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
 export const boughtRecipesByUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -145,7 +145,7 @@ export const boughtRecipesByUser = (id) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data.boughtRecipesByUser)
   .catch(error => console.log(error))
 }
 
