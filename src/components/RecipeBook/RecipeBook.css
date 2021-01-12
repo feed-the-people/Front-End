@@ -18,9 +18,9 @@ img {
 }
 section {
   margin: 5vh 5vw 5vh 5vw;
-  width: 80vw;
-  height: 90vh;
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 90%);
+  overflow: scroll;
+  width: 40vw;
 }
