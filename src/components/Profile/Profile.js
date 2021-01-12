@@ -9,28 +9,28 @@ function Profile() {
   return (
     <div className="Profile">
       <header className="Profile-sidebar">
-        <Link to='/'><img src={globalIcon} alt='navigate to global feed'/></Link>
-        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
+        <Link to='/'><img src={globalIcon} alt='navigate to global feed' data-testid='homeButton'/></Link>
+        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book' data-testid='recipeBookButton'/></Link>
       </header>
       <section className='profileInfo'>
-        <h1>{`Welcome back ${user.firstName}! `}</h1>
+        <h1 data-testid='welcomeMessage'>{`Welcome back ${user.firstName}! `}</h1>
         <h2>Your Information: </h2>
         <div className='whoYouAre'>
           <label>
             Your Name:
-            <p>{user.firstName} {user.lastName}</p>
+            <p data-testid='name'>{user.firstName} {user.lastName}</p>
           </label>
           <label>
             Your Username:
-            <p>{user.username}</p>
+            <p data-testid='username'>{user.username}</p>
           </label>
-          <img src={user.image}/>
+          <img data-testid='profileImg' src={user.image}/>
         </div>
         <label>
           Your Email:
-          <p>{user.email}</p>
+          <p data-testid='email'>{user.email}</p>
         </label>
-        <label>
+        <label data-testid='address'>
           Your address:
           <p>{user.street}</p>
           <p>{user.city}, {user.state}</p>
