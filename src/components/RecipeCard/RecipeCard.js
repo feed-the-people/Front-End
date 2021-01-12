@@ -3,7 +3,7 @@ import { allRecipes, individualUserData, allNPOs } from '../../mockData.js'
 import {Link} from 'react-router-dom'
 
 function RecipeCard(props) {
-
+  let route = `/recipepage/${props.id}`
   return (
     <div className="RecipeCard">
       <section className='left-section'>
@@ -11,14 +11,13 @@ function RecipeCard(props) {
           <h1 className='recipe-name' data-testid='recipeTitle'>{props.title}</h1>
           <h3 className='recipe-rating' data-testid='recipeRating'>5</h3>
         </div>
-        <img className='recipe-image' data-testid='image' src={allRecipes[1].image} />
+        <img className='recipe-image' data-testid='image' src={props.image} />
         <div className='left-footer'>
           <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
-          <Link to='/'><button className='purchase-button'>Give N' Get Recipe!</button></Link>
+          <Link to={route}><button className='purchase-button'>Give N' Get Recipe!</button></Link>
         </div>
       </section>
       <section className='right-section'>
-        <h4>Tag Filter :</h4>
         <section className='star-rating'>
         </section>
         <p className='recipe-story' data-testid='recipeStory'>{props.description}</p>

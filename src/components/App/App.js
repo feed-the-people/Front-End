@@ -49,7 +49,7 @@ class App extends Component {
 
   render() {
     // working
-    // getAllRecipes()
+    // console.log(getAllRecipes())
     // getUserWithRecipes(84)
     // recipeById(1)
     // getUser(1)
@@ -64,13 +64,13 @@ class App extends Component {
     // Must have form fields autopopulated in order for these to work
     // updateUser()
     // updateIngredient()
-    // updateRecipe(93, 
+    // updateRecipe(93,
     //             "https://www.tasteofhome.com/wp-content/uploads/2018/01/Ginger-Pork-Stir-Fry_EXPS_QEBZ20_17024_E01_23_3b.jpg",
     //             "Easy Stir-Fry",
     //             "It's actually not easy",
     //             "Updated instructions",
     //             "4593516",
-    //             "HUNGRY NO MORE") 
+    //             "HUNGRY NO MORE")
 
     return (
       <BrowserRouter>
@@ -82,9 +82,14 @@ class App extends Component {
           <Route path='/signup'>
             <SignUpPage />
           </Route>
-          <Route path='/recipepage'>
-            <RecipePage />
-          </Route>
+          <Route
+             path='/recipepage/:recipeId'
+             render={({match})=>{
+               const recipeId = match.params.recipeId
+               return (
+                 <RecipePage id={recipeId} />
+               )
+           }}/>
           <Route path='/profilepage'>
             <ProfilePage />
           </Route>
