@@ -1,6 +1,6 @@
 import './RecipePage.css';
 import { Component } from 'react';
-
+import CallToAction from '../CallToAction/CallToAction.js'
 import {allRecipes} from '../../mockData.js'
 import { recipeById } from '../../APICalls.js'
 
@@ -17,14 +17,16 @@ class RecipePage extends Component {
   getRecipe = async (id) => {
     let response = await recipeById(id)
     let recipe = response.recipeById
-    console.log(recipe)
     this.setState({recipe: recipe})
   }
   componentDidMount(){
     this.getRecipe(this.props.id)
   }
   render(){
-    if (this.state.recipe){
+    let user = JSON.parse(localStorage.getItem('user'))
+    if (!user) {
+      return <CallToAction title='You need to be signed in to view this recipe...' />
+    } else if (this.state.recipe){
       return (
         <div className="RecipePage">
         <header className="RecipePage-header">
