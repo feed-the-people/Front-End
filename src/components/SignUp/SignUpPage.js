@@ -40,8 +40,7 @@ class SignUpPage extends Component {
       this.state.username,
       this.state.password,
     );
-    console.log(response)
-    if(response.error) {
+    if(!response.ok) {
       alert('Something went wrong')
     } else {
       alert('Success! Log in to your new account!')

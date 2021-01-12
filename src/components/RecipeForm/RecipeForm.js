@@ -92,10 +92,10 @@ class RecipeForm extends Component {
   render() {
     return (
       <div className="RecipeForm">
-        <h1>Let's contribute!</h1>
-        <p>We need a little information from you below to make a recipe and
+        <h1 data-testid='formPrompt'>Let's contribute!</h1>
+        <p data-testid='formInstructions'>We need a little information from you below to make a recipe and
         connect it to a non profit organization you want to support!</p>
-        <form>
+        <form data-testid='form'>
           <label>
             Recipe Name:
             <input className='title' type='text' onChange={this.updateInput}/>
@@ -135,11 +135,11 @@ class RecipeForm extends Component {
             Select from search results:
             {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
           </label>
-          <button type='submit' onClick={this.submitForm}> Submit My Recipe </button>
+          <button type='submit' data-testid='formSubmit' onClick={this.submitForm}> Submit My Recipe </button>
         </form>
         {this.state.redirect && <Redirect to="/"/>}
         <footer className="RecipeForm-footer">
-          <Link to='/'><button> Take Me Back </button></Link>
+          <Link to='/'><button data-testid='homeButton'> Take Me Back </button></Link>
         </footer>
       </div>
     )
