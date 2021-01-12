@@ -22,7 +22,6 @@ class RecipeForm extends Component {
   }
 
   disableForm() {
-    console.log(this.state)
     if (this.state.npoName &&
         this.state.npoEIN &&
         this.state.image &&
