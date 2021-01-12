@@ -20,6 +20,21 @@ class RecipeForm extends Component {
       redirect: false,
     }
   }
+
+  disableForm() {
+    if (this.state.npoName &&
+        this.state.npoEIN &&
+        this.state.image &&
+        this.state.title &&
+        this.state.description &&
+        this.state.instructions &&
+        this.state.ingredients) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   updateInput = (e) => {
     let type = e.target.className
     let value = e.target.value
@@ -61,7 +76,7 @@ class RecipeForm extends Component {
       this.state.instructions,
       this.state.npoEIN,
       this.state.npoName,
-      this.state.ingredients
+      this.state.ingredients 
     )
     if(result.error) {
       alert('Something went wrong')
@@ -137,7 +152,7 @@ class RecipeForm extends Component {
             Select from search results:
             {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
           </label>
-          <button type='submit' data-testid='formSubmit' onClick={this.submitForm}> Submit My Recipe </button>
+          <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm} onClick={this.disableForm()}> Submit My Recipe </button>
         </form>
         {this.state.redirect && <Redirect to="/"/>}
         <footer className="RecipeForm-footer">
