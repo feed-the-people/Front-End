@@ -11,7 +11,7 @@ function RecipeCard(props) {
           <h1 className='recipe-name' data-testid='recipeTitle'>{props.title}</h1>
           <h3 className='recipe-rating'>5</h3>
         </div>
-        <img className='recipe-image' src={allRecipes[1].image} />
+        <img className='recipe-image' src={props.image} />
         <div className='left-footer'>
           <h3 className='nonprofit-name'>{props.charityName}</h3>
           <Link to='/'><button className='purchase-button'>Give N' Get Recipe!</button></Link>

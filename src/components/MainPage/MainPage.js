@@ -10,7 +10,13 @@ function MainPage(props) {
   if (props.allRecipes){
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
       return (
-        <RecipeCard title={recipe.title} charityName={recipe.charityName} description={recipe.description} key={index}/>
+        <RecipeCard
+          title={recipe.title}
+          charityName={recipe.charityName}
+          description={recipe.description}
+          key={index}
+          image={recipe.image}
+          />
       )
     })
   }
