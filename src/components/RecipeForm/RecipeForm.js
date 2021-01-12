@@ -1,6 +1,6 @@
 import './RecipeForm.css'
 import {Link} from 'react-router-dom'
-import { Component } from 'react';
+import { Component, Redirect } from 'react';
 import { searchNonProfits, createRecipe } from '../../APICalls.js'
 class RecipeForm extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class RecipeForm extends Component {
       viableNPOs: [],
       workingIngredient: '',
       workingAmount: '',
+      redirect: false,
     }
   }
   updateInput = (e) => {
@@ -60,6 +61,12 @@ class RecipeForm extends Component {
       this.state.npoName,
       this.state.ingredients
     )
+    if(result.error) {
+      alert('Something went wrong')
+    } else {
+      alert('Success!')
+      this.setState({redirect: true})
+    }
   }
 
   buildIngredientsList = () => {
@@ -130,7 +137,7 @@ class RecipeForm extends Component {
           </label>
           <button type='submit' onClick={this.submitForm}> Submit My Recipe </button>
         </form>
-
+        {this.state.redirect && <Redirect to="/"/>}
         <footer className="RecipeForm-footer">
           <Link to='/'><button> Take Me Back </button></Link>
         </footer>
