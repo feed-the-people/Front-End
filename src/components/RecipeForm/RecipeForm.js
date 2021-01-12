@@ -107,7 +107,7 @@ class RecipeForm extends Component {
           <label>
             Ingredients
             {this.buildIngredientsList()}
-            <form>
+            <div>
               <label>
                 Ingredient Name
                 <input className='workingIngredient' type='text' onChange={this.updateInput}/>
@@ -117,7 +117,7 @@ class RecipeForm extends Component {
                 <input className='workingAmount' type='text' onChange={this.updateInput}/>
               </label>
               <button type='submit' onClick={this.addIngredient}>Add Ingredient</button>
-            </form>
+            </div>
           </label>
           <label>
             Steps
