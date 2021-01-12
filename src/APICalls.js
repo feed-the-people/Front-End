@@ -453,7 +453,7 @@ export const updateIngredient = (id, name, amount) => {
   .catch(error => console.log(error))
 }
 
-export const createUserRecipe = (userId, recipeId, amountDonated) => {
+export const getAccessToRecipe = (userId, recipeId, amountDonated) => {
   return fetch("http://localhost:8000/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
