@@ -20,6 +20,24 @@ class SignUpPage extends Component {
       redirect: false,
     }
   }
+
+  disableForm() {
+    if (this.state.username &&
+        this.state.image &&
+        this.state.firstName &&
+        this.state.lastName &&
+        this.state.email &&
+        this.state.password &&
+        this.state.street &&
+        this.state.city &&
+        this.state.state &&
+        this.state.zip) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   updateInput = (e) => {
     let type = e.target.className
     let value = e.target.value
@@ -98,7 +116,7 @@ class SignUpPage extends Component {
                 <input className='zip'type='text' onChange={this.updateInput}/>
               </label>
             </div>
-          <button type='submit' onClick={this.submitForm}> Sign Me Up! </button>
+          <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
         </form>
         <footer className="SignUpPage-footer">
           <Link to='/'><button> Take Me Back </button></Link>
