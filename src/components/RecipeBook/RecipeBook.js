@@ -29,6 +29,7 @@ class RecipeBook extends Component {
           title={recipe.title}
           description={recipe.description}
           charityName={recipe.charityName}
+          id={recipe.id}
           />
         )
       })
