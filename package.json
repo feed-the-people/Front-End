@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "travis": "react-scripts test --silent",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.2"
+    "@testing-library/react": "^11.2.2",
+    "jest-localstorage-mock": "^2.4.6"
   }
 }

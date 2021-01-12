@@ -50,7 +50,9 @@ class RecipeForm extends Component {
 
   submitForm = async (e) => {
     e.preventDefault()
-    let user = JSON.parse(localStorage.getItem('user'))
+    let storage = localStorage.getItem('user')
+    console.log(storage)
+    let user = storage ? JSON.parse(storage) : null
     let result = await createRecipe(
       user.id,
       this.state.image,

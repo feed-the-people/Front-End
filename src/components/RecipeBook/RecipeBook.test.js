@@ -8,11 +8,11 @@ import { MemoryRouter } from 'react-router-dom';
 
 //RIGHT SO, the skeletons of the tests are here, but can't really be funcitonal until the
 //userProfile is a little more fleshed out. So I'm going to leave this here for when we can
-//use it. :] 
+//use it. :]
 
 //INTEGRATION TESTS
 test('uploaded recipes render', () => {
-
+  console.log(localStorage.getItem('user'))
 });
 
 test('purchased recipes render', () => {

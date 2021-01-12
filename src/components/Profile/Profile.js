@@ -4,7 +4,8 @@ import recipeBook from '../../icons/recipe-book-icon.svg'
 import globalIcon from '../../icons/global.svg'
 
 function Profile() {
-  let user = JSON.parse(localStorage.getItem('user'))
+  let storage = localStorage.getItem('user')
+  let user = storage ? JSON.parse(storage) : null
   console.log(user)
   return (
     <div className="Profile">
