@@ -25,6 +25,7 @@ class RecipeBook extends Component {
         return (
           <RecipeCard
           key={index}
+          id={recipe.id}
           image={recipe.image}
           title={recipe.title}
           description={recipe.description}
@@ -36,7 +37,8 @@ class RecipeBook extends Component {
     }
   }
   render(){
-    let user = JSON.parse(localStorage.getItem('user'))
+    let storage = localStorage.getItem('user')
+    let user = storage ? JSON.parse(storage) : null
     if (!user) {
       return <CallToAction title='You need to be signed in to have a recipe book...' />
     } else {

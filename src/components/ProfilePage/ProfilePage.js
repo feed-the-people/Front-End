@@ -3,7 +3,8 @@ import CallToAction from '../CallToAction/CallToAction.js'
 import './ProfilePage.css'
 
 const ProfilePage = (props) => {
-  let user = JSON.parse(localStorage.getItem('user'))
+  let storage = localStorage.getItem('user')
+  let user = storage ? JSON.parse(storage) : null
   return (
     <div className="ProfilePage">
       {user ? <Profile /> : <CallToAction />}

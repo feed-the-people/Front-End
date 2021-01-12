@@ -180,7 +180,7 @@ export const recipeById = (id) => {
 }
 
 export const searchNonProfits = (searchTerm) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -196,7 +196,7 @@ export const searchNonProfits = (searchTerm) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data.getNpo)
   .catch(error => console.log(error))
 }
 
@@ -331,7 +331,7 @@ export const createRecipe = (userId, image, title, description, instructions, ch
       }
     }
   }
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -360,7 +360,7 @@ export const createRecipe = (userId, image, title, description, instructions, ch
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response => response)
   .catch(error => console.log(error))
 }
 
