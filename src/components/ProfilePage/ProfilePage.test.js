@@ -9,4 +9,8 @@ test('basic title', () => {
       <ProfilePage />
     </MemoryRouter>
   )
+
+  const profilePage = screen.getByTestId('profilePage')
+  
+  expect(profilePage).toBeInTheDocument()
 });
