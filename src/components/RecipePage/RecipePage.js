@@ -3,7 +3,7 @@ import { Component } from 'react';
 import CallToAction from '../CallToAction/CallToAction.js'
 import PurchaseModal from '../PurchaseModal/PurchaseModal.js'
 import {allRecipes} from '../../mockData.js'
-import { recipeById, boughtRecipesByUser, getAccessToRecipe } from '../../APICalls.js'
+import { recipeById, getUserWithRecipes, getAccessToRecipe } from '../../APICalls.js'
 
 class RecipePage extends Component {
   constructor(props) {
@@ -23,8 +23,12 @@ class RecipePage extends Component {
     this.getPurchasedRecipes(user.id)
   }
   getPurchasedRecipes = async (id) => {
-    let response = await boughtRecipesByUser(id)
-    if(!response){
+    let response = await getUserWithRecipes(id)
+    let foundRecipe = response.getUser.userRecipes.find(recipe => recipe.recipeId === this.state.recipe.id)
+    console.log(foundRecipe)
+    if(foundRecipe){
+      this.setState({purchased: true})
+    } else {
       this.setState({purchased: false})
     }
   }
