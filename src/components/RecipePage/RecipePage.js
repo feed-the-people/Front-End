@@ -43,7 +43,16 @@ class RecipePage extends Component {
     let response = await getAccessToRecipe(user.id, recipeId, amount)
     this.setState({purchased: true})
   }
-
+  buildIngredients = () => {
+    let list = this.state.recipe.ingredients.map(ingredient => {
+      return <li>{ingredient.name} ... {ingredient.amount} </li>
+    })
+    return (
+      <ul>
+        {list}
+      </ul>
+    )
+  }
   componentDidMount(){
     let user = JSON.parse(localStorage.getItem('user'))
     if(user) {
@@ -66,7 +75,7 @@ class RecipePage extends Component {
             <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
             <p>{this.state.recipe.description}</p>
             <p>{this.state.recipe.instructions}</p>
-            
+            {this.buildIngredients()}
           </section>
           <Footer
             path1='/recipebook'
