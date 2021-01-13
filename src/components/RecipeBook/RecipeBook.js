@@ -1,7 +1,5 @@
 import './RecipeBook.css';
 import { Component } from 'react';
-import profile from '../../icons/user-icon.svg'
-import home from '../../icons/global.svg'
 import {Link} from 'react-router-dom'
 import RecipeCard from '../RecipeCard/RecipeCard'
 import CallToAction from '../CallToAction/CallToAction.js'
@@ -54,14 +52,18 @@ class RecipeBook extends Component {
     } else {
       return (
         <div className="RecipeBook">
-          <section className='my-recipe-section'>
-            <h1>Recipes you have uploaded: </h1>
-            <Link to='/recipeform'><button>Upload another recipe</button></Link>
-            {this.state.recipes || <p>You haven't uploaded any recipes</p>}
+          <section className='recipe-column'>
+            <h1 className='my-recipes'>Recipes you have uploaded: </h1>
+            <Link to='/recipeform' className='upload-Link'>Upload another recipe</Link>
+            <div className='recipe-section'>
+              {this.state.recipes || <p>You haven't uploaded any recipes</p>}
+            </div>
           </section>
-          <section className='purchased-recipe-section'>
+          <section className='recipe-column'>
             <h1>Recipes you have purchased: </h1>
-            {this.state.userRecipes || <p>You haven't purchased an recipes</p>}
+            <div className='recipe-section'>
+              {this.state.userRecipes || <p>You haven't purchased an recipes</p>}
+            </div>
           </section>
           <Footer
             path1='/'
