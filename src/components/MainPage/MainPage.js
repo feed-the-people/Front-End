@@ -24,7 +24,7 @@ function MainPage(props) {
   }
   return (
     <div className="MainPage">
-      <section className='main-recipe-section'>
+      <section data-testid='mainPage' className='main-recipe-section'>
         {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}
       </section>
       <Footer

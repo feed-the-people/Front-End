@@ -6,7 +6,7 @@ const ProfilePage = (props) => {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
   return (
-    <div className="ProfilePage">
+    <div data-testid='profilePage' className="ProfilePage">
       {user ? <Profile /> : <CallToAction />}
     </div>
   );

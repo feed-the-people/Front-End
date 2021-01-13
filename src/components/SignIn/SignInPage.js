@@ -50,7 +50,7 @@ class SignInPage extends Component {
     return (
       <div className="SignInPage">
       <div className='action-area'>
-        <h1> Welcome Back! Sign In Below: </h1>
+        <h1 data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
         <form>
           <label>
             Username:
