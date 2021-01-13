@@ -64,6 +64,7 @@ export const getUserWithRecipes = (id) => {
       query {
         getUser(id: ${id}) {
           username
+          id
           image
           email
           firstName
@@ -83,6 +84,7 @@ export const getUserWithRecipes = (id) => {
             charityName
             charityId
             userId
+            id
           }
           userRecipes {
             id
@@ -474,7 +476,7 @@ export const getAccessToRecipe = (userId, recipeId, amountDonated) => {
     })
   })
   .then(response => response.json())
-  .then(response => response.data)
+  .then(response => response)
   .catch(error => console.log(error))
 }
 
