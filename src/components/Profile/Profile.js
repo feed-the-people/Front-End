@@ -7,7 +7,6 @@ import Footer from '../Footer/Footer'
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
-  console.log(user)
   return (
     <div className="Profile">
       <section className='profileInfo'>
