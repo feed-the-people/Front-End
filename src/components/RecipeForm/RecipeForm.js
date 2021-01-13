@@ -1,23 +1,109 @@
-import './RecipeForm.css';
-import { Link } from 'react-router-dom';
-import { Component } from 'react';
-
+import './RecipeForm.css'
+import {Link} from 'react-router-dom'
+import { Component, Redirect } from 'react';
+import { searchNonProfits, createRecipe } from '../../APICalls.js'
 class RecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      npoName: '',
+      npoEIN: '',
+      userId: '',
+      image: '',
+      title: '',
+      description: '',
+      instructions: '',
+      ingredients: [],
+      viableNPOs: [],
+      workingIngredient: '',
+      workingAmount: '',
+      redirect: false,
     }
   }
+
+  disableForm() {
+    if (this.state.npoName &&
+        this.state.npoEIN &&
+        this.state.image &&
+        this.state.title &&
+        this.state.description &&
+        this.state.instructions &&
+        this.state.ingredients) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   updateInput = (e) => {
-    let type = e.target.type
+    let type = e.target.className
     let value = e.target.value
     this.setState({[type]: value})
   }
 
-  submitForm = () => {
-    console.log('Submitted!')
+  searchNPOS = async (e) => {
+    let searchTerm = e.target.value
+    let results = await searchNonProfits(searchTerm)
+    console.log(results)
+    if (results.length) {
+      let options = results.map((result, index) => {
+        return <option value={result.name} key={index} id={result.ein}> {result.name}: {result.city},{result.state} </option>
+      })
+      this.setState({viableNPOs: options})
+    } else {
+
+    }
+    console.log(searchTerm)
+  }
+
+  chooseNPO = (e) => {
+    let name = e.target.value
+    let index = e.target.selectedIndex;
+    let ein = e.target.childNodes[index].id
+    this.setState({npoName: name, npoEIN: ein})
+  }
+
+  submitForm = async (e) => {
+    e.preventDefault()
+    let storage = localStorage.getItem('user')
+    console.log(storage)
+    let user = storage ? JSON.parse(storage) : null
+    let result = await createRecipe(
+      user.id,
+      this.state.image,
+      this.state.title,
+      this.state.description,
+      this.state.instructions,
+      this.state.npoEIN,
+      this.state.npoName,
+      this.state.ingredients 
+    )
+    if(result.error) {
+      alert('Something went wrong')
+    } else {
+      alert('Success!')
+      this.setState({redirect: true})
+    }
+  }
+
+  buildIngredientsList = () => {
+    if (this.state.ingredients.length) {
+      let ingList = this.state.ingredients.map((ing) => {
+       return <div className='ingredientBox'>{ing.name}: {ing.amount}</div>
+      }
+     )
+    return (
+      <div>{ingList}</div>
+      )
+    }
+  }
+
+  addIngredient = (e) => {
+    e.preventDefault();
+    let ing = {name: this.state.workingIngredient, amount: this.state.workingAmount}
+    let newList = this.state.ingredients
+    newList.push(ing)
+    this.setState({ingredients: newList})
   }
 
   render() {
@@ -29,31 +115,51 @@ class RecipeForm extends Component {
         <form data-testid='form'>
           <label>
             Recipe Name:
-            <input type='text' onChange={this.updateInput}/>
+            <input className='title' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Recipe Description:
-            <input type='text' onChange={this.updateInput}/>
+            <input className='description' type='text' onChange={this.updateInput}/>
           </label>
           <label>
             Ingredients
-            <input type='text' onChange={this.updateInput}/>
+            {this.buildIngredientsList()}
+            <div>
+              <label>
+                Ingredient Name
+                <input className='workingIngredient' type='text' onChange={this.updateInput}/>
+              </label>
+              <label>
+                Ingredient Amount
+                <input className='workingAmount' type='text' onChange={this.updateInput}/>
+              </label>
+              <button type='submit' onClick={this.addIngredient}>Add Ingredient</button>
+            </div>
           </label>
           <label>
             Steps
-            <input type='email' onChange={this.updateInput}/>
+            <input className='instructions' type='text' onChange={this.updateInput}/>
           </label>
           <label>
-            None Profit Organization
-            <input type='text' onChange={this.updateInput}/>
+            Recipe Image
+            <input className='image' type='text' onChange={this.updateInput}/>
           </label>
-          <button type='submit' data-testid='formSubmit' onClick={this.submitForm}> Submit My Recipe </button>
+          <label>
+            Non-Profit Organization Search
+            <input className='NPO' type='text' onChange={this.searchNPOS}/>
+          </label>
+          <label>
+            Select from search results:
+            {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
+          </label>
+          <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm} onClick={this.disableForm()}> Submit My Recipe </button>
         </form>
+        {this.state.redirect && <Redirect to="/"/>}
         <footer className="RecipeForm-footer">
           <Link to='/'><button data-testid='homeButton'> Take Me Back </button></Link>
         </footer>
       </div>
-    );
+    )
   }
 }
 

@@ -13,6 +13,17 @@ class SignInPage extends Component {
       redirect: false
     }
   }
+
+
+  disableForm() {
+    if (this.state.username &&
+        this.state.password) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   updateInput = (e) => {
     let type = e.target.className
     let value = e.target.value
@@ -47,7 +58,7 @@ class SignInPage extends Component {
             password
             <input type='password' onChange={this.updateInput} className='password'/>
           </label>
-          <button type='submit' onClick={this.submitForm}> Submit </button>
+          <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
         </form>
         {this.state.redirect && <Redirect to="/profilepage"/>}
         <footer className="SignInPage-footer">
