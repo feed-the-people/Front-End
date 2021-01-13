@@ -17,6 +17,7 @@
   height: 43vh;
   width: 28vw;
   flex-direction: column;
+  overflow: scroll;
   justify-content: space-between;
 }
 
@@ -102,21 +103,24 @@
   padding: 1vh;
   margin: 0;
   font-size: 1rem;
+  overflow: scroll;
+  max-height: 2vh;
   color: hsl(0, 0%, 24%);
   font-family: 'Josefin Sans', sans-serif;
 }
 
 .right-footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
   border-top: 1px solid hsl(105, 30%, 68%);
-  height: 8vh;
+  height: 7vh;
 }
 
 .purchase-button {
+  display: flex;
+  flex-direction: column;
   border: none;
   background: none;
   width: 70%;

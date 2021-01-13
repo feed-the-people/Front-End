@@ -22,7 +22,7 @@ function RecipeCard(props) {
         </section>
         <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
         <div className='right-footer'>
-          <Link to={route} className='purchase-button'>Give N' Get This Recipe!</Link>
+          <Link to={route} className='purchase-button'>Give N' Get Recipe!</Link>
         </div>
       </section>
     </div>
