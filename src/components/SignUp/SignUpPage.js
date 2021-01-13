@@ -2,6 +2,7 @@ import './SignUpPage.css'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'
+import ImageUploader from 'react-images-upload'
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class SignUpPage extends Component {
       zip: '',
       redirect: false,
     }
+    this.onDrop = this.onDrop.bind(this);
   }
 
   disableForm() {
@@ -66,6 +68,12 @@ class SignUpPage extends Component {
     }
   }
 
+  onDrop(imageFiles, pictureDataURLs) {
+    this.setState({
+      image: this.state.image.concat(imageFiles)
+    });
+  }
+
   render() {
     return (
       <div className="SignUpPage">
@@ -80,6 +88,13 @@ class SignUpPage extends Component {
           <label>
             Image
             <input className='image'type='text' onChange={this.updateInput}/>
+            <ImageUploader
+              withIcon={true}
+              buttonText='Choose images'
+              onChange={[this.onDrop, this.updateInput]}
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              maxFileSize={5242880}
+            />
           </label>
           <label>
             First Name

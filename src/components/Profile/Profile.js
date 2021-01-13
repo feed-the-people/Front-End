@@ -1,12 +1,19 @@
+import { useState } from 'react'
 import './Profile.css'
 import {Link} from 'react-router-dom'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import globalIcon from '../../icons/global.svg'
+import ImageUploader from 'react-images-upload'
 
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
-  console.log(user)
+  console.log(user.image)
+  const [pictures, setPictures] = useState([]);
+  const onDrop = picture => {
+    setPictures([...pictures, picture]);
+  };
+
   return (
     <div className="Profile">
       <header className="Profile-sidebar">
@@ -25,7 +32,14 @@ function Profile() {
             Your Username:
             <p>{user.username}</p>
           </label>
-          <img src={user.image}/>
+          <img src={user.image} alt='the users chosen avatar' />
+          <ImageUploader
+            withIcon={true}
+            buttonText='Choose images'
+            onChange={onDrop}
+            imgExtension={['.jpg', '.gif', '.png', '.gif']}
+            maxFileSize={5242880}
+          />
         </div>
         <label>
           Your Email:
