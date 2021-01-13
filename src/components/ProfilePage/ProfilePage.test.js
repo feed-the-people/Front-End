@@ -3,14 +3,33 @@ import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
 
-test('basic title', () => {
+//UNIT TESTS
+test('ProfilePage renders', () => {
   render(
     <MemoryRouter>
       <ProfilePage />
     </MemoryRouter>
   )
-
   const profilePage = screen.getByTestId('profilePage')
-  
   expect(profilePage).toBeInTheDocument()
+});
+
+test('CallToAction renders', () => {
+  render(
+    <MemoryRouter>
+      <ProfilePage />
+    </MemoryRouter>
+  )
+  const componentTitle = screen.getByTestId('componentTitle')
+  expect(componentTitle).toBeInTheDocument()
+});
+
+test('Footer renders' , () => {
+  render(
+    <MemoryRouter>
+      <ProfilePage />
+    </MemoryRouter>
+  );
+  const footer = screen.getByTestId('footer')
+  expect(footer).toBeInTheDocument()
 });
