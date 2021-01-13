@@ -5,9 +5,6 @@ import { MemoryRouter } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
 import { submitForm } from './RecipeForm.js';
 
-
-
-
 //UNIT TESTS
 test('form renders', () => {
 
@@ -46,5 +43,4 @@ test('function fires on submit button click', () => {
 
     const formSubmit = screen.getByText("Submit My Recipe")
     expect(formSubmit).toBeInTheDocument();
-    // userEvent.click(formSubmit);
 })
