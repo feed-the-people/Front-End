@@ -4,7 +4,11 @@ import { MemoryRouter } from 'react-router-dom'
 import SignUpPage from './SignUpPage';
 
 test('basic title', () => {
-  render(<MemoryRouter><SignUpPage /></MemoryRouter>);
+  render(
+    <MemoryRouter>
+      <SignUpPage />
+    </MemoryRouter>
+    );
   const title = screen.getByText("Welcome to Feed The People");
   expect(title).toBeInTheDocument();
 });

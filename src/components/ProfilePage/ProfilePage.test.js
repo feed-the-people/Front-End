@@ -24,6 +24,7 @@ test('CallToAction renders', () => {
   expect(componentTitle).toBeInTheDocument()
 });
 
+//INTEGRATION TESTS
 test('CallToAction buttons render' , () => {
   render(
     <MemoryRouter>
