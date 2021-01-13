@@ -1,59 +1,83 @@
-/*GENERAL RECIPECARD STYLING*/
-
 .RecipeCard {
   display: flex;
   flex-direction: row;
-  width: 60vw;
-  height: 40vh;
+  width: 45vw;
+  height: 45vh;
   padding: 1vh;
-  margin: 1vh;
-  border: 2px solid black;
+  margin: 2.5vh;
+  background-color: hsla(0, 31%, 88%, .25);
+  box-shadow: 10px 5px 5px hsla(0, 0%, 24%, .15);
 }
-
-/*LEFT SECTION OF RECIPECARD*/
 
 .left-section {
   margin: 1vw;
-  border: 2px solid black;
-  height: 36vh;
-  width: 40%;
+  border: 1px solid hsl(0, 0%, 24%);
+  height: 41vh;
+  width: 28vw;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 .leftHeader {
+  color: hsl(0, 0%, 24%);
+  height: 3vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-}
-
-.recipe-name {
-  width: 100%;
-  border-bottom: 2px solid black;
-  margin-top: .25vh;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(0, 10%, 90%);
+  width: 28vw;
+  border-bottom: 1px solid hsl(0, 0%, 24%);
   text-align: center;
 }
 
+.right-section {
+  margin: 1vw;
+  border: 1px solid hsl(0, 0%, 24%);
+  width: 30%;
+  height: 41vh;
+}
+
+
+.recipe-name {
+  margin: 0;
+  text-align: center;
+}
+
+.recipe-image {
+  position: relative;
+  z-index: 1;
+  height: 41vh;
+  width: 28vw;
+  margin: 0;
+  padding: 0;
+}
+
 .recipe-rating {
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-  margin-top: .01vh;
-  padding: .3vh;
+  border-bottom: 1px solid hsl(0, 0%, 24%);
+  border-left: 1px solid hsl(0, 0%, 24%);
+  padding: 0;
+  margin: 0;
   width: 3.5vh;
   text-align: center;
 }
 
-img {
-  height: 20vh;
+
+p {
+  margin: 0
 }
 
-.left-footer {
+.right-footer {
   display: flex;
+  padding: .5rem;
   flex-direction: column;
+  border-top: 1px solid hsl(0, 0%, 24%);
+  overflow: scroll;
 }
 
 .nonprofit-name {
   text-align: center;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
+  border-bottom: 1px solid hsl(0, 0%, 24%);
+  border-top: 1px solid hsl(0, 0%, 24%);
   padding: 1vh;
   margin: 0;
 }
@@ -62,13 +86,4 @@ img {
   border: none;
   background: none;
   width: 100%;
-}
-
-/*RIGHT SECTION OF RECIPECARD*/
-
-.right-section {
-  margin: 1vw;
-  border: 2px dotted black;
-  height: inherit;
-  width: 50%;
 }
