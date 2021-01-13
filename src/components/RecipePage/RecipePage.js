@@ -10,7 +10,7 @@ class RecipePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: false,
+      purchased: false,
       user: '',
       allRecipes: [],
       loading: true,
@@ -25,9 +25,11 @@ class RecipePage extends Component {
   }
   getPurchasedRecipes = async (id) => {
     let response = await getUserWithRecipes(id)
-    let foundRecipe = response.getUser.userRecipes.find(recipe => recipe.recipeId === this.state.recipe.id)
-    console.log(foundRecipe)
-    if(foundRecipe){
+    let updatedUserInfo = JSON.stringify(response.getUser)
+    localStorage.setItem('user', updatedUserInfo)
+    let foundUserRecipe = response.getUser.userRecipes.find(recipe => recipe.recipeId === this.state.recipe.id)
+    let foundRecipe = response.getUser.recipes.find(recipe => recipe.id === this.state.recipe.id)
+    if(foundRecipe || foundUserRecipe){
       this.setState({purchased: true})
     } else {
       this.setState({purchased: false})
@@ -37,18 +39,32 @@ class RecipePage extends Component {
     let user = JSON.parse(localStorage.getItem('user'))
     e.preventDefault()
     let amount = e.target.parentElement.firstChild.lastChild.value
-    let recipeId = this.state.recipe.id
+    let recipeId = this.props.id
     let response = await getAccessToRecipe(user.id, recipeId, amount)
     this.setState({purchased: true})
   }
+  buildIngredients = () => {
+    let list = this.state.recipe.ingredients.map(ingredient => {
+      return <li>{ingredient.name} ... {ingredient.amount} </li>
+    })
+    return (
+      <ul>
+        {list}
+      </ul>
+    )
+  }
   componentDidMount(){
-    this.getRecipe(this.props.id)
+    let user = JSON.parse(localStorage.getItem('user'))
+    if(user) {
+      this.getRecipe(this.props.id)
+    }
   }
   render(){
     let user = JSON.parse(localStorage.getItem('user'))
     if (!user) {
       return <CallToAction title='You need to be signed in to view this recipe...' />
     } else if (this.state.recipe && this.state.purchased){
+      console.log(this.state.recipe)
       return (
         <div className="RecipePage">
           <header className="RecipePage-header">
@@ -59,7 +75,7 @@ class RecipePage extends Component {
             <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
             <p>{this.state.recipe.description}</p>
             <p>{this.state.recipe.instructions}</p>
-            {/* {recipeIngredients} */}
+            {this.buildIngredients()}
           </section>
           <Footer
             path1='/recipebook'
