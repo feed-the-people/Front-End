@@ -12,18 +12,20 @@
   z-index: 10;
   border-top: 5px double hsl(127, 30%, 82%);
 }
-a {
+.nav {
   text-decoration: none;
   margin: 1vh;
   color: hsl(0, 0%, 24%);
 }
-a:hover {
+.nav:hover {
   text-decoration: line-through;
   font-size: 1.1rem;
 }
 .logo {
   font-size: 1.5rem;
   font-family: 'Josefin Sans', sans-serif;
+  color: hsl(0, 0%, 24%);
+  text-decoration: none;
   margin: .5vh .5vh .5vh 1.5vh;
 }
 

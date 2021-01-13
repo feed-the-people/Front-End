@@ -6,8 +6,8 @@ const Footer = (props) => {
     <footer className='Footer'>
       <Link className='logo' to='/'>Feed The People</Link>
       <nav>
-        <Link to={props.path1}> {props.label1} </Link>
-        <Link to={props.path2}> {props.label2} </Link>
+        <Link className='nav' to={props.path1}> {props.label1} </Link>
+        <Link className='nav' to={props.path2}> {props.label2} </Link>
       </nav>
     </footer>
   )
