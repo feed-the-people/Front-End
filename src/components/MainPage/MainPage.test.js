@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
 
-
+//UNIT TESTS
 test('main page renders', () => {
   render(
     <MemoryRouter>
@@ -17,6 +17,7 @@ test('main page renders', () => {
   expect(recipeNav).toBeInTheDocument();
 });
 
+//INTEGRATION TESTS
 test('recipe card renders', () => {
   render(
     <MemoryRouter>
