@@ -16,10 +16,11 @@ class RecipeBook extends Component {
   }
   getRecipeSection = async (kind, id) =>  {
     let results = await getUserWithRecipes(id)
+    console.log(results.getUser[kind])
     let section;
     if(!results.getUser[kind].length){
       section = undefined
-    } else {
+    } else if (kind === 'recipes'){
       let section = results.getUser[kind].map((recipe, index) => {
         return (
           <RecipeCard
@@ -29,6 +30,21 @@ class RecipeBook extends Component {
           title={recipe.title}
           description={recipe.description}
           charityName={recipe.charityName}
+          id={recipe.id}
+          />
+        )
+      })
+      this.setState({[kind]: section})
+    } else if (kind === 'userRecipes'){
+      let section = results.getUser[kind].map((recipe, index) => {
+        return (
+          <RecipeCard
+          key={index}
+          id={recipe.id}
+          image={recipe.recipe.image}
+          title={recipe.recipe.title}
+          description={recipe.recipe.description}
+          charityName={recipe.recipe.charityName}
           id={recipe.id}
           />
         )
