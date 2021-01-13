@@ -14,13 +14,15 @@ function RecipeCard(props) {
       </section>
       <section className='right-section'>
         <section className='star-rating'>
+          <h3 className='recipe-rating' data-testid='recipeRating'>Average 5 out of 5 stars!</h3>
         </section>
-          <h3 className='recipe-rating' data-testid='recipeRating'>5</h3>
-        <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
-        <Link to={route}><button className='purchase-button'>Give N' Get Recipe!</button></Link>
-        <h5 className='recipe-tags' data-testid='recipeTags'></h5>
-        <div className='right-footer'>
+        <section className='details'>
           <p className='recipe-story' data-testid='recipeStory'>{props.description}</p>
+          <p className='donation-blurb' >Donations to for {props.title} go to: </p>
+        </section>
+        <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
+        <div className='right-footer'>
+          <Link to={route} className='purchase-button'>Give N' Get This Recipe!</Link>
         </div>
       </section>
     </div>
