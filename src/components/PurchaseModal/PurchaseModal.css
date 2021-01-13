@@ -1,0 +1,36 @@
+.PurchaseModal {
+  height: 100vh;
+  width: 100vw;
+  background-color: hsla(105, 30%, 68%, .9);
+  align-self: flex-start;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+}
+
+.purchase-box {
+  height: 40vh;
+  width: 50vw;
+  position: fixed;
+  background-color: hsl(0, 31%, 88%);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+form {
+  margin: 2vh;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+h2 {
+  margin-top: 2vh;
+}
