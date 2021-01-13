@@ -10,9 +10,9 @@ const CallToAction = (props) => {
         <p className='prompt' data-testid='prompt'> Sign in if you already have an account with us,
         or signing up is easy. Get started sharing recipes and helping
         folks today! </p>
-        <div className='buttons'>
-          <Link to='/signin' className='options' data-testid='signinButton'> Sign In </Link>
-          <Link to='/signup' className='options' data-testid='signupButton'> Sign Up </Link>
+        <div data-testid='navButtons' className='buttons'>
+          <Link to='/signin' className='options' > Sign In </Link>
+          <Link to='/signup' className='options' > Sign Up </Link>
         </div>
       </div>
       <Footer
