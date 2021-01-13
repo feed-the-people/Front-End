@@ -4,6 +4,7 @@ import CallToAction from '../CallToAction/CallToAction.js'
 import PurchaseModal from '../PurchaseModal/PurchaseModal.js'
 import {allRecipes} from '../../mockData.js'
 import { recipeById, getUserWithRecipes, getAccessToRecipe } from '../../APICalls.js'
+import Footer from '../Footer/Footer'
 
 class RecipePage extends Component {
   constructor(props) {
@@ -50,16 +51,23 @@ class RecipePage extends Component {
     } else if (this.state.recipe && this.state.purchased){
       return (
         <div className="RecipePage">
-        <header className="RecipePage-header">
-        <h1> Recipe Page </h1>
-        </header>
-        <section className="recipe-section">
-        <h3>{this.state.recipe.title}</h3>
-        <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
-        <p>{this.state.recipe.description}</p>
-        <p>{this.state.recipe.instructions}</p>
-        {/* {recipeIngredients} */}
-        </section>
+          <header className="RecipePage-header">
+            <h1> Recipe Page </h1>
+          </header>
+          <section className="recipe-section">
+            <h3>{this.state.recipe.title}</h3>
+            <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
+            <p>{this.state.recipe.description}</p>
+            <p>{this.state.recipe.instructions}</p>
+            {/* {recipeIngredients} */}
+          </section>
+          <Footer
+            path1='/recipebook'
+            path2='/profilepage'
+            label1="My Recipe Book"
+            label2='My Profile'
+            className='RecipeBook-Footer'
+          />
         </div>
       );
     } else {

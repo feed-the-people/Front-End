@@ -4,6 +4,7 @@ import recipeBook from '../../icons/recipe-book-icon.svg'
 import {Link} from 'react-router-dom'
 import {allRecipes} from '../../mockData.js'
 import RecipeCard from '../RecipeCard/RecipeCard'
+import Footer from '../Footer/Footer'
 
 function MainPage(props) {
   let recipeDisplay;
@@ -23,13 +24,15 @@ function MainPage(props) {
   }
   return (
     <div className="MainPage">
-      <header className="MainPage-sidebar">
-        <Link to='/profilepage'><img data-testid='profileicon' src={profile} alt='navigate to user profile page'/></Link>
-        <Link to='/recipebook'><img data-testid='recipebookicon' src={recipeBook} alt='navigate to user recipe book'/></Link>
-      </header>
-      <section className='recipe-section'>
+      <section className='main-recipe-section'>
         {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}
       </section>
+      <Footer
+        path1='/profilepage'
+        path2='/recipeBook'
+        label1='My Profile'
+        label2='My Recipe Book'
+      />
     </div>
   );
 }
