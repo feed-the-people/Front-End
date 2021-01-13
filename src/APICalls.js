@@ -29,7 +29,7 @@ export const getAllRecipes = () => {
 }
 
 export const getUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -57,7 +57,7 @@ export const getUser = (id) => {
 }
 
 export const getUserWithRecipes = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -84,18 +84,38 @@ export const getUserWithRecipes = (id) => {
             charityId
             userId
           }
+          userRecipes {
+            id
+            userId
+            recipeId
+            recipe {
+              id
+              image
+              title
+              description
+              instructions
+              charityId
+              userId
+              avgRating
+              ingredients {
+                id
+                name
+                amount
+              }
+            }
+          }
         }
       }
       `
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
 export const boughtRecipesByUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -125,12 +145,12 @@ export const boughtRecipesByUser = (id) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data.boughtRecipesByUser)
   .catch(error => console.log(error))
 }
 
 export const recipeById = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -155,12 +175,12 @@ export const recipeById = (id) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
 export const searchNonProfits = (searchTerm) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -176,14 +196,14 @@ export const searchNonProfits = (searchTerm) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data.getNpo)
   .catch(error => console.log(error))
 }
 
 // Mutations
 
 export const registerUser = (firstName, lastName, email, street, city, state, zip, image, username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -218,12 +238,12 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
 export const userSignIn = (username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -250,7 +270,7 @@ export const userSignIn = (username, password) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response => response)
   .catch(error => console.log(error))
 }
 
@@ -296,26 +316,79 @@ export const updateUser = (id, firstName, lastName, email, street, city, state, 
   .catch(error => console.log(error))
 }
 
-export const createRecipe = (userId, title, description, instructions, charityId, charityName, ingredients) => {
+export const createRecipe = (userId, image, title, description, instructions, charityId, charityName, ingredients) => {
+  let variables = {
+    "params": {
+      "params": {
+       "userId": userId,
+       "title": title,
+       "image": image,
+       "description": description,
+       "instructions": instructions,
+       "charityId": charityId,
+       "charityName": charityName,
+       "ingredients": ingredients
+      }
+    }
+  }
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify( { query:`
+      mutation createNewRecipe($params: CreateRecipeInput!) {
+            createRecipe(input: $params) {
+              recipe {
+                id
+                title
+                image
+                description
+                instructions
+                avgRating
+                createdAt
+                updatedAt
+                charityId
+                charityName
+                ingredients {
+                  id
+                  name
+                  amount
+                }
+              }
+            }
+          }
+      `, variables: variables
+    })
+  })
+  .then(response => response.json())
+  .then(response => response)
+  .catch(error => console.log(error))
+}
+
+export const updateRecipe = (id, image, title, description, instructions, charityId, charityName) => {
   return fetch("http://localhost:8000/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
     mutation {
-      createRecipe(input: {params: {
-          userId: ${userId},
+      updateRecipe(input: {params: {
+          id: ${id},
+          image: "${image}",
           title: "${title}",
           description: "${description}",
           instructions: "${instructions}",
-          charityId: ${charityId},
-          charityName: "${charityName}",
-          ingredients: "${ingredients}"}}) {
+          charityId: "${charityId}",
+          charityName: "${charityName}"}}) {
           recipe {
             id
+            image
             title
             description
             instructions
+            charityId
+            charityName
+            avgRating
             ingredients {
+              id
               name
               amount
             }
@@ -329,41 +402,6 @@ export const createRecipe = (userId, title, description, instructions, charityId
   .then(response => console.log(response))
   .catch(error => console.log(error))
 }
-
-// Not an available mutation yet
-// export const updateRecipe = (userId, title, description, instructions, charityId, charityName, ingredients) => {
-//   return fetch("http://localhost:8000/graphql", {
-//     method: "POST",
-//     headers: {"Content-Type": "application/json"},
-//     body: JSON.stringify( { query:`
-//     mutation {
-//       updateRecipe(input: {params: {
-//           userId: ${userId},
-//           title: ${title},
-//           description: ${description},
-//           instructions: ${instructions},
-//           charityId: ${charityId},
-//           charityName: ${charityName},
-//           ingredients: ${ingredients}}}) {
-//           recipe {
-//             id
-//             title
-//             description
-//             instructions
-//             ingredients {
-//               name
-//               amount
-//             }
-//           }
-//         }
-//       }
-//       `
-//     })
-//   })
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(error => console.log(error))
-// }
 
 export const createIngredient = (recipeId, name, amount) => {
   return fetch("http://localhost:8000/graphql", {

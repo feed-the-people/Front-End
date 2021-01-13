@@ -1,12 +1,13 @@
 import Profile from '../Profile/Profile.js'
 import CallToAction from '../CallToAction/CallToAction.js'
 import './ProfilePage.css'
-import {Link} from 'react-router-dom'
 
 const ProfilePage = (props) => {
+  let storage = localStorage.getItem('user')
+  let user = storage ? JSON.parse(storage) : null
   return (
     <div className="ProfilePage">
-      {props.signedIn ? <Profile /> : <CallToAction />}
+      {user ? <Profile /> : <CallToAction />}
     </div>
   );
 }

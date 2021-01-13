@@ -11,20 +11,21 @@ function MainPage(props) {
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
       return (
         <RecipeCard
-          title={recipe.title}
-          charityName={recipe.charityName}
-          description={recipe.description}
-          key={index}
-          image={recipe.image}
-          />
+        image={recipe.image}
+        title={recipe.title}
+        charityName={recipe.charityName}
+        description={recipe.description}
+        key={index}
+        id={recipe.id}
+        />
       )
     })
   }
   return (
     <div className="MainPage">
       <header className="MainPage-sidebar">
-        <Link to='/profilepage'><img src={profile} alt='navigate to user profile page'/></Link>
-        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
+        <Link to='/profilepage'><img data-testid='profileicon' src={profile} alt='navigate to user profile page'/></Link>
+        <Link to='/recipebook'><img data-testid='recipebookicon' src={recipeBook} alt='navigate to user recipe book'/></Link>
       </header>
       <section className='recipe-section'>
         {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}

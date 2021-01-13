@@ -10,7 +10,6 @@ import RecipeForm from '../RecipeForm/RecipeForm'
 // working
 import { getAllRecipes } from '../../APICalls.js'
 import { getUserWithRecipes } from '../../APICalls.js'
-import { boughtRecipesByUser } from '../../APICalls.js'
 import { recipeById } from '../../APICalls.js'
 import { getUser } from '../../APICalls.js'
 import { createIngredient } from '../../APICalls.js'
@@ -19,8 +18,6 @@ import { updateUserRecipeRating } from '../../APICalls.js'
 import { searchNonProfits } from '../../APICalls.js'
 import { registerUser } from '../../APICalls.js'
 import { userSignIn } from '../../APICalls.js'
-
-// parse errors
 import { createRecipe } from '../../APICalls.js'
 
 // Need autopopulated form
@@ -52,25 +49,28 @@ class App extends Component {
 
   render() {
     // working
-    // getAllRecipes()
-    // getUserWithRecipes(1)
-    // boughtRecipesByUser(1)
+    // console.log(getAllRecipes())
+    // getUserWithRecipes(84)
     // recipeById(1)
     // getUser(1)
     // searchNonProfits("Food Bank of the Rockies")
     // createUserRecipe(1, 3, 2.5)
     // createIngredient(1, "name", "amount")
-    // updateUserRecipeRating(2, 4) working but I found a bug in BE
+    // updateUserRecipeRating(1, 4)
     // registerUser("John", "Doe", "JD@gmail.com", "a street", "a city", "a state", "a zip", "an image", "new user", "1234")
-    // userSignIn("new user", "1234")
-
-    // parse errors (coming back to this one later, I cant figure out how to pass the ingredients in a way it likes)
-    // createRecipe(1, "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", 533423, "Give Logan Money", {name: "Chicken", amount: "2 lbs"}, {name: "Parmesan", amount: "5 gallons"})
+    // userSignIn("mr_cook", "123")
+    // createRecipe(1, "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/7/11/0/FNK_the-best-chicken-parmesan_H_s4x3.jpg.rend.hgtvcom.826.620.suffix/1562853897238.jpeg", "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", "533423", "Give Logan Money", [{name:"Chicken",amount:"2 lbs"},{name:"Parmesan",amount:"5 gallons"}])
 
     // Must have form fields autopopulated in order for these to work
     // updateUser()
     // updateIngredient()
-    // updateRecipe() (Does not exist on BE yet)
+    // updateRecipe(93,
+    //             "https://www.tasteofhome.com/wp-content/uploads/2018/01/Ginger-Pork-Stir-Fry_EXPS_QEBZ20_17024_E01_23_3b.jpg",
+    //             "Easy Stir-Fry",
+    //             "It's actually not easy",
+    //             "Updated instructions",
+    //             "4593516",
+    //             "HUNGRY NO MORE")
 
     return (
       <BrowserRouter>
@@ -82,11 +82,16 @@ class App extends Component {
           <Route path='/signup'>
             <SignUpPage />
           </Route>
-          <Route path='/recipepage'>
-            <RecipePage />
-          </Route>
+          <Route
+             path='/recipepage/:recipeId'
+             render={({match})=>{
+               const recipeId = match.params.recipeId
+               return (
+                 <RecipePage id={recipeId} />
+               )
+           }}/>
           <Route path='/profilepage'>
-            <ProfilePage signedIn={this.state.signedIn}/>
+            <ProfilePage />
           </Route>
           <Route path='/recipebook'>
             <RecipeBook />
