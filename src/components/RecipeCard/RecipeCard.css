@@ -1,78 +1,142 @@
-/*GENERAL RECIPECARD STYLING*/
-
 .RecipeCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-self: center;
-  width: 60vw;
-  height: 30vh;
-  padding: 3vh;
-  /* border: 2px solid black; */
+  justify-content: center;
+  align-items: center;
+  width: 45vw;
+  height: 45vh;
+  padding: 1vh;
+  margin: 2.5vh;
+  background-color: hsla(0, 31%, 88%, .25);
+  box-shadow: 10px 5px 5px hsla(0, 0%, 24%, .15);
 }
 
-/*LEFT SECTION OF RECIPECARD*/
-
 .left-section {
-  margin: 1vw;
-  border: 2px solid black;
-  height: inherit;
-  /* width: 50%; */
+  margin: .25vw;
+  border: 1px solid hsl(105, 30%, 68%);
+  height: 43vh;
+  width: 28vw;
+  flex-direction: column;
+  overflow: scroll;
+  justify-content: space-between;
 }
 
 .leftHeader {
+  color: hsl(0, 0%, 24%);
+  height: 3vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(0, 10%, 90%);
+  width: 28vw;
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  text-align: center;
 }
 
+
 .recipe-name {
-  width: 100%;
-  border-bottom: 2px solid black;
-  margin-top: .25vh;
+  margin: 0;
   text-align: center;
+}
+
+.recipe-image {
+  position: relative;
+  z-index: 1;
+  height: 43vh;
+  width: 28vw;
+  margin: 0;
+  padding: 0;
+}
+
+.right-section {
+  margin: .25vw;
+  border: 1px solid hsl(105, 30%, 68%);
+  width: 16vw;
+  height: 43vh;
+}
+
+.star-rating {
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  justify-content: center;
+  font-size: auto;
+  width: 16vw;
+  height: 4vh;
 }
 
 .recipe-rating {
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-  margin-top: .01vh;
-  padding: .3vh;
-  width: 3.5vh;
-  text-align: center;
+  align-self: center;
+  font-size: 1rem;
+  margin: .5vh;
+  color: hsl(0, 0%, 24%);
 }
 
-.left-footer {
-  display: flex;
-  flex-direction: column;
+.details {
+  margin: 0;
+  width: 16vw;
+  height: 26vh;
+}
+
+.recipe-story {
+  margin: 1vh;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  height: 20vh;
+  color: hsl(0, 0%, 24%);
+}
+
+.donation-blurb {
+  margin: 1vh;
+  font-family: 'Lato', sans-serif;
+  color: hsl(0, 0%, 24%);
 }
 
 .nonprofit-name {
   text-align: center;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  border-top: 1px solid hsl(105, 30%, 68%);
   padding: 1vh;
+  margin: 0;
+  font-size: 1rem;
+  overflow: scroll;
+  max-height: 2vh;
+  color: hsl(0, 0%, 24%);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.right-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid hsl(105, 30%, 68%);
+  height: 7vh;
 }
 
 .purchase-button {
+  display: flex;
+  flex-direction: column;
   border: none;
   background: none;
-  padding-bottom: 1vh;
-  padding-top: 1vh;
-  margin-top: -5vh;
-  width: 100%;
+  width: 70%;
+  background-color: hsl(127, 18%, 71%);
+  border: 5px outset hsl(105, 30%, 68%);
+  text-decoration: none;
+  color: hsl(0, 0%, 24%);
+  text-align: center;
+  align-self: center;
+  margin: .25vh;
+  height: 5vh;
+  justify-content: center;
 }
 
-/* .recipe-image {
-width: 100%;
-height: 100%
-} */
-
-/*RIGHT SECTION OF RECIPECARD*/
-
-.right-section {
-  margin: 1vw;
-  border: 2px dotted black;
-  height: inherit;
-  width: 50%;
+.purchase-button:hover {
+  font-size: 1rem;
+  color: hsl(105, 0%, 24%);
+  border: 5px inset hsl(105, 30%, 68%);
 }

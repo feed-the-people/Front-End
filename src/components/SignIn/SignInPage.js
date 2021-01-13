@@ -1,6 +1,7 @@
 import './SignInPage.css'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
+import Footer from '../Footer/Footer'
 
 import { userSignIn } from '../../APICalls.js'
 
@@ -48,22 +49,27 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
-      <h1> Welcome Back! Sign In Below: </h1>
+      <div className='action-area'>
+        <h1> Welcome Back! Sign In Below: </h1>
         <form>
           <label>
-            username
+            Username:
             <input type='text' onChange={this.updateInput} className='username'/>
           </label>
           <label>
-            password
+            Password:
             <input type='password' onChange={this.updateInput} className='password'/>
           </label>
           <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
         </form>
-        {this.state.redirect && <Redirect to="/profilepage"/>}
-        <footer className="SignInPage-footer">
-          <Link to='/'><button> Take Me Back </button></Link>
-        </footer>
+      </div>
+      {this.state.redirect && <Redirect to="/profilepage"/>}
+      <Footer
+      path1='/signup'
+      path2='/'
+      label1='Sign Up'
+      label2="Take Me Back"
+      />
       </div>
     );
   }

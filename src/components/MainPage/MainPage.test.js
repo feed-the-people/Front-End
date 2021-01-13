@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
 
+<<<<<<< HEAD
 //UNIT TESTS
 test('main page renders', () => {
   render(
@@ -18,6 +19,8 @@ test('main page renders', () => {
 });
 
 //INTEGRATION TESTS
+=======
+>>>>>>> main
 test('recipe card renders', () => {
   render(
     <MemoryRouter>

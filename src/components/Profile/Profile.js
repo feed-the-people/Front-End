@@ -2,17 +2,13 @@ import './Profile.css'
 import {Link} from 'react-router-dom'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import globalIcon from '../../icons/global.svg'
+import Footer from '../Footer/Footer'
 
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
-  console.log(user)
   return (
     <div className="Profile">
-      <header className="Profile-sidebar">
-        <Link to='/'><img src={globalIcon} alt='navigate to global feed' data-testid='homeButton'/></Link>
-        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book' data-testid='recipeBookButton'/></Link>
-      </header>
       <section className='profileInfo'>
         <h1 data-testid='welcomeMessage'>{`Welcome back ${user.firstName}! `}</h1>
         <h2>Your Information: </h2>
@@ -38,6 +34,13 @@ function Profile() {
           <p>{user.zip}</p>
         </label>
       </section>
+      <Footer
+        path1='/'
+        path2='/recipeBook'
+        label1="Everyone's Recipes"
+        label2='My Recipe Book'
+        className='Profile-Footer'
+      />
     </div>
   );
 }
