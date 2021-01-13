@@ -76,7 +76,7 @@ class RecipeForm extends Component {
       this.state.instructions,
       this.state.npoEIN,
       this.state.npoName,
-      this.state.ingredients 
+      this.state.ingredients
     )
     if(result.error) {
       alert('Something went wrong')
