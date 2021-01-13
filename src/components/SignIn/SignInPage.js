@@ -50,14 +50,14 @@ class SignInPage extends Component {
     return (
       <div className="SignInPage">
       <div className='action-area'>
-      <h1> Welcome Back! Sign In Below: </h1>
+        <h1> Welcome Back! Sign In Below: </h1>
         <form>
           <label>
             Username:
             <input type='text' onChange={this.updateInput} className='username'/>
           </label>
           <label>
-            Password: 
+            Password:
             <input type='password' onChange={this.updateInput} className='password'/>
           </label>
           <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
