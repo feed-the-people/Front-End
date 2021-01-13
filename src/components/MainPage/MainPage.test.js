@@ -4,7 +4,19 @@ import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
 
-test('recipe card renders', () => {
+//UNIT TESTS
+test('MainPage renders', () => {
+  render(
+    <MemoryRouter>
+      <MainPage allRecipes={allRecipes} loading={false}/>
+    </MemoryRouter>
+  );
+  const mainPage = screen.getByTestId('mainPage')
+  expect(mainPage).toBeInTheDocument();
+})
+
+//INTEGRATION TESTS
+test('RecipeCard renders', () => {
   render(
     <MemoryRouter>
       <MainPage allRecipes={allRecipes} loading={false}/>
