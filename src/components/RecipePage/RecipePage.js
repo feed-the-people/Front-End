@@ -29,16 +29,27 @@ class RecipePage extends Component {
     } else if (this.state.recipe){
       return (
         <div className="RecipePage">
-        <header className="RecipePage-header">
-        <h1> Recipe Page </h1>
-        </header>
-        <section className="recipe-section">
-        <h3>{this.state.recipe.title}</h3>
-        <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
-        <p>{this.state.recipe.description}</p>
-        <p>{this.state.recipe.instructions}</p>
-        {/* {recipeIngredients} */}
-        </section>
+          <header className="RecipePage-header">
+            <h1> Recipe Page </h1>
+            <h2 className='recipeRating'>3</h2>
+          </header>
+          <section className="recipe-section">
+            <h3>{this.state.recipe.title}</h3>
+            <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
+            <p>{this.state.recipe.description}</p>
+            <p>{this.state.recipe.instructions}</p>
+            {/* {recipeIngredients} */}
+              <section className="ratingArea">
+                <select className='ratingSelect' data-testid='ratingSelect' className='dropdown' name='ratingSelect'>
+                  <option value='notchosen'>Rate this recipe!</option>
+                  <option value='one'>1 (Not Great)</option>
+                  <option value='two'>2 (meh)</option>
+                  <option value='three'>3 (It was alright.)</option>
+                  <option value='four'>4 (I'd make this again!)</option>
+                  <option value='five'>5 (SO. HECKIN'. GOOD.)</option>
+                </select>
+              </section>
+          </section>
         </div>
       );
     } else {
