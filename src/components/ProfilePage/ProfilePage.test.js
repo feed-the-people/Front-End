@@ -24,6 +24,16 @@ test('CallToAction renders', () => {
   expect(componentTitle).toBeInTheDocument()
 });
 
+test('CallToAction buttons render' , () => {
+  render(
+    <MemoryRouter>
+    <ProfilePage />
+    </MemoryRouter>
+  );
+  const navButtons = screen.getByTestId('navButtons')
+  expect(navButtons).toBeInTheDocument()
+});
+
 test('Footer renders' , () => {
   render(
     <MemoryRouter>
