@@ -65,11 +65,10 @@ class SignInPage extends Component {
       </div>
       {this.state.redirect && <Redirect to="/profilepage"/>}
       <Footer
-        path1='/'
-        path2='/recipeBook'
-        label1="Take Me Back"
-        label2='My Recipe Book'
-        className='Profile-Footer'
+      path1='/signup'
+      path2='/'
+      label1='Sign Up'
+      label2="Take Me Back"
       />
       </div>
     );

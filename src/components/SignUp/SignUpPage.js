@@ -122,10 +122,10 @@ class SignUpPage extends Component {
           </form>
         </div>
         <Footer
-          path1='/'
-          path2='/recipeBook'
-          label1="Take Me Back"
-          label2='My Recipe Book'
+          path1='/signin'
+          path2='/'
+          label1='Sign In'
+          label2="Take Me Back"
           className='Profile-Footer'
         />
         {this.state.redirect && <Redirect to="/signin"/>}
