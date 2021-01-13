@@ -1,6 +1,8 @@
 .RecipeCard {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 45vw;
   height: 45vh;
   padding: 1vh;
@@ -12,17 +14,19 @@
 .left-section {
   margin: .25vw;
   border: 1px solid hsl(105, 30%, 68%);
-  height: 41vh;
+  height: 43vh;
   width: 28vw;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .leftHeader {
-  color: hsl(105, 30%, 68%);
+  color: hsl(0, 0%, 24%);
   height: 3vh;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 2;
   background-color: hsl(0, 10%, 90%);
@@ -40,7 +44,7 @@
 .recipe-image {
   position: relative;
   z-index: 1;
-  height: 41vh;
+  height: 43vh;
   width: 28vw;
   margin: 0;
   padding: 0;
@@ -50,7 +54,7 @@
   margin: .25vw;
   border: 1px solid hsl(105, 30%, 68%);
   width: 16vw;
-  height: 41vh;
+  height: 43vh;
 }
 
 .star-rating {
@@ -59,13 +63,22 @@
   margin: 0;
   text-align: center;
   justify-content: center;
+  font-size: auto;
   width: 16vw;
   height: 4vh;
 }
+
 .recipe-rating {
   align-self: center;
   font-size: 1rem;
   margin: .5vh;
+  color: hsl(0, 0%, 24%);
+}
+
+.details {
+  margin: 0;
+  width: 16vw;
+  height: 26vh;
 }
 
 .recipe-story {
@@ -73,11 +86,13 @@
   overflow: scroll;
   font-family: 'Lato', sans-serif;
   height: 15vh;
+  color: hsl(0, 0%, 24%);
 }
 
 .donation-blurb {
   margin: 1vh;
   font-family: 'Lato', sans-serif;
+  color: hsl(0, 0%, 24%);
 }
 
 .nonprofit-name {
@@ -86,20 +101,25 @@
   border-top: 1px solid hsl(105, 30%, 68%);
   padding: 1vh;
   margin: 0;
+  font-size: 1rem;
+  color: hsl(0, 0%, 24%);
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .right-footer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: .5rem;
   border-top: 1px solid hsl(105, 30%, 68%);
-  height: 2vh;
+  height: 8vh;
 }
 
 .purchase-button {
   border: none;
   background: none;
-  width: 80%;
+  width: 70%;
   background-color: hsl(127, 18%, 71%);
   border: 5px outset hsl(105, 30%, 68%);
   text-decoration: none;
@@ -107,10 +127,12 @@
   text-align: center;
   align-self: center;
   margin: .25vh;
+  height: 5vh;
+  justify-content: center;
 }
 
 .purchase-button:hover {
-  font-size: 1.01rem;
+  font-size: 1rem;
   color: hsl(105, 0%, 24%);
   border: 5px inset hsl(105, 30%, 68%);
 }
