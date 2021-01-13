@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import RecipeCard from '../RecipeCard/RecipeCard'
 import CallToAction from '../CallToAction/CallToAction.js'
 import { getUserWithRecipes } from '../../APICalls.js'
+import Footer from '../Footer/Footer'
 
 class RecipeBook extends Component {
   constructor(props) {
@@ -37,20 +38,22 @@ class RecipeBook extends Component {
       this.setState({[kind]: section})
     }
   }
+  componentDidMount(){
+    let storage = localStorage.getItem('user')
+    let user = storage ? JSON.parse(storage) : null
+    if (user) {
+      this.getRecipeSection('recipes', user.id)
+      this.getRecipeSection('userRecipes', user.id)
+    }
+  }
   render(){
     let storage = localStorage.getItem('user')
     let user = storage ? JSON.parse(storage) : null
     if (!user) {
       return <CallToAction title='You need to be signed in to have a recipe book...' />
     } else {
-      this.getRecipeSection('recipes', user.id)
-      this.getRecipeSection('userRecipes', user.id)
       return (
         <div className="RecipeBook">
-          <header className="RecipeBook-sidebar">
-            <Link to='/profilepage'><img src={profile} alt='navigate to user profile page'/></Link>
-            <Link to='/'><img src={home} alt='navigate to main page'/></Link>
-          </header>
           <section className='my-recipe-section'>
             <h1>Recipes you have uploaded: </h1>
             <Link to='/recipeform'><button>Upload another recipe</button></Link>
@@ -60,6 +63,13 @@ class RecipeBook extends Component {
             <h1>Recipes you have purchased: </h1>
             {this.state.userRecipes || <p>You haven't purchased an recipes</p>}
           </section>
+          <Footer
+            path1='/'
+            path2='/profilepage'
+            label1="Everyone's Recipes"
+            label2='My Profile'
+            className='RecipeBook-Footer'
+          />
         </div>
       );
     }
