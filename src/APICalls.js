@@ -453,8 +453,8 @@ export const updateIngredient = (id, name, amount) => {
   .catch(error => console.log(error))
 }
 
-export const createUserRecipe = (userId, recipeId, amountDonated) => {
-  return fetch("http://localhost:8000/graphql", {
+export const getAccessToRecipe = (userId, recipeId, amountDonated) => {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -474,7 +474,7 @@ export const createUserRecipe = (userId, recipeId, amountDonated) => {
     })
   })
   .then(response => response.json())
-  .then(response => console.log(response.data))
+  .then(response => response.data)
   .catch(error => console.log(error))
 }
 
