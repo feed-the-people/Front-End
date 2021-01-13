@@ -10,6 +10,7 @@ class RecipePage extends Component {
     this.state = {
       signedIn: false,
       user: '',
+      rating: '',
       allRecipes: [],
       loading: true,
     }
@@ -18,6 +19,9 @@ class RecipePage extends Component {
     let response = await recipeById(id)
     let recipe = response.recipeById
     this.setState({recipe: recipe})
+  }
+  updateState = (e) => {
+    this.setState({[e.target.name]: e.target.value})
   }
   componentDidMount(){
     this.getRecipe(this.props.id)
@@ -31,22 +35,22 @@ class RecipePage extends Component {
         <div className="RecipePage">
           <header className="RecipePage-header">
             <h1> Recipe Page </h1>
-            <h2 className='recipeRating'>3</h2>
+            <h2 className='recipeRating'>{this.state.rating}</h2>
           </header>
           <section className="recipe-section">
             <h3>{this.state.recipe.title}</h3>
-            <p><img src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' /></p>
+            <p><img src={this.state.recipe.image} alt='image of recipe' /></p>
             <p>{this.state.recipe.description}</p>
             <p>{this.state.recipe.instructions}</p>
             {/* {recipeIngredients} */}
               <section className="ratingArea">
-                <select className='ratingSelect' data-testid='ratingSelect' className='dropdown' name='ratingSelect'>
+                <select className='ratingSelect' data-testid='ratingSelect' className='dropdown' name='rating' onChange={this.updateState} value={this.state.rating}>
                   <option value='notchosen'>Rate this recipe!</option>
-                  <option value='one'>1 (Not Great)</option>
-                  <option value='two'>2 (meh)</option>
-                  <option value='three'>3 (It was alright.)</option>
-                  <option value='four'>4 (I'd make this again!)</option>
-                  <option value='five'>5 (SO. HECKIN'. GOOD.)</option>
+                  <option value='1'>1 (Not Great)</option>
+                  <option value='2'>2 (meh)</option>
+                  <option value='3'>3 (It was alright.)</option>
+                  <option value='4'>4 (I'd make this again!)</option>
+                  <option value='5'>5 (SO. HECKIN'. GOOD.)</option>
                 </select>
               </section>
           </section>
