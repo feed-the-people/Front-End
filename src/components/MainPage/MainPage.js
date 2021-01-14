@@ -12,10 +12,12 @@ function MainPage(props) {
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
       return (
         <RecipeCard
+        userId={recipe.userId}
         image={recipe.image}
         title={recipe.title}
         charityName={recipe.charityName}
         description={recipe.description}
+        rating={recipe.avgRating}
         key={index}
         id={recipe.id}
         />
