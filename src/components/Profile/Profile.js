@@ -10,25 +10,26 @@ function Profile() {
   return (
     <div className="Profile">
       <section className='profileInfo'>
-        <h1 data-testid='welcomeMessage'>{`Welcome back ${user.firstName}! `}</h1>
-        <h2>Your Information: </h2>
+        <h1 data-testid='welcomeMessage'>{`Welcome Back ${user.firstName}! `}</h1>
         <div className='whoYouAre'>
           <label>
-            Your Name:
+            <h3>Name: </h3> 
             <p data-testid='name'>{user.firstName} {user.lastName}</p>
           </label>
+          <br/>
           <label>
-            Your Username:
+            <h3>Username:</h3>
             <p data-testid='username'>{user.username}</p>
           </label>
           <img data-testid='profileImg' src={user.image}/>
         </div>
         <label>
-          Your Email:
+          <h3>Email:</h3>
           <p data-testid='email'>{user.email}</p>
         </label>
+        <br/>
         <label data-testid='address'>
-          Your address:
+          <h3>Address:</h3>
           <p>{user.street}</p>
           <p>{user.city}, {user.state}</p>
           <p>{user.zip}</p>
