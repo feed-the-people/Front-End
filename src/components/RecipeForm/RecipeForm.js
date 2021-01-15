@@ -44,7 +44,6 @@ class RecipeForm extends Component {
   searchNPOS = async (e) => {
     let searchTerm = e.target.value
     let results = await searchNonProfits(searchTerm)
-    console.log(results)
     if (results.length) {
       let options = results.map((result, index) => {
         return <option value={result.name} key={index} id={result.ein}> {result.name}: {result.city},{result.state} </option>
@@ -53,7 +52,6 @@ class RecipeForm extends Component {
     } else {
 
     }
-    console.log(searchTerm)
   }
 
   chooseNPO = (e) => {
@@ -66,7 +64,6 @@ class RecipeForm extends Component {
   submitForm = async (e) => {
     e.preventDefault()
     let storage = localStorage.getItem('user')
-    console.log(storage)
     let user = storage ? JSON.parse(storage) : null
     let result = await createRecipe(
       user.id,
@@ -76,7 +73,7 @@ class RecipeForm extends Component {
       this.state.instructions,
       this.state.npoEIN,
       this.state.npoName,
-      this.state.ingredients 
+      this.state.ingredients
     )
     if(result.error) {
       alert('Something went wrong')
