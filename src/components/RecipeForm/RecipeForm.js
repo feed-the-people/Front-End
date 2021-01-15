@@ -197,7 +197,7 @@ class RecipeForm extends Component {
               </td>
             </tr>
             <br/>
-            <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm} onClick={this.disableForm()}> Submit My Recipe </button>
+            <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm}> Submit My Recipe </button>
             </center>
           </table>
           </center>
