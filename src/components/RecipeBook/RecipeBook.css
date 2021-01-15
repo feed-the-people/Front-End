@@ -27,7 +27,6 @@ img {
   align-items: center;
   flex-wrap: wrap;
   overflow: scroll;
-  width: 48vw;
   padding: 0;
   border: 5px inset hsl(0, 0%, 90%);
 }
