@@ -16,6 +16,7 @@ export const getAllRecipes = () => {
           charityName
           charityId
           userId
+          avgRating
           createdAt
           updatedAt
           }
@@ -277,7 +278,7 @@ export const userSignIn = (username, password) => {
 }
 
 export const updateUser = (id, firstName, lastName, email, street, city, state, zip, image, username) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -367,7 +368,7 @@ export const createRecipe = (userId, image, title, description, instructions, ch
 }
 
 export const updateRecipe = (id, image, title, description, instructions, charityId, charityName) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -406,7 +407,7 @@ export const updateRecipe = (id, image, title, description, instructions, charit
 }
 
 export const createIngredient = (recipeId, name, amount) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -431,7 +432,7 @@ export const createIngredient = (recipeId, name, amount) => {
 }
 
 export const updateIngredient = (id, name, amount) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -481,7 +482,7 @@ export const getAccessToRecipe = (userId, recipeId, amountDonated) => {
 }
 
 export const updateUserRecipeRating = (id, recipeRating) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`

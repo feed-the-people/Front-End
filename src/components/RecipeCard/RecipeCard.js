@@ -4,6 +4,15 @@ import {Link} from 'react-router-dom'
 
 function RecipeCard(props) {
   let route = `/recipepage/${props.id}`
+  console.log(props);
+
+  let rating;
+  if (props.rating != null) {
+    rating = props.rating + " out of 5";
+  } else {
+    rating = "Not yet rated";
+  }
+
   return (
     <div className="RecipeCard">
       <section className='left-section'>
@@ -14,7 +23,7 @@ function RecipeCard(props) {
       </section>
       <section className='right-section'>
         <section className='star-rating'>
-          <h3 className='recipe-rating' data-testid='recipeRating'>Average 5 out of 5 stars!</h3>
+          <h3 className='recipe-rating' data-testid='recipeRating'>{rating}</h3>
         </section>
         <section className='details'>
           <p className='recipe-story' data-testid='recipeStory'>{props.description}</p>
