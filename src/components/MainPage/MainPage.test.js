@@ -6,22 +6,22 @@ import { allRecipes } from '../../mockData.js'
 
 //UNIT TESTS
 test('MainPage renders', () => {
-  render(
-    <MemoryRouter>
-      <MainPage allRecipes={allRecipes} loading={false}/>
-    </MemoryRouter>
-  );
-  const mainPage = screen.getByTestId('mainPage')
-  expect(mainPage).toBeInTheDocument();
-})
+//   render(
+//     <MemoryRouter>
+//       <MainPage allRecipes={allRecipes} loading={false}/>
+//     </MemoryRouter>
+//   );
+//   const mainPage = screen.getByTestId('mainPage')
+//   expect(mainPage).toBeInTheDocument();
+// })
 
 //INTEGRATION TESTS
-test('RecipeCard renders', () => {
-  render(
-    <MemoryRouter>
-      <MainPage allRecipes={allRecipes} loading={false}/>
-    </MemoryRouter>
-  );
-  const recipeName = screen.getByText('Egg Stuff')
-  expect(recipeName).toBeInTheDocument();
+// test('RecipeCard renders', () => {
+//   render(
+//     <MemoryRouter>
+//       <MainPage allRecipes={allRecipes} loading={false}/>
+//     </MemoryRouter>
+//   );
+//   const recipeName = screen.getByText('Egg Stuff')
+//   expect(recipeName).toBeInTheDocument();
 });

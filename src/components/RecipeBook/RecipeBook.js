@@ -16,7 +16,6 @@ class RecipeBook extends Component {
   }
   getRecipeSection = async (kind, id) =>  {
     let results = await getUserWithRecipes(id)
-    console.log(results.getUser[kind])
     let section;
     if(!results.getUser[kind].length){
       section = undefined
@@ -24,13 +23,13 @@ class RecipeBook extends Component {
       let section = results.getUser[kind].map((recipe, index) => {
         return (
           <RecipeCard
+          charityName={recipe.charityName}
+          description={recipe.description}
           key={index}
           id={recipe.id}
           image={recipe.image}
           title={recipe.title}
-          description={recipe.description}
-          charityName={recipe.charityName}
-          id={recipe.id}
+          userId={recipe.userId}
           />
         )
       })
@@ -41,11 +40,11 @@ class RecipeBook extends Component {
           <RecipeCard
           key={index}
           id={recipe.id}
+          recipeId={recipe.recipeId}
           image={recipe.recipe.image}
           title={recipe.recipe.title}
           description={recipe.recipe.description}
           charityName={recipe.recipe.charityName}
-          id={recipe.id}
           />
         )
       })
@@ -82,9 +81,9 @@ class RecipeBook extends Component {
             </div>
           </section>
           <Footer
-            path1='/'
+            path1='/recipebook'
             path2='/profilepage'
-            label1="Everyone's Recipes"
+            label1="My Recipe Book"
             label2='My Profile'
             className='RecipeBook-Footer'
           />

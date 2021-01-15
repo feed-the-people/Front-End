@@ -8,7 +8,6 @@ import { MemoryRouter } from 'react-router-dom';
 
 //INTEGRATION TESTS
 test('uploaded recipes render', () => {
-  console.log(localStorage.getItem('user'))
 });
 
 test('purchased recipes render', () => {

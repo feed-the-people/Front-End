@@ -1,10 +1,17 @@
 import './RecipeCard.css';
-import { allRecipes, individualUserData, allNPOs } from '../../mockData.js'
 import {Link} from 'react-router-dom'
+import { getUser } from '../../APICalls.js'
 
 function RecipeCard(props) {
   let route = `/recipepage/${props.id}`
-  console.log(props);
+
+  let user = JSON.parse(localStorage.getItem('user'));
+  if (!user) user = { userRecipes: [] }
+
+  async function updateUser() {
+    let response = await getUser(user.id)
+    // localStorage.setItem('user', JSON.stringify(response.getInfo))
+  }
 
   let rating;
   if (props.rating != null) {
@@ -13,6 +20,29 @@ function RecipeCard(props) {
     rating = "Not yet rated";
   }
 
+  function alreadyOwned(id) {
+    for (var i = 0; i < user.userRecipes.length; i++) {
+      if (+user.userRecipes[i].recipeId === +id) {
+        return true
+      }
+    }
+    return false
+  }
+
+  let button;
+  if (alreadyOwned(props.recipeId)) {
+     button = <div className='right-footer'>
+                Already Purchased
+              </div>
+  } else if (user.id === props.userId) {
+    button = <div className='right-footer'>
+              Your Recipe
+             </div>
+  } else {
+    button = <div className='right-footer' onClick={updateUser()}>
+              <Link to={route} className='purchase-button'>Give N' Get Recipe!</Link>
+             </div>
+  }
   return (
     <div className="RecipeCard">
       <section className='left-section'>
@@ -27,12 +57,10 @@ function RecipeCard(props) {
         </section>
         <section className='details'>
           <p className='recipe-story' data-testid='recipeStory'>{props.description}</p>
-          <p className='donation-blurb' >Donations to for {props.title} go to: </p>
+          <p className='donation-blurb' >Donations go to: </p>
         </section>
         <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
-        <div className='right-footer'>
-          <Link to={route} className='purchase-button'>Give N' Get Recipe!</Link>
-        </div>
+        { button }
       </section>
     </div>
   );

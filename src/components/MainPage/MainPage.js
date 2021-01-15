@@ -12,14 +12,16 @@ function MainPage(props) {
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
       return (
         <RecipeCard
-        userId={recipe.userId}
-        image={recipe.image}
-        title={recipe.title}
         charityName={recipe.charityName}
         description={recipe.description}
-        rating={recipe.avgRating}
         key={index}
         id={recipe.id}
+        recipeId={recipe.id}
+        image={recipe.image}
+        title={recipe.title}
+        rating={recipe.avgRating}
+        userId={recipe.userId}
+        recipe={recipe}
         />
       )
     })
@@ -30,10 +32,10 @@ function MainPage(props) {
         {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}
       </section>
       <Footer
-        path1='/profilepage'
-        path2='/recipeBook'
-        label1='My Profile'
-        label2='My Recipe Book'
+        path1='/recipebook'
+        path2='/profilepage'
+        label1="My Recipe Book"
+        label2='My Profile'
       />
     </div>
   );

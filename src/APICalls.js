@@ -47,6 +47,13 @@ export const getUser = (id) => {
           zip
           createdAt
           updatedAt
+          recipes {
+            id
+          }
+          userRecipes {
+            id
+            recipeId
+          }
         }
       }
       `
@@ -266,6 +273,13 @@ export const userSignIn = (username, password) => {
             zip
             createdAt
             updatedAt
+            recipes {
+              id
+            }
+            userRecipes {
+              id
+              recipeId
+            }
           }
         }
       }
