@@ -5,6 +5,7 @@
 
  .profileInfo {
    justify-content: center;
+   display: inline-block;
    align-items: center;
    text-align: center;
    height: 78vh;
