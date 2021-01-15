@@ -202,7 +202,15 @@ class RecipeForm extends Component {
           </table>
           </center>
         </form>
+        <div>
+        <Footer
+          path1='/recipebook'
+          path2='/profilepage'
+          label1="My Recipe Book"
+          label2='My Profile'
+        /></div>
       </div>
+
       </div>
     )
   }
