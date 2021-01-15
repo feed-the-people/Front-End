@@ -23,7 +23,6 @@ class RecipeForm extends Component {
 
   disableForm() {
     if (this.state.npoName &&
-        this.state.npoEIN &&
         this.state.image &&
         this.state.title &&
         this.state.description &&
@@ -117,22 +116,26 @@ class RecipeForm extends Component {
             Recipe Name:
             <input className='title' type='text' onChange={this.updateInput}/>
           </label>
+          <br/>
           <label>
             Recipe Description:
             <input className='description' type='text' onChange={this.updateInput}/>
           </label>
+          <br/>
           <label>
-            Ingredients
+            <h2>Ingredients</h2>
             {this.buildIngredientsList()}
             <div>
               <label>
                 Ingredient Name
                 <input className='workingIngredient' type='text' onChange={this.updateInput}/>
               </label>
+              <br/>
               <label>
                 Ingredient Amount
                 <input className='workingAmount' type='text' onChange={this.updateInput}/>
               </label>
+            
               <button type='submit' onClick={this.addIngredient}>Add Ingredient</button>
             </div>
           </label>
@@ -140,18 +143,22 @@ class RecipeForm extends Component {
             Steps
             <input className='instructions' type='text' onChange={this.updateInput}/>
           </label>
+          <br/>
           <label>
             Recipe Image
             <input className='image' type='text' onChange={this.updateInput}/>
           </label>
+          <br/>
           <label>
             Non-Profit Organization Search
             <input className='NPO' type='text' onChange={this.searchNPOS}/>
           </label>
+          <br/>
           <label>
             Select from search results:
             {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
           </label>
+          <br/>
           <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm} onClick={this.disableForm()}> Submit My Recipe </button>
         </form>
         {this.state.redirect && <Redirect to="/"/>}
