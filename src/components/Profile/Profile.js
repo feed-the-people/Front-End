@@ -35,10 +35,10 @@ function Profile() {
         </label>
       </section>
       <Footer
-        path1='/'
-        path2='/recipeBook'
-        label1="Everyone's Recipes"
-        label2='My Recipe Book'
+        path1='/recipebook'
+        path2='/profilepage'
+        label1="My Recipe Book"
+        label2='My Profile'
         className='Profile-Footer'
       />
     </div>
