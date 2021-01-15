@@ -10,7 +10,6 @@
 .left-section {
   margin: .25vw;
   border: 1px solid hsl(105, 30%, 68%);
-  width: 50%;
   overflow: scroll;
   float: left;
 }
@@ -70,7 +69,6 @@
   position: relative;
   z-index: 1;
   height: 100%;
-  width: 50%;
   margin: 0;
   padding: 0;
 }
