@@ -52,15 +52,19 @@ class SignInPage extends Component {
       <div className='action-area'>
         <h1 data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
         <form>
-          <label>
-            Username:
-            <input type='text' onChange={this.updateInput} className='username'/>
-          </label>
-          <label>
-            Password:
-            <input type='password' onChange={this.updateInput} className='password'/>
-          </label>
-          <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          <center>
+            <table id="simple-board">
+              <tr id="row0">
+                <td id="cell0-0"><label>Username</label></td>
+                <td id="cell0-1"><input type='text' onChange={this.updateInput} className='username'/></td>
+              </tr>
+              <tr id="row1">
+                <td id="cell1-0"><label>Password</label></td>
+                <td id="cell1-1"><input type='password' onChange={this.updateInput} className='password'/></td>
+              </tr>
+            </table>
+            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          </center>
         </form>
       </div>
       {this.state.redirect && <Redirect to="/profilepage"/>}

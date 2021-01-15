@@ -1,6 +1,8 @@
 .Footer {
   width: 100vw;
   height: 8vh;
+  left: 0;
+  bottom: 0;
   position: fixed;
   background-color: hsl(127, 18%, 71%);
   color: hsl(0, 0%, 24%);

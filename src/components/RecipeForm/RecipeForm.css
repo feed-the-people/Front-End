@@ -1,7 +1,6 @@
 .RecipeForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 90vh;
 }
@@ -11,11 +10,6 @@ form {
   flex-direction: column;
   margin: 0;
   padding: 0;
-}
-
-footer {
-  margin-top: 4vh;
-  align-self: flex-end;
 }
 
 .ingredientBox {
