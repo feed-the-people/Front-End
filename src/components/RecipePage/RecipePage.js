@@ -64,7 +64,6 @@ class RecipePage extends Component {
     if (!user) {
       return <CallToAction title='You need to be signed in to view this recipe...' />
     } else if (this.state.recipe && this.state.purchased){
-      console.log(this.state.recipe)
       return (
         <div className="RecipePage">
           <header className="RecipePage-header">
@@ -96,6 +95,13 @@ class RecipePage extends Component {
       <section className="recipe-section">
       <h3>Loading...</h3>
       </section>
+      <Footer
+        path1='/recipebook'
+        path2='/profilepage'
+        label1="My Recipe Book"
+        label2='My Profile'
+        className='RecipeBook-Footer'
+      />
       </div>
     )
     }
