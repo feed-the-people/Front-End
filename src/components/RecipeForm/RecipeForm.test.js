@@ -6,6 +6,10 @@ import RecipeForm from './RecipeForm';
 import { submitForm } from './RecipeForm.js';
 
 //UNIT TESTS
+//Test that all the form feils render
+//test that ingredients can be added
+//Test/Mock that NPOs can be searched
+//Test that submission fires
 test('form renders', () => {
 
   render(

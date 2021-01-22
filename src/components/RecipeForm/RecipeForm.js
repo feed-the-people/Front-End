@@ -5,6 +5,11 @@ import { searchNonProfits, createRecipe } from '../../APICalls.js'
 import Footer from '../Footer/Footer'
 
 class RecipeForm extends Component {
+  //This needs a refactor to hooks
+  //Our form submission is also broken
+  //And we need to look into photo uploading and storage
+  //In general this component feels too complicated and buit out
+  //Maybe consider breaking the recipe ingredients and NPOS search into their own componets?
   constructor(props) {
     super(props);
     this.state = {
