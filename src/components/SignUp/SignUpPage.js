@@ -21,7 +21,9 @@ class SignUpPage extends Component {
       redirect: false,
     }
   }
-
+  //Look at refactoring to hooks and adjust all the form inputs to not be state
+  //Look at implimenting images
+  //Have sad path handling to show the loading 
   disableForm() {
     if (this.state.username &&
         this.state.image &&

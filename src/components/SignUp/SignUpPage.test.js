@@ -3,6 +3,10 @@ import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom'
 import SignUpPage from './SignUpPage';
 
+//Test that all components render
+//Test that there is sad path handling
+//Test that buttons fire functions
+
 test('basic title', () => {
   render(
     <MemoryRouter>

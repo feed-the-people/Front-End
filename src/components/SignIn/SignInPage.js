@@ -14,7 +14,8 @@ class SignInPage extends Component {
       redirect: false
     }
   }
-
+  //refactor to include hooks
+  //Look at how best to handle this redirect
 
   disableForm() {
     if (this.state.username &&
