@@ -14,6 +14,8 @@ class RecipeBook extends Component {
       userRecipes: []
     }
   }
+  //refactor from a class based component to state
+  //refactor to more semantic naming/having easier logic
   getRecipeSection = async (kind, id) =>  {
     let results = await getUserWithRecipes(id)
     let section;
