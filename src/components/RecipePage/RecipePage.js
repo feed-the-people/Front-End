@@ -15,6 +15,9 @@ class RecipePage extends Component {
       loading: true,
     }
   }
+  //This component has similar comments as Recipe form
+  //We need a refactor to hooks and to look at breaking apart functionality
+  //I feel like this should have less logic and get more data from local storage
   getRecipe = async (id) => {
     let user = JSON.parse(localStorage.getItem('user'))
     let response = await recipeById(id)
