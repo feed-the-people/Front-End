@@ -4,6 +4,17 @@ import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
 //INTEGRATION TESTS
+//What do we need to test here?
+//Route acceptance tests
+// '/'
+//When a user navigates to the main page they should
+// '/signin'
+// '/signup'
+// '/profilepage'
+// '/recipebook'
+// '/recipeform'
+// '/recipepage/:recipeId'
+
 test('MainPage renders' , () => {
   render(<App />);
   const mainPage = screen.getByTestId('mainPage')
