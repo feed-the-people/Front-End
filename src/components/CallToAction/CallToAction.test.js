@@ -4,6 +4,11 @@ import CallToAction from './CallToAction.js'
 import { MemoryRouter } from 'react-router-dom';
 
 //UNIT TESTS
+// test that prompt renders
+// check that both buttons fire when clicked
+// check that form has error handling
+// check that the props title will render
+// check that the default title will render
 test('prompt renders', () => {
   render(
     <MemoryRouter>
