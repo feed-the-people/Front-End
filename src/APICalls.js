@@ -385,7 +385,9 @@ export const createRecipe = (userId, image, title, description, instructions, ch
   })
   .then(response => response.json())
   .then(response => response)
-  .catch(error => console.log(error))
+  .catch(error => {
+    return {error: 'Something went wrong please try again'}
+  })
 }
 
 export const updateRecipe = (id, image, title, description, instructions, charityId, charityName) => {
