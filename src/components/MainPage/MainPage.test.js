@@ -5,6 +5,10 @@ import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
 
 //UNIT TESTS
+//Test that a loading message renders
+//Test and Mock the global recipes displayed
+//Test and Mock error handling
+
 test('MainPage renders', () => {
 //   render(
 //     <MemoryRouter>

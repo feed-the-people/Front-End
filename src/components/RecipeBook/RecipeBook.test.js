@@ -6,6 +6,12 @@ import RecipeBook from './RecipeBook';
 import { allRecipes } from '../../mockData.js'
 import { MemoryRouter } from 'react-router-dom';
 
+//Tests
+//Test that recipe books renders
+//Test that there is sad path handling for loading
+//Test that there is sad path handling for an empty list
+//Test that button to upload recipe fires
+
 //INTEGRATION TESTS
 test('uploaded recipes render', () => {
 });

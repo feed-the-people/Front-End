@@ -3,12 +3,15 @@ import {Link} from 'react-router-dom'
 import { getUser } from '../../APICalls.js'
 
 function RecipeCard(props) {
+  //This whole card needs a thorough come over and I think we could be performing
+  //way less logic and actually just look at dynamic props
   let route = `/recipepage/${props.id}`
 
   let user = JSON.parse(localStorage.getItem('user'));
   if (!user) user = { userRecipes: [] }
 
   async function updateUser() {
+    //What is happening here?
     let response = await getUser(user.id)
     // localStorage.setItem('user', JSON.stringify(response.getInfo))
   }
@@ -21,6 +24,7 @@ function RecipeCard(props) {
   }
 
   function alreadyOwned(id) {
+    //This can be refactored to an iterator method and potentially a turnary
     for (var i = 0; i < user.userRecipes.length; i++) {
       if (+user.userRecipes[i].recipeId === +id) {
         return true

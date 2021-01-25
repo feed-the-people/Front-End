@@ -2,6 +2,8 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
+  //impliment both required prop types
+  //or consider having a default option like the call to action page.
   return (
     <footer data-testid='footer' className='Footer'>
       <Link className='logo' to='/'>Feed The People</Link>

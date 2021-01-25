@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Profile from './Profile.js'
+import PurchaseModal from './PurchaseModal.js'
 import { MemoryRouter } from 'react-router-dom';
 import { individualUserData } from '../../mockData.js';
 

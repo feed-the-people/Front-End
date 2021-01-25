@@ -9,7 +9,9 @@ import Footer from '../Footer/Footer'
 function MainPage(props) {
   let recipeDisplay;
   if (props.allRecipes){
+    //this functionality could be simplified and escelated to where the API call happens
     recipeDisplay = props.allRecipes.map((recipe, index)=> {
+      // Maybe look at refactoring to accept an object and have recipe card deconstruct said opbject
       return (
         <RecipeCard
         charityName={recipe.charityName}
@@ -29,6 +31,7 @@ function MainPage(props) {
   return (
     <div className="MainPage">
       <section data-testid='mainPage' className='main-recipe-section'>
+        {/*Maybe look at having a prop passed down containing either recipes, loading message, or error message?*/}
         {props.loading ? <h2> Loading Global Recipes...</h2> : recipeDisplay}
       </section>
       <Footer

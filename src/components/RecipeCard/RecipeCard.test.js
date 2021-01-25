@@ -3,6 +3,10 @@ import '@testing-library/jest-dom';
 import RecipeCard from './RecipeCard';
 import { MemoryRouter } from 'react-router-dom';
 
+//test that recipe card renders data
+//test that buttons fire
+//test that button dynamically renders option
+
 test('Ensure RecipeCard renders properly', () => {
   // render(
   //   <MemoryRouter>
