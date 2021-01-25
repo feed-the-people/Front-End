@@ -1,52 +1,30 @@
 import './RecipeCard.css';
 import {Link} from 'react-router-dom'
 import { getUser } from '../../APICalls.js'
+import { Component, Redirect } from 'react';
 
-function RecipeCard(props) {
-  //This whole card needs a thorough come over and I think we could be performing
+ let RecipeCard = (props) => {
+  //This whole card needs a thorough comb over and I think we could be performing
   //way less logic and actually just look at dynamic props
+  
   let route = `/recipepage/${props.id}`
-
   let user = JSON.parse(localStorage.getItem('user'));
-  if (!user) user = { userRecipes: [] }
+  let buttonText, rating;
 
-  async function updateUser() {
-    //What is happening here?
-    let response = await getUser(user.id)
-    // localStorage.setItem('user', JSON.stringify(response.getInfo))
+  if(user.userRecipes.find(recipe => recipe.recipeId == props.id)){
+    buttonText = 'Already Donated'
+  } else if (props.userId === user.id) {
+    buttonText = 'Your recipe'
+  } else {
+    buttonText = "Give N' Get Recipe"
   }
 
-  let rating;
-  if (props.rating != null) {
+  if (props.rating !== null) {
     rating = props.rating + " out of 5";
   } else {
     rating = "Not yet rated";
   }
 
-  function alreadyOwned(id) {
-    //This can be refactored to an iterator method and potentially a turnary
-    for (var i = 0; i < user.userRecipes.length; i++) {
-      if (+user.userRecipes[i].recipeId === +id) {
-        return true
-      }
-    }
-    return false
-  }
-
-  let button;
-  if (alreadyOwned(props.recipeId)) {
-     button = <div className='right-footer'>
-                Already Purchased
-              </div>
-  } else if (user.id === props.userId) {
-    button = <div className='right-footer'>
-              Your Recipe
-             </div>
-  } else {
-    button = <div className='right-footer'>
-              <Link to={route} className='purchase-button'>Give N' Get Recipe!</Link>
-             </div>
-  }
   return (
     <div className="RecipeCard">
       <section className='left-section'>
@@ -64,7 +42,9 @@ function RecipeCard(props) {
           <p className='donation-blurb' >Donations go to: </p>
         </section>
         <h3 className='nonprofit-name' data-testid='NPO'>{props.charityName}</h3>
-        { button }
+        <div className='right-footer'>
+          <Link to={route} className='purchase-button'>{buttonText}</Link>
+        </div>
       </section>
     </div>
   );
