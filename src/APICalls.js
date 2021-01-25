@@ -247,9 +247,16 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
       `
     })
   })
-  .then(response => response.json())
-  .then(response => response.data)
-  .catch(error => console.log(error))
+  .then(response => {
+    if(response.ok){
+      return response.json()
+    } else {
+      throw Error
+    }
+  })
+  .catch(error => {
+    return { error: 'something went wrong' }
+  })
 }
 
 export const userSignIn = (username, password) => {
