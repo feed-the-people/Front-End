@@ -26,7 +26,7 @@ export const getAllRecipes = () => {
   })
   .then(response => response.json())
   .then(response => response.data)
-  .catch(error => console.log(error))
+  .catch(error => error)
 }
 
 export const getUser = (id) => {
@@ -59,9 +59,16 @@ export const getUser = (id) => {
       `
     })
   })
-  .then(response => response.json())
-  .then(response => console.log(response.data))
-  .catch(error => console.log(error))
+  .then(response => {
+    if(response.ok) {
+      return response.json()
+    } else {
+      throw Error
+    }
+  })
+  .catch(error => {
+    return {error: 'Something went wrong'}
+  })
 }
 
 export const getUserWithRecipes = (id) => {
