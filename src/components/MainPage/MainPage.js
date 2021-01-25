@@ -2,10 +2,10 @@ import './MainPage.css';
 import profile from '../../icons/user-icon.svg'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import {Link} from 'react-router-dom'
-import {allRecipes} from '../../mockData.js'
+import { getUser } from '../../APICalls.js'
 import RecipeCard from '../RecipeCard/RecipeCard'
 import Footer from '../Footer/Footer'
-
+import {useEffect} from 'react'
 function MainPage(props) {
   let recipeDisplay;
   if (props.allRecipes){
@@ -28,6 +28,17 @@ function MainPage(props) {
       )
     })
   }
+  let updateUser = async (id) => {
+    let response = await getUser(id)
+    let userInfo = JSON.stringify(response.data.getUser)
+    localStorage.setItem('user', userInfo)
+  }
+
+  useEffect(() => {
+    console.log('made it here')
+    let user = JSON.parse(localStorage.getItem('user'));
+    updateUser(user.id)
+  })
   return (
     <div className="MainPage">
       <section data-testid='mainPage' className='main-recipe-section'>
