@@ -23,7 +23,7 @@ class SignUpPage extends Component {
   }
   //Look at refactoring to hooks and adjust all the form inputs to not be state
   //Look at implimenting images
-  //Have sad path handling to show the loading 
+  //Have sad path handling to show the loading
   disableForm() {
     if (this.state.username &&
         this.state.image &&
@@ -35,9 +35,9 @@ class SignUpPage extends Component {
         this.state.city &&
         this.state.state &&
         this.state.zip) {
-      return false
-    } else {
       return true
+    } else {
+      return false
     }
   }
 
@@ -49,7 +49,7 @@ class SignUpPage extends Component {
 
   submitForm = async (e) => {
     e.preventDefault()
-    let response = registerUser(
+    let response = await registerUser(
       this.state.firstName,
       this.state.lastName,
       this.state.email,
@@ -61,8 +61,8 @@ class SignUpPage extends Component {
       this.state.username,
       this.state.password,
     );
-    if(!response.ok) {
-      alert('Something went wrong')
+    if(response.error) {
+      alert('Something went wrong, please try again')
     } else {
       alert('Success! Log in to your new account!')
       this.setState({redirect: true})
