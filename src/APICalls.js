@@ -37,6 +37,7 @@ export const getUser = (id) => {
       query {
         getUser(id: ${id}) {
           username
+          id
           image
           email
           firstName

@@ -23,6 +23,7 @@ class RecipeBook extends Component {
       section = undefined
     } else if (kind === 'recipes'){
       let section = results.getUser[kind].map((recipe, index) => {
+        console.log(recipe)
         return (
           <RecipeCard
           charityName={recipe.charityName}
@@ -32,6 +33,7 @@ class RecipeBook extends Component {
           image={recipe.image}
           title={recipe.title}
           userId={recipe.userId}
+          rating={recipe.avgRating}
           />
         )
       })
@@ -41,7 +43,8 @@ class RecipeBook extends Component {
         return (
           <RecipeCard
           key={index}
-          id={recipe.id}
+          id={recipe.recipe.id}
+          rating={recipe.recipe.avgRating}
           recipeId={recipe.recipeId}
           image={recipe.recipe.image}
           title={recipe.recipe.title}
@@ -54,8 +57,7 @@ class RecipeBook extends Component {
     }
   }
   componentDidMount(){
-    let storage = localStorage.getItem('user')
-    let user = storage ? JSON.parse(storage) : null
+    let user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       this.getRecipeSection('recipes', user.id)
       this.getRecipeSection('userRecipes', user.id)
