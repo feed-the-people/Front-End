@@ -35,9 +35,10 @@ function MainPage(props) {
   }
 
   useEffect(() => {
-    console.log('made it here')
     let user = JSON.parse(localStorage.getItem('user'));
-    updateUser(user.id)
+    if (user) {
+      updateUser(user.id)
+    }
   })
   return (
     <div className="MainPage">
