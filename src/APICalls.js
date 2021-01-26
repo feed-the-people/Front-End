@@ -26,7 +26,7 @@ export const getAllRecipes = () => {
   })
   .then(response => response.json())
   .then(response => response.data)
-  .catch(error => console.log(error))
+  .catch(error => error)
 }
 
 export const getUser = (id) => {
@@ -59,9 +59,16 @@ export const getUser = (id) => {
       `
     })
   })
-  .then(response => response.json())
-  .then(response => console.log(response.data))
-  .catch(error => console.log(error))
+  .then(response => {
+    if(response.ok) {
+      return response.json()
+    } else {
+      throw Error
+    }
+  })
+  .catch(error => {
+    return {error: 'Something went wrong'}
+  })
 }
 
 export const getUserWithRecipes = (id) => {
@@ -247,9 +254,16 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
       `
     })
   })
-  .then(response => response.json())
-  .then(response => response.data)
-  .catch(error => console.log(error))
+  .then(response => {
+    if(response.ok){
+      return response.json()
+    } else {
+      throw Error
+    }
+  })
+  .catch(error => {
+    return { error: 'something went wrong' }
+  })
 }
 
 export const userSignIn = (username, password) => {
@@ -378,7 +392,9 @@ export const createRecipe = (userId, image, title, description, instructions, ch
   })
   .then(response => response.json())
   .then(response => response)
-  .catch(error => console.log(error))
+  .catch(error => {
+    return {error: 'Something went wrong please try again'}
+  })
 }
 
 export const updateRecipe = (id, image, title, description, instructions, charityId, charityName) => {

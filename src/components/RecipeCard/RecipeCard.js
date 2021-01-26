@@ -43,7 +43,7 @@ function RecipeCard(props) {
               Your Recipe
              </div>
   } else {
-    button = <div className='right-footer' onClick={updateUser()}>
+    button = <div className='right-footer'>
               <Link to={route} className='purchase-button'>Give N' Get Recipe!</Link>
              </div>
   }

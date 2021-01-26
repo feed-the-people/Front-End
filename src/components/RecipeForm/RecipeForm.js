@@ -55,7 +55,7 @@ class RecipeForm extends Component {
       })
       this.setState({viableNPOs: options})
     } else {
-
+//Indicate to a user somehow the lack of available options
     }
   }
 
@@ -207,6 +207,7 @@ class RecipeForm extends Component {
           </table>
           </center>
         </form>
+        {this.state.redirect && <Redirect to="/"/>}
         <div>
         <Footer
           path1='/recipebook'
@@ -215,7 +216,6 @@ class RecipeForm extends Component {
           label2='My Profile'
         /></div>
       </div>
-
       </div>
     )
   }
