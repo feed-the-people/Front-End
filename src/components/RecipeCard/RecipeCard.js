@@ -6,14 +6,14 @@ import { Component, Redirect } from 'react';
  let RecipeCard = (props) => {
   //This whole card needs a thorough comb over and I think we could be performing
   //way less logic and actually just look at dynamic props
-  
+
   let route = `/recipepage/${props.id}`
   let user = JSON.parse(localStorage.getItem('user'));
   let buttonText, rating;
 
-  if(user.userRecipes.find(recipe => recipe.recipeId == props.id)){
+  if(user && user.userRecipes.find(recipe => recipe.recipeId == props.id)){
     buttonText = 'Already Donated'
-  } else if (props.userId === user.id) {
+  } else if (user && props.userId === user.id) {
     buttonText = 'Your recipe'
   } else {
     buttonText = "Give N' Get Recipe"
