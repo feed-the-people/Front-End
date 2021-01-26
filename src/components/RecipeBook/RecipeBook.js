@@ -41,7 +41,7 @@ class RecipeBook extends Component {
         return (
           <RecipeCard
           key={index}
-          id={recipe.id}
+          id={recipe.recipe.id}
           recipeId={recipe.recipeId}
           image={recipe.recipe.image}
           title={recipe.recipe.title}
@@ -54,8 +54,7 @@ class RecipeBook extends Component {
     }
   }
   componentDidMount(){
-    let storage = localStorage.getItem('user')
-    let user = storage ? JSON.parse(storage) : null
+    let user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       this.getRecipeSection('recipes', user.id)
       this.getRecipeSection('userRecipes', user.id)
