@@ -84,36 +84,36 @@ class App extends Component {
       <BrowserRouter>
       {/*Do we want to refactor all routes to include a render?*/}
       {/*Escelate the BrowserRouter to the index.js level?*/}
+      <div className="App">
       <Switch>
-        <div className="App">
-          <Route path='/signin'>
+          <Route exact path='/signin'>
             <SignInPage />
           </Route>
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignUpPage />
           </Route>
           <Route
-             path='/recipepage/:recipeId'
+             exact path='/recipepage/:recipeId'
              render={({match})=>{
                const recipeId = match.params.recipeId
                return (
                  <RecipePage id={recipeId} />
                )
            }}/>
-          <Route path='/profilepage'>
+          <Route exact path='/profilepage'>
             <ProfilePage />
           </Route>
-          <Route path='/recipebook'>
+          <Route exact path='/recipebook'>
             <RecipeBook />
           </Route>
-          <Route path='/recipeform'>
+          <Route exact path='/recipeform'>
             <RecipeForm />
           </Route>
           <Route exact path='/'>
             <MainPage allRecipes={this.state.allRecipes} loading={this.state.loading}/>
           </Route>
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       </BrowserRouter>
     );
   }
