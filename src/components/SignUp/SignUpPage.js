@@ -35,9 +35,9 @@ class SignUpPage extends Component {
         this.state.city &&
         this.state.state &&
         this.state.zip) {
-      return true
-    } else {
       return false
+    } else {
+      return true
     }
   }
 
@@ -73,53 +73,93 @@ class SignUpPage extends Component {
     return (
       <div className="SignUpPage">
         <div className='action-area'>
-          <h1>Welcome to Feed The People</h1>
-          <p>We need a little information from you below to make an account of
-          your own and join our community!</p><br/>
+          <h1 data-testid='title'>Welcome to Feed The People</h1>
+          <p data-testid='tag-line'>We need a little information from you below to make an account of
+          your own and join our community!</p>
           <form className='SignUp-form'>
             <table id="simple-board">
               <tr id="row0">
-                <td id="cell0-0"><label>Username</label></td>
-                <td id="cell0-1"><input className='username'type='text' onChange={this.updateInput}/></td>
+                <td id="cell0-0">
+                  <label>
+                    Username
+                    <input className='username'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row1">
-                <td id="cell1-0"><label>Password</label></td>
-                <td id="cell1-1"><input className='password' type='text' onChange={this.updateInput}/></td>
+                <td id="cell1-0">
+                <label>
+                  Password
+                  <input className='password' type='text' onChange={this.updateInput}/>
+                </label>
+                </td>
               </tr>
               <tr id="row2">
-                <td id="cell2-0"><label>Image URL</label></td>
-                <td id="cell2-1"><input className='image'type='text' onChange={this.updateInput}/></td>
+                <td id="cell2-0">
+                  <label>
+                    Image URL
+                    <input className='image' type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row3">
-                <td id="cell3-0"><label>First Name</label></td>
-                <td id="cell3-1"><input className='firstName'type='text' onChange={this.updateInput}/></td>
+                <td id="cell3-0">
+                  <label>
+                    First Name
+                    <input className='firstName'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row4">
-                <td id="cell4-0"><label>Last Name</label></td>
-                <td id="cell4-1"><input className='lastName'type='text' onChange={this.updateInput}/></td>
+                <td id="cell4-0">
+                  <label>
+                    Last Name
+                    <input className='lastName'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row5">
-                <td id="cell5-0"><label>Email</label></td>
-                <td id="cell5-1"><input className='email'type='email' onChange={this.updateInput}/></td>
+                <td id="cell5-0">
+                  <label>
+                    Email
+                    <input className='email'type='email' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row6">
-                <td id="cell6-0"><label>Street</label></td>
-                <td id="cell6-1"><input className='street'type='text' onChange={this.updateInput}/></td>
+                <td id="cell6-0">
+                  <label>
+                    Street
+                    <input className='street'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row7">
-                <td id="cell7-0"><label>City</label></td>
-                <td id="cell7-1"><input className='city'type='text' onChange={this.updateInput}/></td>
+                <td id="cell7-0">
+                  <label>
+                    City
+                    <input className='city'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row8">
-                <td id="cell8-0"><label>State</label></td>
-                <td id="cell8-1"><input className='state'type='text' onChange={this.updateInput}/></td>
+                <td id="cell8-0">
+                  <label>
+                    State
+                    <input className='state'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
               <tr id="row9">
-                <td id="cell9-0"><label>Zip</label></td>
-                <td id="cell9-1"><input className='zip'type='text' onChange={this.updateInput}/></td>
+                <td id="cell9-0">
+                  <label>
+                    Zip Code
+                    <input className='zip'type='text' onChange={this.updateInput}/>
+                  </label>
+                </td>
               </tr>
             </table>
-            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
+            <br/><button data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
           </form>
         </div>
         <Footer
