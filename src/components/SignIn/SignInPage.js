@@ -55,22 +55,24 @@ class SignInPage extends Component {
         <form>
           <center>
             <table id="simple-board">
-              <tr id="row0">
-                <td id="cell0-0">
-                  <label>
-                    Username
-                    <input type='text' onChange={this.updateInput} className='username'/>
-                  </label>
-                </td>
-              </tr>
-              <tr id="row1">
-                <td id="cell1-0">
-                  <label>
-                    Password
-                    <input type='password' onChange={this.updateInput} className='password'/>
-                  </label>
-                </td>
-              </tr>
+              <tbody>
+                <tr id="row0">
+                  <td id="cell0-0">
+                    <label>
+                      Username
+                      <input type='text' onChange={this.updateInput} className='username'/>
+                    </label>
+                  </td>
+                </tr>
+                <tr id="row1">
+                  <td id="cell1-0">
+                    <label>
+                      Password
+                      <input type='password' onChange={this.updateInput} className='password'/>
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <br/><button data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
           </center>
