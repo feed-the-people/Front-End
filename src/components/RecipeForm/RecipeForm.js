@@ -1,5 +1,4 @@
 import './RecipeForm.css'
-import {Link} from 'react-router-dom'
 import { Component, Redirect } from 'react';
 import { searchNonProfits, createRecipe } from '../../APICalls.js'
 import Footer from '../Footer/Footer'
@@ -116,96 +115,45 @@ class RecipeForm extends Component {
         <p data-testid='formInstructions'>We need a little information from you below to make a recipe and
         connect it to a non profit organization you want to support!</p><br/>
         <form data-testid='form'>
-        <center>
-          <table id="simple-board">
-            <tr id="row0">
-              <tr id="sub-row0">
-                <td id="cell0-0">
-                  <label>
-                    Recipe Name<br/>
-                    <input className='title' size='65' type='text' onChange={this.updateInput}/>
-                  </label>
-                </td>
-              </tr>
-            </tr>
-            <tr id="row1">
-              <tr id="sub-row1">
-                <td id="cell1-0">
-                  <label>
-                    Recipe Image URL<br/>
-                    <input className='image' size='65' type='text' onChange={this.updateInput}/>
-                  </label>
-                </td>
-                <td id="cell1-1"></td>
-              </tr>
-            </tr><br/>
-            <tr id="row2">
-              <td id="cell2-0">
-                <label>
-                  Recipe Description<br/>
-                  <textarea className='description' rows='10' cols='60' type='text' onChange={this.updateInput}/>
-                </label>
-              </td>
-            </tr>
-            <tr id="row3">
-              <td id="cell3-0">
-                <label>
-                  <br/>Recipe Instructions<br/>
-                  <textarea className='instructions' rows='10' cols='60' type='text' onChange={this.updateInput}/>
-                </label>
-              </td>
-            </tr>
-            <center>
-            <tr id="row4">
-              <td id="cell4-0">
-                <label>
-                  <br/><h2>Ingredient List</h2><br/>
-                </label>
-              </td>
-            </tr>
-            <tr id="row5">
-              <td id="cell5-0">
-                { this.buildIngredientsList() }
-              </td>
-            </tr>
-            <br/>
-            <tr id="row6">
-              <td id="cell6-0">
-                <tr id="sub-row6-0">
-                  <td><label>Ingredient Name</label></td>
-                  <td><input className='workingIngredient' type='text' onChange={this.updateInput}/></td>
-                </tr>
-                <tr id="sub-row6-1">
-                  <td><label>Ingredient Amount</label></td>
-                  <td><input className='workingAmount' type='text' onChange={this.updateInput}/></td>
-                </tr>
-                  <br/><button type='submit' onClick={this.addIngredient}>Add Ingredient</button>
-              </td>
-            </tr>
-            <tr id="row4">
-              <td id="cell4-0">
-                <label>
-                  <br/><h2>Non-Profit Organization Search</h2><br/>
-                  <label>
-                    Enter Search Term
-                    <input className='NPO' type='text' onChange={this.searchNPOS}/><br/><br/>
-                  </label>
-                </label>
-              </td>
-            </tr>
-            <tr id="row5">
-              <td id="cell5-0">
-                <label>
-                  Select from search results:
-                  {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
-                </label>
-              </td>
-            </tr>
-            <br/>
-            <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm}> Submit My Recipe </button>
-            </center>
-          </table>
-          </center>
+          <label>
+            Recipe Name
+            <input className='title' size='65' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            Recipe Image URL
+            <input className='image' size='65' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            Recipe Description
+            <textarea className='description' rows='10' cols='60' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            Recipe Instructions
+            <textarea className='instructions' rows='10' cols='60' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>
+            <h2>Ingredient List</h2>
+          </label>
+          { this.buildIngredientsList() }
+          <label>Ingredient Name
+            <input className='workingIngredient' type='text' onChange={this.updateInput}/>
+          </label>
+          <label>Ingredient Amount
+            <input className='workingAmount' type='text' onChange={this.updateInput}/>
+          </label>
+          <button type='submit' onClick={this.addIngredient}>Add Ingredient</button>
+          <div>
+            <h2>Non-Profit Organization Search</h2>
+            <label>
+              Enter Search Term
+              <input className='NPO' type='text' onChange={this.searchNPOS}/>
+            </label>
+          </div>
+          <label>
+            Select from search results:
+            {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
+          </label>
+          <button type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm}> Submit My Recipe </button>
         </form>
         {this.state.redirect && <Redirect to="/"/>}
         <div>
