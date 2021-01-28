@@ -1,4 +1,4 @@
-import './MainPage.css';
+import './MainPage.scss';
 import profile from '../../icons/user-icon.svg'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import {Link} from 'react-router-dom'

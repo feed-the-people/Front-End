@@ -1,4 +1,4 @@
-import './RecipeCard.css';
+import './RecipeCard.scss';
 import {Link} from 'react-router-dom'
 import { getUser } from '../../APICalls.js'
 import { Component, Redirect } from 'react';

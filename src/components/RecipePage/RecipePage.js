@@ -1,4 +1,4 @@
-import './RecipePage.css';
+import './RecipePage.scss';
 import { Component } from 'react';
 import CallToAction from '../CallToAction/CallToAction.js'
 import PurchaseModal from '../PurchaseModal/PurchaseModal.js'

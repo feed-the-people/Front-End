@@ -1,4 +1,4 @@
-import './RecipeBook.css';
+import './RecipeBook.scss';
 import { Component } from 'react';
 import {Link} from 'react-router-dom'
 import RecipeCard from '../RecipeCard/RecipeCard'

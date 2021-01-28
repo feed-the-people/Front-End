@@ -1,4 +1,4 @@
-import './Profile.css'
+import './Profile.scss'
 import {Link} from 'react-router-dom'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import globalIcon from '../../icons/global.svg'
@@ -13,7 +13,7 @@ function Profile() {
         <h1 data-testid='welcomeMessage'>{`Welcome Back ${user.firstName}! `}</h1>
         <div className='whoYouAre'>
           <label>
-            <h3>Name: </h3> 
+            <h3>Name: </h3>
             <p data-testid='name'>{user.firstName} {user.lastName}</p>
           </label>
           <br/>

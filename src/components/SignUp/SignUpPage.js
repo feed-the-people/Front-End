@@ -1,4 +1,4 @@
-import './SignUpPage.css'
+import './SignUpPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'

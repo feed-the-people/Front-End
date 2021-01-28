@@ -1,4 +1,4 @@
-import './RecipeForm.css'
+import './RecipeForm.scss'
 import {Link} from 'react-router-dom'
 import { Component, Redirect } from 'react';
 import { searchNonProfits, createRecipe } from '../../APICalls.js'

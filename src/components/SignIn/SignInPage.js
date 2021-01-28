@@ -1,4 +1,4 @@
-import './SignInPage.css'
+import './SignInPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import Footer from '../Footer/Footer'
