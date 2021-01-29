@@ -1,17 +1,28 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
 
 .CallToAction {
   width: 100vw;
   height: 100vh;
-  color: hsl(0, 0%, 24%)
+  display: flex;
+  justify-content: center;
 }
 
 .action-items {
-  height: 88vh;
-  width: 100vw;
+  background-color: $bodyWarmLight;
+  height: 30vh;
+  width: 60vh;
+  padding: 5vh;
+  margin-top: 20vh;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  border-radius: 10vw;
+  opacity: 90%;
+  box-shadow: 7px 7px 10px 0px $bodyWarmDark;
 }
 
 .prompt {
@@ -19,15 +30,9 @@
 }
 
 .options {
-  text-decoration: none;
-  font-size: 1.5rem;
-  background-color: hsl(105, 30%, 68%);
-  color: hsl(0, 10%, 90%);
-  margin: 1vw;
-  padding: .5rem;
-  border: 5px outset hsl(0, 0%, 90%);
+  @include button($bodyCoolLight, $bodyCoolDark);
 }
 
-.options:hover {
-  border: 5px inset hsl(0, 0%, 90%);
+h1, p {
+  color: $bodyCoolDark;
 }
