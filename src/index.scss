@@ -1,0 +1,14 @@
+@import './_variables.scss';
+
+body {
+  background-color: $lightestShade;
+  margin: 0;
+  padding: 0;
+  font-family: $body;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: $darkestShade;
+};
