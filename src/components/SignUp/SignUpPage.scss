@@ -1,15 +1,13 @@
-.SignUnPage {
-  height: 100vh;
-  width: 100vw;
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
+.SignUpPage {
+  @include mainScreenComponent;
+  font-family: $titles;
 }
-.action-area {
-  height: 89vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: hsl(0, 0%, 24%);
-  overflow: scroll;
+.SignUp-action-area {
+  @include actionArea(80vh, 75vh, $bodyWarmLight, $bodyWarmDark);
+  margin-bottom: 10vh;
 }
 
 .SignUp-form {
@@ -17,6 +15,9 @@
   flex-direction: column;
   align-items: center;
   align-self: center;
+}
+.SignUp-submit {
+  @include button($bodyCoolLight, $bodyCoolDark);
 }
 .addressSection {
   display: flex;
@@ -27,15 +28,4 @@
 }
 .SignUpPage-footer {
   align-self: baseline;
-}
-
-button {
-  font-family: 'Lato', sans-serif;
-  background-color: hsl(105, 30%, 68%);
-  color: hsl(0, 0%, 24%);
-  font-size: 1rem;
-}
-button:disabled {
-  opacity: .5;
-  font-size: 1rem;
 }
