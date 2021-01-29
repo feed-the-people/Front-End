@@ -1,38 +1,41 @@
+@import '../../_variables.scss';
+
 .Footer {
   width: 100vw;
-  height: 8vh;
+  height: 10vh;
   left: 0;
   bottom: 0;
   position: fixed;
-  background-color: hsl(127, 18%, 71%);
-  color: hsl(0, 0%, 24%);
-  font-family: 'Josefin Sans', sans-serif;
+  background-color: $bodyWarmDark;
+  font-family: $titles;
+  font-weight: bolder;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  border-top: 5px double hsl(127, 30%, 82%);
 }
 .nav {
+  font-size: 1.5rem;
   text-decoration: none;
-  margin: 1vh;
-  color: hsl(0, 0%, 24%);
+  margin: 2vh 1vh 1vh 1vh;
+  color: $bodyCoolDark;
 }
 .nav:hover {
   text-decoration: line-through;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
+  color: $bodyCoolLight;
 }
 .logo {
-  font-size: 1.5rem;
-  font-family: 'Josefin Sans', sans-serif;
-  color: hsl(0, 0%, 24%);
+  font-size: 2rem;
+  font-family: $logo;
   text-decoration: none;
+  color: $bodyCoolDark;
   margin: .5vh .5vh .5vh 1.5vh;
 }
 
-a:hover {
+.logo:hover {
   text-decoration: none;
-  color: hsl(127, 18%, 45%);
-  font-size: 1.45rem;
+  color: $bodyCoolLight;
+  font-size: 1.95rem;
 }

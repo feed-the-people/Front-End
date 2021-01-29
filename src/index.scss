@@ -12,3 +12,13 @@ body {
   padding: 0;
   color: $darkestShade;
 };
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
