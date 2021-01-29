@@ -84,8 +84,8 @@ class App extends Component {
       <BrowserRouter>
       {/*Do we want to refactor all routes to include a render?*/}
       {/*Escelate the BrowserRouter to the index.js level?*/}
-      <Switch>
-        <div className="App">
+      <div className="App">
+        <Switch>
           <Route path='/signin'>
             <SignInPage />
           </Route>
@@ -112,8 +112,8 @@ class App extends Component {
           <Route exact path='/'>
             <MainPage allRecipes={this.state.allRecipes} loading={this.state.loading}/>
           </Route>
-        </div>
-      </Switch>
+          </Switch>
+      </div>
       </BrowserRouter>
     );
   }
