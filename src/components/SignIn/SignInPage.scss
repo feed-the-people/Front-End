@@ -2,15 +2,12 @@
 @import '../../_mixins.scss';
 
 .SignInPage {
-  height: 100vh;
-  width: 100vw;
+  @include mainScreenComponent;
   font-family: $titles;
-  display: flex;
-  justify-content: center;
 }
 .SignIn-action-area {
   @include actionArea(60vh, 30vh, $bodyWarmLight, $bodyWarmDark);
-  margin-top: 20vh;
+  margin-bottom: 20vh;
 }
 
 .SignIn-prompt {

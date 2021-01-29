@@ -2,27 +2,12 @@
 @import '../../_mixins.scss';
 
 .CallToAction {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+  @include mainScreenComponent;
 }
 
 .action-items {
-  background-color: $bodyWarmLight;
-  height: 30vh;
-  width: 60vh;
-  padding: 5vh;
-  margin-top: 20vh;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 10vw;
-  opacity: 90%;
-  box-shadow: 7px 7px 10px 0px $bodyWarmDark;
+  @include actionArea(60vh, 30vh, $bodyWarmLight, $bodyWarmDark);
+  margin-bottom: 20vh;
 }
 
 .prompt {
