@@ -9,7 +9,7 @@ class Checkout extends Component {
       <StripeProvider apiKey='pk_test_51IDZLVHyOviPik31o3iZFPcNqS7Xg1JmtRSI3KXsU1PQ5HdeB2rO7vjDOicodik6i2MxhkOmNgY78Tsf6mqNnT5A00g5e0eoTK'>
       <div className='checkout'>
         <Elements>
-          <CheckoutForm />
+          <CheckoutForm {...this} />
         </Elements>
       </div>
       </StripeProvider>

@@ -24,10 +24,9 @@ class CheckoutForm extends Component {
 
   submit = async (e) => {
     e.preventDefault()
-    console.log(e, 'E')
     let user = JSON.parse(localStorage.getItem('user'));
     let amount = this.state.amount
-    let recipeId = this.props.id
+    let recipeId = this.props.props.recipe.id
     let { token } = await this.props.stripe.createToken({ name: 'Name' });
     let { response } = await fetch('http://localhost:8000/charges', {
       method: 'POST',
