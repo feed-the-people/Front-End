@@ -44,7 +44,7 @@ class RecipePage extends Component {
     let amount = e.target.parentElement.firstChild.lastChild.value
     let recipeId = this.props.id
     let response = await getAccessToRecipe(user.id, recipeId, amount)
-    this.setState({purchased: true})
+    this.setState({ purchased: true })
   }
   buildIngredients = () => {
     let list = this.state.recipe.ingredients.map(ingredient => {
@@ -114,12 +114,6 @@ class RecipePage extends Component {
       return (
       <div className="RecipePage">
       {!this.state.purchased && <Checkout donate={this.donate} recipe={this.state.recipe}/>}
-      <header className="RecipePage-header">
-      <h1> Recipe Page </h1>
-      </header>
-      <section className="recipe-section">
-      <h3>Loading...</h3>
-      </section>
       <Footer
         path1='/recipebook'
         path2='/profilepage'
