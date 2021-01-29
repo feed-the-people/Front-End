@@ -1,38 +1,51 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
 .SignInPage {
   height: 100vh;
   width: 100vw;
-}
-.action-area {
-  height: 88vh;
+  font-family: $titles;
   display: flex;
-  flex-direction: column;
-  color: hsl(0, 0%, 24%);
+  justify-content: center;
+}
+.SignIn-action-area {
+  @include actionArea(60vh, 30vh, $bodyWarmLight, $bodyWarmDark);
+  margin-top: 20vh;
 }
 
-form {
+.SignIn-prompt {
+  font-size: 1.6rem;
+}
+
+.SignIn-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 30vw;
-  margin: 20vh;
   align-self: center;
 }
-
+label {
+  color: $bodyCoolDark;
+}
 input {
   margin: 1vh;
+  height: 1.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  color: $bodyCoolDark;
+  border: none;
+  padding-left: .5rem;
+  background-color: $lightestShade;
 }
 
-button {
-  font-family: 'Lato', sans-serif;
-  background-color: hsl(105, 30%, 68%);
-  color: hsl(0, 0%, 24%);
-  font-size: 1rem;
+input:focus {
+  border: none;
+  outline: none;
 }
-button:hover {
-  font-size: 1.1rem;
-}
-button:disabled {
-  opacity: .5;
+
+.SignIn-button {
+  @include button($bodyCoolLight, $bodyCoolDark);
+  padding: .2rem;
 }
 
 .SignInPage-footer {
