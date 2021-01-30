@@ -1,142 +1,68 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
 .RecipeCard {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 45vw;
-  height: 45vh;
-  padding: 1vh;
-  margin: 2.5vh;
-  background-color: hsla(0, 31%, 88%, .25);
-  box-shadow: 10px 5px 5px hsla(0, 0%, 24%, .15);
-}
-
-.left-section {
-  margin: .25vw;
-  border: 1px solid hsl(105, 30%, 68%);
-  height: 43vh;
-  width: 28vw;
   flex-direction: column;
-  overflow: scroll;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 45vw;
+  height: 60vh;
+  margin: 2.5vh;
+  border-radius: 5vw;
+  background-color: $accentCool;
+  box-shadow: 10px 10px 5px 2px $bodyWarmLight;
 }
 
-.leftHeader {
-  color: hsl(0, 0%, 24%);
-  height: 3vh;
+.RecipeCard-header {
+  width: 45vw;
+  height: 15%;
+  position: relative;
+  background-color: $accentCool;
+  border-radius: 5vw 5vw 0 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  background-color: hsl(0, 10%, 90%);
-  width: 28vw;
-  border-bottom: 1px solid hsl(105, 30%, 68%);
-  text-align: center;
+  z-index: 10;
 }
-
-
-.recipe-name {
-  margin: 0;
-  text-align: center;
+.RecipeCard-name {
+  color: $bodyCoolDark;
+  margin-left: 2vw;
+  font-family: $titles;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
-
-.recipe-image {
-  position: relative;
-  z-index: 1;
-  height: 43vh;
-  width: 28vw;
-  margin: 0;
-  padding: 0;
+.RecipeCard-rating{
+  margin-right: 2vw;
 }
-
-.right-section {
-  margin: .25vw;
-  border: 1px solid hsl(105, 30%, 68%);
-  width: 16vw;
-  height: 43vh;
-}
-
-.star-rating {
-  border-bottom: 1px solid hsl(105, 30%, 68%);
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  justify-content: center;
-  font-size: auto;
-  width: 16vw;
-  height: 4vh;
-}
-
-.recipe-rating {
-  align-self: center;
-  font-size: 1rem;
-  margin: .5vh;
-  color: hsl(0, 0%, 24%);
-}
-
-.details {
-  margin: 0;
-  width: 16vw;
-  height: 26vh;
-}
-
-.recipe-story {
-  margin: 1vh;
+.bottom-section{
   overflow: scroll;
-  font-family: 'Lato', sans-serif;
-  height: 20vh;
-  color: hsl(0, 0%, 24%);
+  align-self: flex-start;
+  position: relative;
+  border-radius: 0 0 5vw 5vw;
+  padding-bottom: 2vw;
+  font-family: $body;
 }
-
-.donation-blurb {
-  margin: 1vh;
-  font-family: 'Lato', sans-serif;
-  color: hsl(0, 0%, 24%);
+.RecipeCard-image {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
 }
 
 .nonprofit-name {
-  text-align: center;
-  border-bottom: 1px solid hsl(105, 30%, 68%);
-  border-top: 1px solid hsl(105, 30%, 68%);
-  padding: 1vh;
-  margin: 0;
-  font-size: 1rem;
-  overflow: scroll;
-  max-height: 2vh;
-  color: hsl(0, 0%, 24%);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $titles;
+  color: $accentWarm;
+  margin: 1vw 2vw 1vw 2vw;
 }
 
-.right-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid hsl(105, 30%, 68%);
-  height: 7vh;
+.RecipeCard-story {
+  margin: 1vw 2vw 4vw 2vw;
 }
 
-.purchase-button {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  background: none;
-  width: 70%;
-  background-color: hsl(127, 18%, 71%);
-  border: 5px outset hsl(105, 30%, 68%);
-  text-decoration: none;
-  color: hsl(0, 0%, 24%);
-  text-align: center;
-  align-self: center;
-  margin: .25vh;
-  height: 5vh;
-  justify-content: center;
-}
-
-.purchase-button:hover {
-  font-size: 1rem;
-  color: hsl(105, 0%, 24%);
-  border: 5px inset hsl(105, 30%, 68%);
+.purchase-button{
+  @include button($bodyWarmLight, $bodyCoolDark);
+  margin-left: 15vw;
 }
