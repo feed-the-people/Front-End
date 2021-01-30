@@ -1,17 +1,26 @@
+@import '../../_variables.scss';
+
 .Profile {
   width: 100vw;
   height: 100vh;
+  background-color: $lightestShade;
 }
 
- .profileInfo {
-   justify-content: center;
-   display: inline-block;
-   align-items: center;
-   text-align: center;
-   height: 78vh;
-   width: 60vw;
-   margin: 2vw 20vw 2vw 20vw;
-   box-shadow: 10px 5px 5px hsla(0, 0%, 24%, .15);
-   font-family: 'Lato', sans-serif;
-   border: 10px double hsl(127, 18%, 71%);
- }
+.profileInfo {
+ justify-content: center;
+ display: inline-block;
+ align-items: center;
+ text-align: center;
+ height: 78vh;
+ width: 60vw;
+ margin: 2vw 20vw 2vw 20vw;
+ box-shadow: 10px 5px 5px hsla(0, 0%, 24%, .15);
+ font-family: 'Lato', sans-serif;
+ border: 10px double $accentCool;
+ border-radius: 2vw;
+ background-color: hsl(49, 87%, 69%, .5);
+}
+
+.profile-image {
+  border-radius: 100%;
+}

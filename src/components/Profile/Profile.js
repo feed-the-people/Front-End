@@ -21,7 +21,7 @@ function Profile() {
             <h3>Username:</h3>
             <p data-testid='username'>{user.username}</p>
           </label>
-          <img data-testid='profileImg' src={user.image}/>
+          <img className='profile-image' data-testid='profileImg' src={user.image}/>
         </div>
         <label>
           <h3>Email:</h3>
@@ -37,9 +37,9 @@ function Profile() {
       </section>
       <Footer
         path1='/recipebook'
-        path2='/profilepage'
+        path2='/'
         label1="My Recipe Book"
-        label2='My Profile'
+        label2='Take Me Back'
         className='Profile-Footer'
       />
     </div>
