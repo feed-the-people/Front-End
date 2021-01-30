@@ -25,7 +25,7 @@ class CheckoutForm extends Component {
     let amount = this.state.amount
     let recipeId = this.props.props.recipe.id
     let { token } = await this.props.stripe.createToken({ name: 'Name' });
-    let { response } = await fetch('http://localhost:8000/charges', {
+    let { response } = await fetch('https://feed-the-people-api.herokuapp.com/charges', {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json'
