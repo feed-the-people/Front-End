@@ -1,6 +1,4 @@
 .CheckoutForm {
-  height: 100vh;
-  width: 100vw;
   background-color: hsla(105, 30%, 68%, .9);
   align-self: flex-start;
   position: fixed;
@@ -24,14 +22,31 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 30px;
 }
 
-form {
-  margin: 2vh;
-  height: auto;
-  display: flex;
-  flex-direction: row;
+.StripeElement {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  border-radius: 5px;
+  width: 60%;
 }
+
+.donation-box {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.donation-box-amount {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: inherit;
+}
+
 h2 {
   margin-top: 2vh;
 }

@@ -1,4 +1,4 @@
-// import './CheckoutForm.css';
+import './CheckoutForm.css';
 import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { getAccessToRecipe } from '../../APICalls.js'
@@ -8,18 +8,15 @@ class CheckoutForm extends Component {
     super(props);
 
     this.state = {
-        amount : 0
+        amount : 0,
+        complete: false
     };
 
     this.handleAmountChange = this.handleAmountChange.bind(this);
   }
 
-  state = {
-    complete: false
-  }
-
   handleAmountChange(e) {
-    this.setState({amount: e.target.value});
+    this.setState({ amount: e.target.value });
   }
 
   submit = async (e) => {
@@ -45,12 +42,10 @@ class CheckoutForm extends Component {
 
     let result = await getAccessToRecipe(user.id, recipeId, amount)
     this.setState({ complete: true })
-    this.setState({ purchased: true }) // not setting state for RecipePage
+    window.location.reload()
   }
 
   render() {
-    if (this.state.complete) return <h1>Donation Complete!</h1>
-
     return (
       <section className='CheckoutForm'>
         <div className='purchase-box'>
@@ -59,14 +54,12 @@ class CheckoutForm extends Component {
           <p> The creator of this recipe choose to donations for this recipe go to a none profit.</p>
           <p> Please make a donation bellow of at least one dollar, but as much as you would like to get full access to this recipe!</p><br/><br/>
 
-          <div className='checkout'>
-            <label>
-              Donation Amount
-              <input type="number" min="1.00" step="0.01" placeholder="$1.25" onChange={this.handleAmountChange} /><br/>
+          <label class='donation-box'>
+            Donation Amount
+            <input class='donation-box-amount' type="number" min="1.00" step="0.01" placeholder="$1.25" onChange={this.handleAmountChange} /><br/>
             </label>
-            <CardElement /><br/>
-            <button onClick={this.submit}> Donate! </button>
-          </div>
+          <CardElement /><br/>
+          <button onClick={this.submit}> Donate! </button>
         </div>
       </section>
     )
