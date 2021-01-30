@@ -1,0 +1,52 @@
+.CheckoutForm {
+  background-color: hsla(105, 30%, 68%, .9);
+  align-self: flex-start;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+}
+
+.purchase-box {
+  height: 40vh;
+  width: 50vw;
+  position: fixed;
+  background-color: hsl(0, 31%, 88%);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.StripeElement {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.donation-box {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.donation-box-amount {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: inherit;
+}
+
+h2 {
+  margin-top: 2vh;
+}
