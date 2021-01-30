@@ -87,14 +87,24 @@ class SignUpPage extends Component {
           </label>
           <label>
             Image
-            <input className='image'type='text' onChange={this.updateInput}/>
-            <ImageUploader
+            <input id="file" type='file'
+              name="picture"
+              accept="image/*"
+              multiple="false"
+              onChange={this.changeHandler}/>
+              <br/>
+              {this.state.selectedFile ?
+              <><img id="photo-preview" src={this.filePreview()}></img><br/>
+              <input type="submit" value="Upload"></input></>
+              
+            : null}
+            {/* <ImageUploader
               withIcon={true}
               buttonText='Choose images'
               onChange={[this.onDrop, this.updateInput]}
               imgExtension={['.jpg', '.gif', '.png', '.gif']}
               maxFileSize={5242880}
-            />
+            /> */}
           </label>
           <label>
             First Name
