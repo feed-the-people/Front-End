@@ -52,8 +52,10 @@ import StarRatingComponent from 'react-star-rating-component';
         </Link>
         <h3 className='nonprofit-name' data-testid='NPO'>{'Donations go to: ' + charityName}</h3>
         <p className='RecipeCard-story' data-testid='recipeStory'>{props.description}</p>
-        <Link to={route} className='purchase-button'>{buttonText}</Link>
       </section>
+      <footer className='RecipeCard-footer'>
+        <Link to={route} className='purchase-button'>{buttonText}</Link>
+      </footer>
     </section>
   );
 }
