@@ -1,20 +1,40 @@
 .SignInPage {
+  height: 100vh;
+  width: 100vw;
+}
+.action-area {
+  height: 88vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  color: hsl(0, 0%, 24%);
 }
+
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  height: 20vh;
   width: 30vw;
   margin: 20vh;
   align-self: center;
 }
+
+input {
+  margin: 1vh;
+}
+
+button {
+  font-family: 'Lato', sans-serif;
+  background-color: hsl(105, 30%, 68%);
+  color: hsl(0, 0%, 24%);
+  font-size: 1rem;
+}
+button:hover {
+  font-size: 1.1rem;
+}
+button:disabled {
+  opacity: .5;
+}
+
 .SignInPage-footer {
   align-self: baseline;
 }

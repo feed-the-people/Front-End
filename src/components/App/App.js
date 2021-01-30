@@ -1,3 +1,5 @@
+// do we want to determine an code best practices for import order and placement?
+
 import './App.css';
 import { Component } from 'react';
 import MainPage from '../MainPage/MainPage'
@@ -8,6 +10,8 @@ import ProfilePage from '../ProfilePage/ProfilePage'
 import RecipeBook from '../RecipeBook/RecipeBook'
 import RecipeForm from '../RecipeForm/RecipeForm'
 // working
+//Which imports do we actually need here?
+//Do we actually need all of these calls?
 import { getAllRecipes } from '../../APICalls.js'
 import { getUserWithRecipes } from '../../APICalls.js'
 import { recipeById } from '../../APICalls.js'
@@ -21,6 +25,7 @@ import { userSignIn } from '../../APICalls.js'
 import { createRecipe } from '../../APICalls.js'
 
 // Need autopopulated form
+// Good to know this is functionality we still need.
 import { updateUser } from '../../APICalls.js'
 import { updateIngredient } from '../../APICalls.js'
 import { updateRecipe } from '../../APICalls.js'
@@ -33,6 +38,9 @@ import {
 } from "react-router-dom";
 
 class App extends Component {
+  //How could we refactor this using hoooks?
+  //Are we using all of these states?
+  //Do we want to impliment prop types?
   constructor(props) {
     super(props);
     this.state = {
@@ -74,6 +82,8 @@ class App extends Component {
 
     return (
       <BrowserRouter>
+      {/*Do we want to refactor all routes to include a render?*/}
+      {/*Escelate the BrowserRouter to the index.js level?*/}
       <Switch>
         <div className="App">
           <Route path='/signin'>

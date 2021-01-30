@@ -1,21 +1,16 @@
 .RecipeForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 90vh;
+  overflow: auto;
 }
 
 form {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   margin: 0;
   padding: 0;
-}
-
-footer {
-  margin-top: 4vh;
-  align-self: flex-end;
 }
 
 .ingredientBox {
@@ -24,4 +19,8 @@ footer {
   background-color: black;
   height: 1.2rem;
   width: auto;
+}
+
+.label {
+  display: inline-block;
 }

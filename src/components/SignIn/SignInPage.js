@@ -1,6 +1,7 @@
 import './SignInPage.css'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
+import Footer from '../Footer/Footer'
 
 import { userSignIn } from '../../APICalls.js'
 
@@ -13,7 +14,8 @@ class SignInPage extends Component {
       redirect: false
     }
   }
-
+  //refactor to include hooks
+  //Look at how best to handle this redirect
 
   disableForm() {
     if (this.state.username &&
@@ -48,22 +50,31 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
-      <h1> Welcome Back! Sign In Below: </h1>
+      <div className='action-area'>
+        <h1 data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
         <form>
-          <label>
-            username
-            <input type='text' onChange={this.updateInput} className='username'/>
-          </label>
-          <label>
-            password
-            <input type='password' onChange={this.updateInput} className='password'/>
-          </label>
-          <button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          <center>
+            <table id="simple-board">
+              <tr id="row0">
+                <td id="cell0-0"><label>Username</label></td>
+                <td id="cell0-1"><input type='text' onChange={this.updateInput} className='username'/></td>
+              </tr>
+              <tr id="row1">
+                <td id="cell1-0"><label>Password</label></td>
+                <td id="cell1-1"><input type='password' onChange={this.updateInput} className='password'/></td>
+              </tr>
+            </table>
+            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          </center>
         </form>
-        {this.state.redirect && <Redirect to="/profilepage"/>}
-        <footer className="SignInPage-footer">
-          <Link to='/'><button> Take Me Back </button></Link>
-        </footer>
+      </div>
+      {this.state.redirect && <Redirect to="/profilepage"/>}
+      <Footer
+      path1='/signup'
+      path2='/'
+      label1='Sign Up'
+      label2="Take Me Back"
+      />
       </div>
     );
   }

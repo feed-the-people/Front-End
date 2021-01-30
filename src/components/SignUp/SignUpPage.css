@@ -1,18 +1,21 @@
 .SignUnPage {
+  height: 100vh;
+  width: 100vw;
+}
+.action-area {
+  height: 89vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  color: hsl(0, 0%, 24%);
+  overflow: scroll;
 }
-form {
+
+.SignUp-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  height: 20vh;
-  width: 30vw;
-  margin: 20vh;
   align-self: center;
 }
 .addressSection {
@@ -24,4 +27,15 @@ form {
 }
 .SignUpPage-footer {
   align-self: baseline;
+}
+
+button {
+  font-family: 'Lato', sans-serif;
+  background-color: hsl(105, 30%, 68%);
+  color: hsl(0, 0%, 24%);
+  font-size: 1rem;
+}
+button:disabled {
+  opacity: .5;
+  font-size: 1rem;
 }

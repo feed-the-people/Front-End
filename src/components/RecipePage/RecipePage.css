@@ -1,0 +1,105 @@
+.RecipePage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-section {
+  margin: .25vw;
+  border: 1px solid hsl(105, 30%, 68%);
+  overflow: scroll;
+  float: left;
+}
+
+.leftHeader {
+  color: hsl(0, 0%, 24%);
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(0, 10%, 90%);
+  width: 28vw;
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  text-align: center;
+}
+
+.ingredientHeader {
+  color: hsl(0, 0%, 24%);
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(0, 10%, 90%);
+  width: 28vw;
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  text-align: center;
+}
+
+.instructionsHeader {
+  color: hsl(0, 0%, 24%);
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(0, 10%, 90%);
+  width: 28vw;
+  border-bottom: 1px solid hsl(105, 30%, 68%);
+  text-align: center;
+  white-space: pre-line;
+}
+
+.recipe-name {
+  margin: 0;
+  text-align: center;
+}
+
+.recipe-image {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.right-section {
+  margin: .25vw;
+  border: 1px solid hsl(105, 30%, 68%);
+  width: 16vw;
+  height: 43vh;
+  float: left;
+}
+
+
+.details {
+  margin: 0;
+  width: 16vw;
+  height: 26vh;
+}
+
+.instructions-section {
+  margin: 1vh;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  height: 20vh;
+  color: hsl(0, 0%, 24%);
+}
+
+.ingredients-section {
+  margin: 1vh;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  height: 20vh;
+  color: hsl(0, 0%, 24%);
+}

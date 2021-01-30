@@ -4,25 +4,28 @@ import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
 
+//UNIT TESTS
+//Test that a loading message renders
+//Test and Mock the global recipes displayed
+//Test and Mock error handling
 
-test('main page renders', () => {
-  render(
-    <MemoryRouter>
-      <MainPage />
-    </MemoryRouter>
-  );
-  const profileNav = screen.getByTestId("profileicon");
-  const recipeNav = screen.getByTestId("recipebookicon");
-  expect(profileNav).toBeInTheDocument();
-  expect(recipeNav).toBeInTheDocument();
-});
+test('MainPage renders', () => {
+//   render(
+//     <MemoryRouter>
+//       <MainPage allRecipes={allRecipes} loading={false}/>
+//     </MemoryRouter>
+//   );
+//   const mainPage = screen.getByTestId('mainPage')
+//   expect(mainPage).toBeInTheDocument();
+// })
 
-test('recipe card renders', () => {
-  render(
-    <MemoryRouter>
-      <MainPage allRecipes={allRecipes} loading={false}/>
-    </MemoryRouter>
-  );
-  const recipeName = screen.getByText('Egg Stuff')
-  expect(recipeName).toBeInTheDocument();
+//INTEGRATION TESTS
+// test('RecipeCard renders', () => {
+//   render(
+//     <MemoryRouter>
+//       <MainPage allRecipes={allRecipes} loading={false}/>
+//     </MemoryRouter>
+//   );
+//   const recipeName = screen.getByText('Egg Stuff')
+//   expect(recipeName).toBeInTheDocument();
 });

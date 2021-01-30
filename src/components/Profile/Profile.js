@@ -3,55 +3,46 @@ import './Profile.css'
 import {Link} from 'react-router-dom'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import globalIcon from '../../icons/global.svg'
-import ImageUploader from 'react-images-upload'
+import Footer from '../Footer/Footer'
 
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
-  console.log(user.image)
-  const [pictures, setPictures] = useState([]);
-  const onDrop = picture => {
-    setPictures([...pictures, picture]);
-  };
-
   return (
     <div className="Profile">
-      <header className="Profile-sidebar">
-        <Link to='/'><img src={globalIcon} alt='navigate to global feed'/></Link>
-        <Link to='/recipebook'><img src={recipeBook} alt='navigate to user recipe book'/></Link>
-      </header>
       <section className='profileInfo'>
-        <h1>{`Welcome back ${user.firstName}! `}</h1>
-        <h2>Your Information: </h2>
+        <h1 data-testid='welcomeMessage'>{`Welcome Back ${user.firstName}! `}</h1>
         <div className='whoYouAre'>
           <label>
-            Your Name:
-            <p>{user.firstName} {user.lastName}</p>
+            <h3>Name: </h3> 
+            <p data-testid='name'>{user.firstName} {user.lastName}</p>
           </label>
+          <br/>
           <label>
-            Your Username:
-            <p>{user.username}</p>
+            <h3>Username:</h3>
+            <p data-testid='username'>{user.username}</p>
           </label>
-          <img src={user.image} alt='the users chosen avatar' />
-          <ImageUploader
-            withIcon={true}
-            buttonText='Choose images'
-            onChange={onDrop}
-            imgExtension={['.jpg', '.gif', '.png', '.gif']}
-            maxFileSize={5242880}
-          />
+          <img data-testid='profileImg' src={user.image}/>
         </div>
         <label>
-          Your Email:
-          <p>{user.email}</p>
+          <h3>Email:</h3>
+          <p data-testid='email'>{user.email}</p>
         </label>
-        <label>
-          Your address:
+        <br/>
+        <label data-testid='address'>
+          <h3>Address:</h3>
           <p>{user.street}</p>
           <p>{user.city}, {user.state}</p>
           <p>{user.zip}</p>
         </label>
       </section>
+      <Footer
+        path1='/recipebook'
+        path2='/profilepage'
+        label1="My Recipe Book"
+        label2='My Profile'
+        className='Profile-Footer'
+      />
     </div>
   );
 }

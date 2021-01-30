@@ -6,13 +6,14 @@ import RecipeBook from './RecipeBook';
 import { allRecipes } from '../../mockData.js'
 import { MemoryRouter } from 'react-router-dom';
 
-//RIGHT SO, the skeletons of the tests are here, but can't really be funcitonal until the
-//userProfile is a little more fleshed out. So I'm going to leave this here for when we can
-//use it. :]
+//Tests
+//Test that recipe books renders
+//Test that there is sad path handling for loading
+//Test that there is sad path handling for an empty list
+//Test that button to upload recipe fires
 
 //INTEGRATION TESTS
 test('uploaded recipes render', () => {
-  console.log(localStorage.getItem('user'))
 });
 
 test('purchased recipes render', () => {

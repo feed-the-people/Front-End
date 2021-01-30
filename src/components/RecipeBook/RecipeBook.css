@@ -1,26 +1,52 @@
 .RecipeBook {
   display: flex;
   flex-direction: row;
-}
-.RecipeBook-sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 100vh;
-  width: 10vw;
-  background-color: grey;
+  width: 100vw;
 }
+
 img {
   width: 6vw;
   height: 6vw;
   margin: 2vw;
 }
-section {
-  margin: 5vh 5vw 5vh 5vw;
+.recipe-column {
+  margin: 0;
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 90%);
+  width: 48vw;
+  height: 89vh;
+}
+
+.recipe-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   overflow: scroll;
-  width: 40vw;
+  padding: 0;
+  border: 5px inset hsl(0, 0%, 90%);
+}
+
+.upload-Link {
+  text-decoration: none;
+  font-size: 1rem;
+  margin: .2rem .2rem .2rem 2rem;
+  color: hsl(105, 30%, 68%);
+}
+
+.upload-Link:hover {
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+h1 {
+  margin: 1.6rem;
+}
+
+.my-recipes {
+  margin-bottom: 0;
 }
