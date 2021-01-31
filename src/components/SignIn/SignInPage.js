@@ -52,7 +52,7 @@ class SignInPage extends Component {
     return (
       <div className="SignInPage">
         <div className='SignIn-action-area'>
-          <h1 className='SignIn-prompt' data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
+          <h1 className='SignIn-title' data-testid='sign-in-title'> Welcome Back! Sign In Below: </h1>
           <form className='SignIn-form'>
               <table id="simple-board">
                 <tbody>
@@ -74,7 +74,7 @@ class SignInPage extends Component {
                   </tr>
                 </tbody>
               </table>
-              <button className='SignIn-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+              <button className='SignIn-button' data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
           </form>
         </div>
         {this.state.redirect && <Redirect to="/profilepage"/>}

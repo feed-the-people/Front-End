@@ -73,8 +73,8 @@ class SignUpPage extends Component {
     return (
       <div className="SignUpPage">
         <div className='SignUp-action-area'>
-          <h1>Welcome to Feed The People</h1>
-          <p>We need a little information from you below to make an account of
+          <h1 data-testid='title'>Welcome to Feed The People</h1>
+          <p data-testid='tag-line'>We need a little information from you below to make an account of
           your own and join our community!</p><br/>
           <form className='SignUp-form'>
             <table id="simple-board">
@@ -161,8 +161,7 @@ class SignUpPage extends Component {
                 </tr>
               </tbody>
             </table>
-            <br/><button className='SignUp-submit' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
-
+            <br/><button data-testid='submit-button' className='SignUp-submit' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
           </form>
         </div>
         <Footer

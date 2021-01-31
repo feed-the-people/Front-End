@@ -10,16 +10,19 @@ describe('RecipeCard', () => {
   it('should render all elements of the recipe card', () => {
     render(
         <MemoryRouter>
-          <RecipeCard />
+          <RecipeCard
+          title='Meat Balls'
+          image='www.image.com'
+          rating='3'
+          description='Balls of meat'
+          charityName='NYLC' />
         </MemoryRouter>);
       const recipeName = screen.getByTestId("recipe-title");
-      const rating = screen.getByTestId("recipe-rating");
       const image = screen.getByTestId("recipe-image");
-      const nonProfit = screen.getByTestId("recipe-NPO");
+      const nonProfit = screen.getByTestId("NPO");
       const recipeStory = screen.getByTestId("recipe-story");
       const recipeButton = screen.getByTestId("recipe-button");
       expect(recipeName).toBeInTheDocument();
-      expect(rating).toBeInTheDocument();
       expect(image).toBeInTheDocument();
       expect(nonProfit).toBeInTheDocument();
       expect(recipeStory).toBeInTheDocument();
@@ -37,13 +40,11 @@ describe('RecipeCard', () => {
             />
           </MemoryRouter>);
         const recipeName = screen.getByTestId("recipe-title");
-        const rating = screen.getByTestId("recipe-rating");
         const image = screen.getByTestId("recipe-image");
-        const nonProfit = screen.getByTestId("recipe-NPO");
+        const nonProfit = screen.getByTestId("NPO");
         const recipeStory = screen.getByTestId("recipe-story");
         const recipeButton = screen.getByTestId("recipe-button");
         expect(recipeName).toBeInTheDocument();
-        expect(rating).toBeInTheDocument();
         expect(image).toBeInTheDocument();
         expect(nonProfit).toBeInTheDocument();
         expect(recipeStory).toBeInTheDocument();

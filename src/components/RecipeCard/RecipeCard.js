@@ -35,9 +35,10 @@ import StarRatingComponent from 'react-star-rating-component';
   return (
     <section className="RecipeCard">
       <header className='RecipeCard-header'>
-        <h1 className='RecipeCard-name' data-testid='recipeTitle'>{props.title}</h1>
+        <h1 className='RecipeCard-title' data-testid='recipe-title'>{props.title}</h1>
         <StarRatingComponent
         className='RecipeCard-rating'
+        data-testid="recipe-rating"
         name={'average-rating'} /* name of the radio input, it is required */
         value={5} /* number of selected icon (`0` - none, `1` - first) */
         starCount={props.rating} /* number of icons in rating, default `5` */
@@ -48,13 +49,13 @@ import StarRatingComponent from 'react-star-rating-component';
       </header>
       <section className='bottom-section'>
         <Link to={route} className='image-link'>
-          <img className='RecipeCard-image' data-testid='image' src={props.image} />
+          <img className='RecipeCard-image' data-testid='recipe-image' src={props.image} />
         </Link>
         <h3 className='nonprofit-name' data-testid='NPO'>{'Donations go to: ' + charityName}</h3>
-        <p className='RecipeCard-story' data-testid='recipeStory'>{props.description}</p>
+        <p className='RecipeCard-story' data-testid='recipe-story'>{props.description}</p>
       </section>
       <footer className='RecipeCard-footer'>
-        <Link to={route} className='purchase-button'>{buttonText}</Link>
+        <Link to={route} className='full-view-button' data-testid='recipe-button'>{buttonText}</Link>
       </footer>
     </section>
   );
