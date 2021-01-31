@@ -7,6 +7,10 @@ import Footer from '../Footer/Footer'
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
+  let signOut = () => {
+    localStorage.clear()
+    window.location.reload()
+  }
   return (
     <div className="Profile">
       <section className='profileInfo'>
@@ -34,6 +38,7 @@ function Profile() {
           <p>{user.city}, {user.state}</p>
           <p>{user.zip}</p>
         </label>
+        <button className='sign-out-button' onClick={signOut}> Sign Out </button>
       </section>
       <Footer
         path1='/recipebook'
