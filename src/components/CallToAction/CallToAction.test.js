@@ -15,9 +15,13 @@ test('prompt renders', () => {
       <CallToAction />
     </MemoryRouter>);
 
-  const componentTitle = screen.getByTestId('componentTitle')
-  const prompt = screen.getByTestId('prompt')
+  const componentTitle = screen.getByTestId('cta-title')
+  const componentPrompt = screen.getByTestId('cta-prompt')
+  const componentSignIn = screen.getByTestId('sign-in-link')
+  const componentSignUp = screen.getByTestId('sign-up-link')
 
   expect(componentTitle).toBeInTheDocument();
-  expect(prompt).toBeInTheDocument();
+  expect(componentPrompt).toBeInTheDocument();
+  expect(componentSignIn).toBeInTheDocument();
+  expect(componentSignUp).toBeInTheDocument();
 });

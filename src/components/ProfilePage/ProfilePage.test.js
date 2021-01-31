@@ -20,7 +20,7 @@ test('CallToAction renders', () => {
       <ProfilePage />
     </MemoryRouter>
   )
-  const componentTitle = screen.getByTestId('componentTitle')
+  const componentTitle = screen.getByTestId('cta-title')
   expect(componentTitle).toBeInTheDocument()
 });
 
