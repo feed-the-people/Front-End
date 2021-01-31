@@ -71,15 +71,15 @@ class RecipeBook extends Component {
     } else {
       return (
         <div className="RecipeBook">
-          <section className='recipe-column'>
+          <section className='recipes'>
             <h1 className='my-recipes'>Recipes you have uploaded: </h1>
             <Link to='/recipeform' className='upload-Link'>Upload another recipe</Link>
             <div className='recipe-section'>
               {this.state.recipes || <p>You haven't uploaded any recipes</p>}
             </div>
           </section>
-          <section className='recipe-column'>
-            <h1>Recipes you have purchased: </h1>
+          <section className='recipes'>
+            <h1 className='my-recipes'>Recipes you have purchased: </h1>
             <div className='recipe-section'>
               {this.state.userRecipes || <p>You haven't purchased an recipes</p>}
             </div>
