@@ -1,26 +1,56 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
 .RecipeForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 90vh;
-  overflow: auto;
+  @include mainScreenComponent(row);
+  font-family: $titles;
 }
 
-form {
-  display: inline-block;
+.RecipeForm-form {
+  background-color: $bodyWarmLight;
+  padding: 15vh 1vw 1vw 10vh;
+  margin: 2vh;
+  max-height: 70vh;
+  align-self: flex-start;
+  overflow: scroll;
+  display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5vw 5vw 5vw 5vw;
+  opacity: 90%;
+  box-shadow: 7px 7px 10px 0px $bodyWarmDark;
 }
 
 .ingredientBox {
   display: block;
-  color: white;
-  background-color: black;
+  color: $darkestShade;
+  background-color: $bodyWarmDark;
   height: 1.2rem;
-  width: auto;
+  padding: .5rem;
 }
 
-.label {
-  display: inline-block;
+textarea {
+  background-color: $lightestShade;
+  border-radius: 1rem;
+  border: none;
+  padding: 1rem;
+}
+
+textarea:focus {
+  outline: none;
+  border: none;
+}
+
+select {
+  outline: none;
+  border: none;
+  background-color: $lightestShade;
+  border-radius: 1rem;
+  width: 60%;
+}
+
+.RecipeForm-button {
+  @include button($accentCool, $darkestShade);
 }
