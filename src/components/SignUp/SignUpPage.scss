@@ -2,7 +2,7 @@
 @import '../../_mixins.scss';
 
 .SignUpPage {
-  @include mainScreenComponent;
+  @include mainScreenComponent(column);
   font-family: $titles;
 }
 .SignUp-action-area {

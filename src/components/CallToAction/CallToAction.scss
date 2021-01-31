@@ -2,7 +2,7 @@
 @import '../../_mixins.scss';
 
 .CallToAction {
-  @include mainScreenComponent;
+  @include mainScreenComponent(column);
 }
 
 .action-items {
@@ -18,6 +18,6 @@
   @include button($bodyCoolLight, $bodyCoolDark);
 }
 
-h1, p {
+componentTitle, pompt {
   color: $bodyCoolDark;
 }
