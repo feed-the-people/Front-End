@@ -1,12 +1,16 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
 .CheckoutForm {
-  background-color: hsla(105, 30%, 68%, .9);
+  background-color: $bodyWarmLight;
   align-self: flex-start;
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 100;
+  min-width: 110vw;
+  height: 100vh;
   padding: 0;
   margin: 0;
 }
