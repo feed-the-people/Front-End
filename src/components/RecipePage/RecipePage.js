@@ -41,6 +41,22 @@ class RecipePage extends Component {
     )
   }
 
+  buildInstructions = () => {
+    let steps = this.state.recipe.instructions.split('. ')
+    console.log(steps)
+    steps = steps.reduce((steps, step, index) => {
+      if(step.length > 1){
+        steps.push(<p className='instruction'> {step}. </p>)
+      }
+      return steps
+    }, [])
+    return (
+      <section>
+       {steps}
+      </section>
+    )
+  }
+
   updateUser = async (id) => {
     let response = await getUserWithRecipes(id)
     let userInfo = JSON.stringify(response.data.getUser)
@@ -62,14 +78,20 @@ class RecipePage extends Component {
       )
     } else if (this.state.recipe) {
       return (
-        <div className="RecipePage">
-          <h1 className='recipe-name'>{this.state.recipe.title}</h1>
-          <img className='recipe-image' src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' />
-          <h1>Ingredients:</h1>
-          {this.buildIngredients()}
-          <h1>Instructions:</h1>
-          <p>{this.state.recipe.instructions}</p>
-          {!this.state.purchased && <Checkout recipe={this.state.recipe}/>}
+        <secton className="RecipePage">
+        {!this.state.purchased && <Checkout recipe={this.state.recipe}/>}
+          <div className='RecipePage-left'>
+            <h1 className='RecipePage-title'>{this.state.recipe.title}</h1>
+            <img className='RecipePage-image' src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' />
+          </div>
+          <div className='RecipePage-middle'>
+            <h1 className='RecipePage-title'>Ingredients:</h1>
+            {this.buildIngredients()}
+          </div>
+          <div className='RecipePage-right'>
+            <h1 className='RecipePage-title'>Instructions:</h1>
+            {this.buildInstructions()}
+          </div>
           <Footer
             path1='/recipebook'
             path2='/profilepage'
@@ -77,7 +99,7 @@ class RecipePage extends Component {
             label2='My Profile'
             className='RecipeBook-Footer'
           />
-          </div>
+          </secton>
       );
     } else {
       return (
