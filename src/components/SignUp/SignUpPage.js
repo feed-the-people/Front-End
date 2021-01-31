@@ -2,8 +2,10 @@ import './SignUpPage.css'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'
-// import ImageUploader from 'react-images-upload'
 import Footer from '../Footer/Footer'
+// import PhotoUploader from '../PhotoUploader/PhotoUploader'
+import axios from 'axios'
+import { Image, CloudinaryContext } from 'cloudinary-react'
 
 
 class SignUpPage extends Component {
@@ -11,7 +13,7 @@ class SignUpPage extends Component {
     super(props);
     this.state = {
       username:'',
-      image:'',
+      image: null,
       firstName:'',
       lastName:'',
       email: '',
@@ -22,14 +24,25 @@ class SignUpPage extends Component {
       zip: '',
       redirect: false,
     }
-    this.onDrop = this.onDrop.bind(this);
   }
   //Look at refactoring to hooks and adjust all the form inputs to not be state
   //Look at implimenting images
   //Have sad path handling to show the loading
+
+  changeHandler = event => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
+
+  filePreview=()=>{
+    let url= URL.createObjectURL(this.state.image)
+    return url
+  }
+
   disableForm() {
     if (this.state.username &&
-        this.state.image &&
+        // this.state.image &&
         this.state.firstName &&
         this.state.lastName &&
         this.state.email &&
@@ -51,8 +64,25 @@ class SignUpPage extends Component {
   }
 
   submitForm = async (e) => {
-    e.preventDefault()
-    let response = await registerUser(
+    e.preventDefault();
+    const {image} = this.state;
+    console.log(image);
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append('upload_preset', 'hrqc7brr');
+    console.log(formData)
+    const response = await axios.post(
+      "https://api.cloudinary.com/v1_1/dygnrpjv8/upload",
+      formData
+      );
+      console.log("It did the thing")
+    console.log(response);
+    this.setState({ image: response.data.public_id});
+
+    console.log(this.state)
+
+    
+    let response2 = await registerUser(
       this.state.firstName,
       this.state.lastName,
       this.state.email,
@@ -64,7 +94,7 @@ class SignUpPage extends Component {
       this.state.username,
       this.state.password,
     );
-    if(response.error) {
+    if(response2.error) {
       alert('Something went wrong, please try again')
     } else {
       alert('Success! Log in to your new account!')
@@ -72,11 +102,11 @@ class SignUpPage extends Component {
     }
   }
 
-  onDrop(imageFiles, pictureDataURLs) {
-    this.setState({
-      image: this.state.image.concat(imageFiles)
-    });
-  }
+  // onSelect= async files => {
+  //   this.setState({
+  //     image: files[0]
+  //   });
+  // }
 
   render() {
     return (
@@ -97,27 +127,15 @@ class SignUpPage extends Component {
               </tr>
               <tr id="row2">
                 <td id="cell2-0">
-                  <label>
-                    Image
-                    <input id="file" type='file'
-                      name="picture"
-                      accept="image/*"
-                      multiple="false"
-                      onChange={this.changeHandler}/>
-                      <br/>
-                      {this.state.selectedFile ?
-                      <><img id="photo-preview" src={this.filePreview()}></img><br/>
-                      <input type="submit" value="Upload"></input></>
-                      
-                    : null}
-                    {/* <ImageUploader
-                      withIcon={true}
-                      buttonText='Choose images'
-                      onChange={[this.onDrop, this.updateInput]}
-                      imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                      maxFileSize={5242880}
-                    /> */}
-                  </label>
+                    <label>
+                      Image
+                    <input id="image" type='file'
+                                    name="image"
+                                    accept="image/*"
+                                    multiple={false}
+                                    onChange={this.changeHandler}/>
+                                    {this.state.image && <img id="photo-preview" src={this.filePreview()}/>}
+                    </label>
                 </td>
               </tr>
               <tr id="row3">
@@ -149,7 +167,7 @@ class SignUpPage extends Component {
                 <td id="cell9-1"><input className='zip'type='text' onChange={this.updateInput}/></td>
               </tr>
             </table>
-            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
+            <br/><button type='submit' onClick={this.submitForm}> Sign Me Up! </button>
           </form>
         </div>
         <Footer
