@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage.js';
 import { allRecipes } from '../../mockData.js'
-
+jest.mock('../../APICalls.js')
 //UNIT TESTS
 //Test that a loading message renders
 //Test and Mock the global recipes displayed

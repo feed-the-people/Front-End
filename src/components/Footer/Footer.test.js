@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Footer from './Footer.js'
 import { MemoryRouter } from 'react-router-dom';
-
+jest.mock('../../APICalls.js')
 //UNIT TESTS
 // test that footer renders
 // check that both buttons fire when clicked

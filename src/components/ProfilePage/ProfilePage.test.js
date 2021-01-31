@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
-
+jest.mock('../../APICalls.js')
 //UNIT TESTS
 test('ProfilePage renders', () => {
   render(

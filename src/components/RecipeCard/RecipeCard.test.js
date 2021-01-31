@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RecipeCard from './RecipeCard';
 import { MemoryRouter } from 'react-router-dom';
-
+jest.mock('../../APICalls.js')
 //test that recipe card renders data
 //test that buttons fire
 //test that button dynamically renders option

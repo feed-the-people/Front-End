@@ -1,7 +1,4 @@
 import './Profile.css'
-import {Link} from 'react-router-dom'
-import recipeBook from '../../icons/recipe-book-icon.svg'
-import globalIcon from '../../icons/global.svg'
 import Footer from '../Footer/Footer'
 
 function Profile() {

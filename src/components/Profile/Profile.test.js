@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import Profile from './Profile.js'
 import { MemoryRouter } from 'react-router-dom';
 import { individualUserData } from '../../mockData.js';
-
+jest.mock('../../APICalls.js')
 //Tests
 //Test that all the profile elements can render
 //Check that the user is logged in/Mock JSON storage

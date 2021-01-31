@@ -2,7 +2,7 @@ import './RecipePage.css';
 import { Component } from 'react';
 import CallToAction from '../CallToAction/CallToAction.js'
 import Checkout from '../CheckoutForm/Checkout.js'
-import { recipeById, getUserWithRecipes, getAccessToRecipe } from '../../APICalls.js'
+import { recipeById, getUserWithRecipes} from '../../APICalls.js'
 import Footer from '../Footer/Footer'
 
 class RecipePage extends Component {

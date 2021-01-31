@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
 import RecipeForm from './RecipeForm';
 import { submitForm } from './RecipeForm.js';
-
+jest.mock('../../APICalls.js')
 //UNIT TESTS
 //Test that all the form feils render
 //test that ingredients can be added

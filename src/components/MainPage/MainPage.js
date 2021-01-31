@@ -30,8 +30,13 @@ function MainPage(props) {
   }
   let updateUser = async (id) => {
     let response = await getUser(id)
-    let userInfo = JSON.stringify(response.data.getUser)
-    localStorage.setItem('user', userInfo)
+    if (!response || response.error){
+      localStorage.clear()
+      alert('You need to sign in again')
+    } else {
+      let userInfo = JSON.stringify(response.data.getUser)
+      localStorage.setItem('user', userInfo)
+    }
   }
 
   useEffect(() => {
