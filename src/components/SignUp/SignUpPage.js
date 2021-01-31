@@ -31,18 +31,18 @@ class SignUpPage extends Component {
 
   changeHandler = event => {
     this.setState({
-      image: event.target.files[0]
+      uploadedFile: event.target.files[0]
     })
   }
 
   filePreview=()=>{
-    let url= URL.createObjectURL(this.state.image)
+    let url= URL.createObjectURL(this.state.uploadedFile)
     return url
   }
 
   disableForm() {
     if (this.state.username &&
-        // this.state.image &&
+        this.state.uploadedFile &&
         this.state.firstName &&
         this.state.lastName &&
         this.state.email &&
@@ -51,9 +51,9 @@ class SignUpPage extends Component {
         this.state.city &&
         this.state.state &&
         this.state.zip) {
-      return true
-    } else {
       return false
+    } else {
+      return true
     }
   }
 
@@ -65,10 +65,9 @@ class SignUpPage extends Component {
 
   submitForm = async (e) => {
     e.preventDefault();
-    const {image} = this.state;
-    console.log(image);
+    const {uploadedFile} = this.state;
     const formData = new FormData();
-    formData.append('file', image);
+    formData.append('file', uploadedFile);
     formData.append('upload_preset', 'hrqc7brr');
     console.log(formData)
     const response = await axios.post(
@@ -134,7 +133,7 @@ class SignUpPage extends Component {
                                     accept="image/*"
                                     multiple={false}
                                     onChange={this.changeHandler}/>
-                                    {/* {this.state.image && <img id="photo-preview" src={this.filePreview()}/>} */}
+                                    {this.state.uploadedFile && <img id="photo-preview" src={this.filePreview()}/>}
                     </label>
                 </td>
               </tr>
@@ -167,7 +166,7 @@ class SignUpPage extends Component {
                 <td id="cell9-1"><input className='zip'type='text' onChange={this.updateInput}/></td>
               </tr>
             </table>
-            <br/><button type='submit' onClick={this.submitForm}> Sign Me Up! </button>
+            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
           </form>
         </div>
         <Footer
