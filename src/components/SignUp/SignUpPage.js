@@ -134,7 +134,7 @@ class SignUpPage extends Component {
                                     accept="image/*"
                                     multiple={false}
                                     onChange={this.changeHandler}/>
-                                    {this.state.image && <img id="photo-preview" src={this.filePreview()}/>}
+                                    {/* {this.state.image && <img id="photo-preview" src={this.filePreview()}/>} */}
                     </label>
                 </td>
               </tr>
