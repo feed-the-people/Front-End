@@ -1,0 +1,56 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
+.CheckoutForm {
+  background-color: $bodyWarmLight;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  min-width: 110vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.purchase-box {
+  height: 40vh;
+  width: 50vw;
+  position: fixed;
+  background-color: hsl(0, 31%, 88%);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.StripeElement {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.donation-box {
+  background-color: #a8c2ab70;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.donation-box-amount {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: inherit;
+}
+
+h2 {
+  margin-top: 2vh;
+}

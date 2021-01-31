@@ -1,4 +1,4 @@
-import './PurchaseModal.css';
+import './PurchaseModal.scss';
 import { Link } from 'react-router-dom';
 
 const PurchaseModal = (props) => {

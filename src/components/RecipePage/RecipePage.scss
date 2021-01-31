@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.RecipePage {
+  @include mainScreenComponent(row);
+  color: $darkestShade;
+}
+
+.RecipePage-title {
+  font-family: $logo;
+  color: $darkestShade;
+}
+
+.RecipePage-left, .RecipePage-middle, .RecipePage-right {
+  width: 30vw;
+  height: 90vh;
+  overflow: scroll;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $darkestShade;
+}
+
+.RecipePage-image {
+  width: 28vw;
+  height: 28vw;
+  object-fit: cover;
+  border-radius: 5vh;
+  border: 10px double $accentWarm;
+}
+
+.instruction {
+  margin: 1rem;
+}

@@ -1,8 +1,8 @@
-import './RecipePage.css';
+import './RecipePage.scss';
 import { Component } from 'react';
 import CallToAction from '../CallToAction/CallToAction.js'
-import PurchaseModal from '../PurchaseModal/PurchaseModal.js'
-import { recipeById, getUserWithRecipes, getAccessToRecipe } from '../../APICalls.js'
+import Checkout from '../CheckoutForm/Checkout.js'
+import { recipeById, getUserWithRecipes} from '../../APICalls.js'
 import Footer from '../Footer/Footer'
 
 class RecipePage extends Component {
@@ -22,32 +22,17 @@ class RecipePage extends Component {
     let user = JSON.parse(localStorage.getItem('user'))
     let response = await recipeById(id)
     let recipe = response.recipeById
-    this.setState({recipe: recipe})
-    this.getPurchasedRecipes(user.id)
-  }
-  getPurchasedRecipes = async (id) => {
-    let response = await getUserWithRecipes(id)
-    let updatedUserInfo = JSON.stringify(response.getUser)
-    localStorage.setItem('user', updatedUserInfo)
-    let foundUserRecipe = response.getUser.userRecipes.find(recipe => recipe.recipeId === this.state.recipe.id)
-    let foundRecipe = response.getUser.recipes.find(recipe => recipe.id === this.state.recipe.id)
-    if(foundRecipe || foundUserRecipe){
+    let recipes= user.recipes.find(recipe => {return recipe.id === this.props.id})
+    let userRecipes = user.userRecipes.find(recipe => {return recipe.recipeId === this.props.id})
+    if(recipes || userRecipes) {
       this.setState({purchased: true})
-    } else {
-      this.setState({purchased: false})
     }
+    this.setState({recipe: recipe})
   }
-  donate = async (e) => {
-    let user = JSON.parse(localStorage.getItem('user'))
-    e.preventDefault()
-    let amount = e.target.parentElement.firstChild.lastChild.value
-    let recipeId = this.props.id
-    let response = await getAccessToRecipe(user.id, recipeId, amount)
-    this.setState({purchased: true})
-  }
+
   buildIngredients = () => {
-    let list = this.state.recipe.ingredients.map(ingredient => {
-      return <li>{ingredient.amount}: {ingredient.name} </li>
+    let list = this.state.recipe.ingredients.map((ingredient, index) => {
+      return <li key={index}>{ingredient.amount}: {ingredient.name} </li>
     })
     return (
       <ul>
@@ -56,11 +41,26 @@ class RecipePage extends Component {
     )
   }
 
-  // buildInstructions = () => {
-  //   let steps = this.state.recipe.instructions.split("\n").map((item, key) => {
-  //   return <span key={key}>{item}<br/></span>
-  // })
-  // }
+  buildInstructions = () => {
+    let steps = this.state.recipe.instructions.split('. ')
+    steps = steps.reduce((steps, step, index) => {
+      if(step.length > 1){
+        steps.push(<p className='instruction'> {step}. </p>)
+      }
+      return steps
+    }, [])
+    return (
+      <section>
+       {steps}
+      </section>
+    )
+  }
+
+  updateUser = async (id) => {
+    let response = await getUserWithRecipes(id)
+    let userInfo = JSON.stringify(response.data.getUser)
+    localStorage.setItem('user', userInfo)
+  }
 
   componentDidMount(){
     let user = JSON.parse(localStorage.getItem('user'))
@@ -68,38 +68,29 @@ class RecipePage extends Component {
       this.getRecipe(this.props.id)
     }
   }
+
   render(){
     let user = JSON.parse(localStorage.getItem('user'))
     if (!user) {
-      return <CallToAction title='You need to be signed in to view this recipe...' />
-    } else if (this.state.recipe && this.state.purchased){
       return (
-        <div className="RecipePage">
-          <section className='left-section'>
-            <div className='leftHeader'>
-              <h1 className='recipe-name'>{this.state.recipe.title}</h1>
-            </div>
-            <img className='recipe-image' src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' />
-          </section>
-
-          <section className='right-section'>
-            <section className='details'>
-          <section className="ingredients-section">
-          <div className='ingredientHeader'>
-              <h1>Ingredients:</h1>
-            </div>
+        <CallToAction title='You need to be signed in to view this recipe...' />
+      )
+    } else if (this.state.recipe) {
+      return (
+        <secton className="RecipePage">
+        {!this.state.purchased && <Checkout recipe={this.state.recipe}/>}
+          <div className='RecipePage-left'>
+            <h1 className='RecipePage-title'>{this.state.recipe.title}</h1>
+            <img className='RecipePage-image' src={this.state.recipe.image} alt='A dish of egg, bread, and other assorted garnishes' />
+          </div>
+          <div className='RecipePage-middle'>
+            <h1 className='RecipePage-title'>Ingredients:</h1>
             {this.buildIngredients()}
-          </section>
-            <section className='instructions-section'>
-            <div className='instructionsHeader'>
-              <h1>Instructions:</h1>
-            </div>
-            {/* {this.buildInstructions} */}
-            <p>{this.state.recipe.instructions}</p>
-            </section>
-            </section>
-      </section>
-
+          </div>
+          <div className='RecipePage-right'>
+            <h1 className='RecipePage-title'>Instructions:</h1>
+            {this.buildInstructions()}
+          </div>
           <Footer
             path1='/recipebook'
             path2='/profilepage'
@@ -107,27 +98,12 @@ class RecipePage extends Component {
             label2='My Profile'
             className='RecipeBook-Footer'
           />
-        </div>
+          </secton>
       );
     } else {
       return (
-      <div className="RecipePage">
-      {!this.state.purchased && <PurchaseModal donate={this.donate} recipe={this.state.recipe}/>}
-      <header className="RecipePage-header">
-      <h1> Recipe Page </h1>
-      </header>
-      <section className="recipe-section">
-      <h3>Loading...</h3>
-      </section>
-      <Footer
-        path1='/recipebook'
-        path2='/profilepage'
-        label1="My Recipe Book"
-        label2='My Profile'
-        className='RecipeBook-Footer'
-      />
-      </div>
-    )
+        <h1>Loading...</h1>
+      )
     }
   }
 }

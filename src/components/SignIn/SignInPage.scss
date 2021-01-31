@@ -1,0 +1,50 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
+.SignInPage {
+  @include mainScreenComponent(column);
+  font-family: $titles;
+}
+.SignIn-action-area {
+  @include actionArea(60vh, 30vh, $bodyWarmLight, $bodyWarmDark);
+  margin-bottom: 20vh;
+}
+
+.SignIn-prompt {
+  font-size: 1.6rem;
+}
+
+.SignIn-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+  align-self: center;
+}
+label {
+  color: $bodyCoolDark;
+}
+input {
+  margin: 1vh;
+  height: 1.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  color: $bodyCoolDark;
+  border: none;
+  padding-left: .5rem;
+  background-color: $lightestShade;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.SignIn-button {
+  @include button($bodyCoolLight, $bodyCoolDark);
+  padding: .2rem;
+}
+
+.SignInPage-footer {
+  align-self: baseline;
+}

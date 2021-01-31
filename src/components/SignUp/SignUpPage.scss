@@ -1,0 +1,31 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
+.SignUpPage {
+  @include mainScreenComponent(column);
+  font-family: $titles;
+}
+.SignUp-action-area {
+  @include actionArea(80vh, 75vh, $bodyWarmLight, $bodyWarmDark);
+  margin-bottom: 10vh;
+}
+
+.SignUp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+.SignUp-submit {
+  @include button($bodyCoolLight, $bodyCoolDark);
+}
+.addressSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+}
+.SignUpPage-footer {
+  align-self: baseline;
+}

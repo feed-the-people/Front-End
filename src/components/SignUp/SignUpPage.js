@@ -1,4 +1,4 @@
-import './SignUpPage.css'
+import './SignUpPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'
@@ -70,18 +70,14 @@ class SignUpPage extends Component {
     formData.append('file', uploadedFile);
     formData.append('upload_preset', 'hrqc7brr');
     console.log(formData)
-    const response = await axios.post(
+    const imageCall = await axios.post(
       "https://api.cloudinary.com/v1_1/dygnrpjv8/upload",
       formData
       );
       console.log("It did the thing")
-    console.log(response);
-    this.setState({ image: response.data.public_id});
-
-    console.log(this.state)
-
+    this.setState({ image: imageCall.data.public_id});
     
-    let response2 = await registerUser(
+    let response = await registerUser(
       this.state.firstName,
       this.state.lastName,
       this.state.email,
@@ -93,7 +89,8 @@ class SignUpPage extends Component {
       this.state.username,
       this.state.password,
     );
-    if(response2.error) {
+
+    if(!response || response.error) {
       alert('Something went wrong, please try again')
     } else {
       alert('Success! Log in to your new account!')
@@ -101,72 +98,61 @@ class SignUpPage extends Component {
     }
   }
 
-  // onSelect= async files => {
-  //   this.setState({
-  //     image: files[0]
-  //   });
-  // }
-
   render() {
     return (
       <div className="SignUpPage">
-        <div className='action-area'>
-          <h1>Welcome to Feed The People</h1>
-          <p>We need a little information from you below to make an account of
+        <div className='SignUp-action-area'>
+          <h1 data-testid='title'>Welcome to Feed The People</h1>
+          <p data-testid='tag-line'>We need a little information from you below to make an account of
           your own and join our community!</p><br/>
           <form className='SignUp-form'>
-            <table id="simple-board">
-              <tr id="row0">
-                <td id="cell0-0"><label>Username</label></td>
-                <td id="cell0-1"><input className='username'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row1">
-                <td id="cell1-0"><label>Password</label></td>
-                <td id="cell1-1"><input className='password' type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row2">
-                <td id="cell2-0">
-                    <label>
-                      Image
-                    <input id="image" type='file'
-                                    name="image"
-                                    accept="image/*"
-                                    multiple={false}
-                                    onChange={this.changeHandler}/>
-                                    {this.state.uploadedFile && <img id="photo-preview" src={this.filePreview()}/>}
-                    </label>
-                </td>
-              </tr>
-              <tr id="row3">
-                <td id="cell3-0"><label>First Name</label></td>
-                <td id="cell3-1"><input className='firstName'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row4">
-                <td id="cell4-0"><label>Last Name</label></td>
-                <td id="cell4-1"><input className='lastName'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row5">
-                <td id="cell5-0"><label>Email</label></td>
-                <td id="cell5-1"><input className='email'type='email' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row6">
-                <td id="cell6-0"><label>Street</label></td>
-                <td id="cell6-1"><input className='street'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row7">
-                <td id="cell7-0"><label>City</label></td>
-                <td id="cell7-1"><input className='city'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row8">
-                <td id="cell8-0"><label>State</label></td>
-                <td id="cell8-1"><input className='state'type='text' onChange={this.updateInput}/></td>
-              </tr>
-              <tr id="row9">
-                <td id="cell9-0"><label>Zip</label></td>
-                <td id="cell9-1"><input className='zip'type='text' onChange={this.updateInput}/></td>
-              </tr>
-            </table>
-            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
+            <label>
+              Username
+              <input className='username'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              Password
+              <input className='password' type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+                Image
+              <input id="image" 
+                type='file'
+                name="image"
+                accept="image/*"
+                multiple={false}
+                onChange={this.changeHandler}/>
+                {this.state.uploadedFile && <img id="photo-preview" src={this.filePreview()}/>}
+            </label>
+            <label>
+              First Name
+              <input className='firstName'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              Last Name
+              <input className='lastName'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              Email
+              <input className='email'type='email' onChange={this.updateInput}/>
+            </label>
+            <label>
+              Street
+              <input className='street'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              City
+              <input className='city'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              State
+              <input className='state'type='text' onChange={this.updateInput}/>
+            </label>
+            <label>
+              Zip Code
+              <input className='zip'type='text' onChange={this.updateInput}/>
+            </label>
+            <button data-testid='submit-button' className='SignUp-submit' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
           </form>
         </div>
         <Footer

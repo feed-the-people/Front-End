@@ -13,6 +13,9 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-star-rating-component": "^1.4.1",
+    "sass": "^1.32.5",
+    "react-stripe-elements": "^6.1.2",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.2",
     "jest-localstorage-mock": "^2.4.6"
   }
 }

@@ -1,6 +1,6 @@
 // do we want to determine an code best practices for import order and placement?
 
-import './App.css';
+import './App.scss';
 import { Component } from 'react';
 import MainPage from '../MainPage/MainPage'
 import SignInPage from '../SignIn/SignInPage'
@@ -53,68 +53,48 @@ class App extends Component {
   }
   async componentDidMount() {
     const response = await getAllRecipes()
-    this.setState({allRecipes: response.allRecipes, loading: false})
+    if (!response || response.error) {
+      alert('Something went wrong')
+    } else {
+      this.setState({allRecipes: response.allRecipes, loading: false})
+    }
   }
 
   render() {
-    // working
-    // console.log(getAllRecipes())
-    // getUserWithRecipes(84)
-    // recipeById(1)
-    // getUser(1)
-    // searchNonProfits("Food Bank of the Rockies")
-    // createUserRecipe(1, 3, 2.5)
-    // createIngredient(1, "name", "amount")
-    // updateUserRecipeRating(1, 4)
-    // registerUser("John", "Doe", "JD@gmail.com", "a street", "a city", "a state", "a zip", "an image", "new user", "1234")
-    // userSignIn("mr_cook", "123")
-    // createRecipe(1, "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/7/11/0/FNK_the-best-chicken-parmesan_H_s4x3.jpg.rend.hgtvcom.826.620.suffix/1562853897238.jpeg", "Chicken Parmesan", "A classic favorite", "1. chicken 2.???? 3. profit", "533423", "Give Logan Money", [{name:"Chicken",amount:"2 lbs"},{name:"Parmesan",amount:"5 gallons"}])
-
-    // Must have form fields autopopulated in order for these to work
-    // updateUser()
-    // updateIngredient()
-    // updateRecipe(93,
-    //             "https://www.tasteofhome.com/wp-content/uploads/2018/01/Ginger-Pork-Stir-Fry_EXPS_QEBZ20_17024_E01_23_3b.jpg",
-    //             "Easy Stir-Fry",
-    //             "It's actually not easy",
-    //             "Updated instructions",
-    //             "4593516",
-    //             "HUNGRY NO MORE")
-
     return (
       <BrowserRouter>
       {/*Do we want to refactor all routes to include a render?*/}
       {/*Escelate the BrowserRouter to the index.js level?*/}
+      <div className="App">
       <Switch>
-        <div className="App">
-          <Route path='/signin'>
+          <Route exact path='/signin'>
             <SignInPage />
           </Route>
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignUpPage />
           </Route>
           <Route
-             path='/recipepage/:recipeId'
+             exact path='/recipepage/:recipeId'
              render={({match})=>{
                const recipeId = match.params.recipeId
                return (
                  <RecipePage id={recipeId} />
                )
            }}/>
-          <Route path='/profilepage'>
+          <Route exact path='/profilepage'>
             <ProfilePage />
           </Route>
-          <Route path='/recipebook'>
+          <Route exact path='/recipebook'>
             <RecipeBook />
           </Route>
-          <Route path='/recipeform'>
+          <Route exact path='/recipeform'>
             <RecipeForm />
           </Route>
           <Route exact path='/'>
             <MainPage allRecipes={this.state.allRecipes} loading={this.state.loading}/>
           </Route>
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       </BrowserRouter>
     );
   }

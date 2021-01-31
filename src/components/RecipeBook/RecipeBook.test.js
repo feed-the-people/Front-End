@@ -5,7 +5,7 @@ import CallToAction from '../CallToAction/CallToAction.js'
 import RecipeBook from './RecipeBook';
 import { allRecipes } from '../../mockData.js'
 import { MemoryRouter } from 'react-router-dom';
-
+jest.mock('../../APICalls.js')
 //Tests
 //Test that recipe books renders
 //Test that there is sad path handling for loading
