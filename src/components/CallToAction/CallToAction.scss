@@ -1,0 +1,23 @@
+@import '../../_variables.scss';
+@import '../../_mixins.scss';
+
+.CallToAction {
+  @include mainScreenComponent(column);
+}
+
+.action-items {
+  @include actionArea(60vh, 30vh, $bodyWarmLight, $bodyWarmDark);
+  margin-bottom: 20vh;
+}
+
+.prompt {
+  margin-bottom: 3vh;
+}
+
+.options {
+  @include button($bodyCoolLight, $bodyCoolDark);
+}
+
+componentTitle, pompt {
+  color: $bodyCoolDark;
+}

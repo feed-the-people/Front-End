@@ -112,7 +112,7 @@ export const getUserWithRecipes = (id) => {
               title
               description
               instructions
-              charityId
+              charityName
               userId
               avgRating
               ingredients {

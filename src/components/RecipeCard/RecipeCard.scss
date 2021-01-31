@@ -1,0 +1,100 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.RecipeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 30vw;
+  margin: 2.5vh;
+  border-radius: 2vw;
+  background-color: $lightestShade;
+  box-shadow: 5px 5px 5px 5px hsl(43, 88%, 61%, .6);
+}
+
+.RecipeCard:hover {
+  box-shadow: 4px 4px 4px 4px hsl(43, 88%, 61%, .6);
+}
+
+.RecipeCard-header {
+  width: 30vw;
+  height: 15%;
+  position: relative;
+  background-color: $lightestShade;
+  border-radius: 2vw 2vw 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.RecipeCard-footer {
+  width: 30vw;
+  height: 15%;
+  align-self: flex-end;
+  position: relative;
+  background-color: $lightestShade;
+  border-radius: 0 0 2vw 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+.RecipeCard-name {
+  color: $darkestShade;
+  margin-left: 2vw;
+  font-family: $titles;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.RecipeCard-rating{
+  margin-right: 2vw;
+  min-width: 40%;
+}
+
+.bottom-section{
+  overflow: scroll;
+  align-self: flex-start;
+  position: relative;
+  height: 60%;
+  font-family: $body;
+}
+
+.RecipeCard-image {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  opacity: .8;
+}
+
+.RecipeCard-image:hover {
+  opacity: 1;
+}
+
+.nonprofit-name {
+  font-family: $titles;
+  color: $darkestShade;
+  margin: 1vw 2vw 1vw 2vw;
+}
+
+.RecipeCard-story {
+  margin: 1vw 2vw 4vw 2vw;
+  color: $darkestShade;
+}
+
+.purchase-button{
+  @include button($accentCool, $darkestShade);
+  opacity: .8;
+}
+.purchase-button:hover{
+  opacity: 1;
+}

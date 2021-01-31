@@ -1,8 +1,8 @@
-import './MainPage.css';
+import './MainPage.scss';
 import profile from '../../icons/user-icon.svg'
 import recipeBook from '../../icons/recipe-book-icon.svg'
 import {Link} from 'react-router-dom'
-import { getUser } from '../../APICalls.js'
+import { getUserWithRecipes } from '../../APICalls.js'
 import RecipeCard from '../RecipeCard/RecipeCard'
 import Footer from '../Footer/Footer'
 import {useEffect} from 'react'
@@ -29,8 +29,8 @@ function MainPage(props) {
     })
   }
   let updateUser = async (id) => {
-    let response = await getUser(id)
-    let userInfo = JSON.stringify(response.data.getUser)
+    let response = await getUserWithRecipes(id)
+    let userInfo = JSON.stringify(response.getUser)
     localStorage.setItem('user', userInfo)
   }
 

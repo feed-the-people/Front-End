@@ -1,4 +1,4 @@
-import './SignInPage.css'
+import './SignInPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import Footer from '../Footer/Footer'
@@ -36,7 +36,8 @@ class SignInPage extends Component {
     e.preventDefault()
     if (this.state.username.length && this.state.password.length) {
       let response = await userSignIn(this.state.username, this.state.password)
-      if (response.errors) {
+      //Should this be error or errors?
+      if (response.error) {
         alert('Something went wrong... try again?')
       } else {
         let userInfo = JSON.stringify(response.data.userSignIn.user)
@@ -50,10 +51,9 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
-      <div className='action-area'>
-        <h1 data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
-        <form>
-          <center>
+      <div className='SignIn-action-area'>
+        <h1 className='SignIn-prompt' data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
+        <form className='SignIn-form'>
             <table id="simple-board">
               <tr id="row0">
                 <td id="cell0-0"><label>Username</label></td>
@@ -64,8 +64,7 @@ class SignInPage extends Component {
                 <td id="cell1-1"><input type='password' onChange={this.updateInput} className='password'/></td>
               </tr>
             </table>
-            <br/><button type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
-          </center>
+            <button className='SignIn-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
         </form>
       </div>
       {this.state.redirect && <Redirect to="/profilepage"/>}

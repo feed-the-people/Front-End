@@ -1,6 +1,6 @@
 import Profile from '../Profile/Profile.js'
 import CallToAction from '../CallToAction/CallToAction.js'
-import './ProfilePage.css'
+import './ProfilePage.scss'
 
 const ProfilePage = (props) => {
   let storage = localStorage.getItem('user')

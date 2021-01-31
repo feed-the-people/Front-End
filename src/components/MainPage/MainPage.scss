@@ -1,3 +1,5 @@
+@import '../../_variables.scss';
+
 .MainPage {
   display: flex;
   flex-direction: row;
@@ -6,12 +8,11 @@
 
 .main-recipe-section {
   width: 100vw;
-  height: 90vh;
-  margin: 0;
+  height: 100vh;
+  padding-bottom: 10vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   overflow: scroll;
-  background-color: hsl(0, 0%, 90%);
-  border: 5px inset hsl(0, 0%, 90%);
+  background-color: $lightestShade;
 }

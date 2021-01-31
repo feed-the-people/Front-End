@@ -1,4 +1,4 @@
-import './CheckoutForm.css';
+import './CheckoutForm.scss';
 import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { getAccessToRecipe } from '../../APICalls.js'
