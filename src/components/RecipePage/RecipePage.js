@@ -1,7 +1,7 @@
 import './RecipePage.css';
 import { Component } from 'react';
 import CallToAction from '../CallToAction/CallToAction.js'
-import PurchaseModal from '../PurchaseModal/PurchaseModal.js'
+import Checkout from '../CheckoutForm/Checkout.js'
 import { recipeById, getUserWithRecipes, getAccessToRecipe } from '../../APICalls.js'
 import Footer from '../Footer/Footer'
 
@@ -36,14 +36,6 @@ class RecipePage extends Component {
     } else {
       this.setState({purchased: false})
     }
-  }
-  donate = async (e) => {
-    let user = JSON.parse(localStorage.getItem('user'))
-    e.preventDefault()
-    let amount = e.target.parentElement.firstChild.lastChild.value
-    let recipeId = this.props.id
-    let response = await getAccessToRecipe(user.id, recipeId, amount)
-    this.setState({purchased: true})
   }
   buildIngredients = () => {
     let list = this.state.recipe.ingredients.map(ingredient => {
@@ -112,13 +104,7 @@ class RecipePage extends Component {
     } else {
       return (
       <div className="RecipePage">
-      {!this.state.purchased && <PurchaseModal donate={this.donate} recipe={this.state.recipe}/>}
-      <header className="RecipePage-header">
-      <h1> Recipe Page </h1>
-      </header>
-      <section className="recipe-section">
-      <h3>Loading...</h3>
-      </section>
+      {!this.state.purchased && <Checkout recipe={this.state.recipe}/>}
       <Footer
         path1='/recipebook'
         path2='/profilepage'
