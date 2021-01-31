@@ -36,7 +36,8 @@ class SignInPage extends Component {
     e.preventDefault()
     if (this.state.username.length && this.state.password.length) {
       let response = await userSignIn(this.state.username, this.state.password)
-      if (response.errors) {
+      //Should this be error or errors?
+      if (response.error) {
         alert('Something went wrong... try again?')
       } else {
         let userInfo = JSON.stringify(response.data.userSignIn.user)

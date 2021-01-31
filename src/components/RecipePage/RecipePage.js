@@ -43,7 +43,6 @@ class RecipePage extends Component {
 
   buildInstructions = () => {
     let steps = this.state.recipe.instructions.split('. ')
-    console.log(steps)
     steps = steps.reduce((steps, step, index) => {
       if(step.length > 1){
         steps.push(<p className='instruction'> {step}. </p>)
