@@ -24,3 +24,6 @@
 .profile-image {
   border-radius: 100%;
 }
+.sign-out-button {
+  @include button($accentCool, $darkestShade);
+}
