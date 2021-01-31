@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event'
 import { render, screen } from '@testing-library/react';
 import { registerUser } from '../../APICalls.js'
-jest.mock('../../apiCalls.js')
+jest.mock('../../APICalls.js')
 
 describe('SignUpPage', ()=>{
   it('should render all basic form elements', () => {

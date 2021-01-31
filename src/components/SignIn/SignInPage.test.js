@@ -4,7 +4,7 @@ import SignInPage from './SignInPage';
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 import { userSignIn } from '../../APICalls.js'
-jest.mock('../../apiCalls.js')
+jest.mock('../../APICalls.js')
 
 describe('SignInPage', () => {
   it('should render basic form elements', () => {
