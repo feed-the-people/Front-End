@@ -110,31 +110,28 @@ class RecipeForm extends Component {
   render() {
     return (
       <div>
-      <div className="RecipeForm">
-        <form className='RecipeForm-form' data-testid='form'>
-          <h1 data-testid='formPrompt'>Let's contribute!</h1>
-          <p data-testid='formInstructions'>We need a little information from you below to make a recipe and
-          connect it to a non profit organization you want to support!</p>
-          <label>
-            Recipe Name
-            <input className='title' size='65' type='text' onChange={this.updateInput}/>
-          </label>
-          <label>
-            Recipe Image URL
-            <input className='image' size='65' type='text' onChange={this.updateInput}/>
-          </label>
-          <label>
-            Recipe Description
-            <textarea className='description' rows='10' cols='60' type='text' onChange={this.updateInput}/>
-          </label>
-          <label>
-            Recipe Instructions
-            <textarea className='instructions' rows='10' cols='60' type='text' onChange={this.updateInput}/>
-          </label>
-          <label>
-            <h2>Ingredient List</h2>
-            { this.buildIngredientsList() }
-          </label>
+      <form className='RecipeForm-form' data-testid='form'>
+        <h1 data-testid='formPrompt'>Let's contribute!</h1>
+        <p data-testid='formInstructions'>We need a little information from you below to make a recipe and
+        connect it to a non profit organization you want to support!</p><br/>
+        <label>
+          Recipe Name
+          <input className='title' size='65' type='text' onChange={this.updateInput}/>
+        </label>
+        <label>
+          Recipe Image URL
+          <input className='image' size='65' type='text' onChange={this.updateInput}/>
+        </label>
+        <label>
+          Recipe Description
+          <textarea className='description' rows='10' cols='60' type='text' onChange={this.updateInput}/>
+        </label>
+        <label>
+          Recipe Instructions
+          <textarea className='instructions' rows='10' cols='60' type='text' onChange={this.updateInput}/>
+        </label>
+          <h2>Ingredient List</h2>
+          { this.buildIngredientsList() }
           <label>Ingredient name
             <input className='workingIngredient' type='text' onChange={this.updateInput}/>
           </label>
@@ -142,18 +139,16 @@ class RecipeForm extends Component {
             <input className='workingAmount' type='text' onChange={this.updateInput}/>
           </label>
           <button className='RecipeForm-button' type='submit' onClick={this.addIngredient}>Add Ingredient</button>
+          <h2>Non-Profit Organization Search</h2>
           <label>
-            <h2>Non-Profit Organization Search</h2>
-            <label>
               Enter Search Term
               <input className='NPO' type='text' onChange={this.searchNPOS}/>
             </label>
-          </label>
           <label>
             Select from search results:
             {!this.state.viableNPOs.length ? <p>No relevant matches...</p> : <select onChange={this.chooseNPO}> {this.state.viableNPOs} </select>}
           </label>
-            <button className='RecipeForm-button' type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm}> Submit My Recipe </button>
+          <button className='RecipeForm-button' type='submit' data-testid='formSubmit' disabled={this.disableForm()} onClick={this.submitForm}> Submit My Recipe </button>
         </form>
         {this.state.redirect && <Redirect to="/"/>}
         <div>
@@ -163,8 +158,6 @@ class RecipeForm extends Component {
           label1="My Recipe Book"
           label2='My Profile'
         /></div>
-      </div>
-
       </div>
     )
   }

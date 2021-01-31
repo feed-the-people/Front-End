@@ -37,7 +37,7 @@ class SignInPage extends Component {
     if (this.state.username.length && this.state.password.length) {
       let response = await userSignIn(this.state.username, this.state.password)
       //Should this be error or errors?
-      if (response.error) {
+      if (!response || response.error) {
         alert('Something went wrong... try again?')
       } else {
         let userInfo = JSON.stringify(response.data.userSignIn.user)
@@ -51,29 +51,39 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
-      <div className='SignIn-action-area'>
-        <h1 className='SignIn-prompt' data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
-        <form className='SignIn-form'>
-            <table id="simple-board">
-              <tr id="row0">
-                <td id="cell0-0"><label>Username</label></td>
-                <td id="cell0-1"><input type='text' onChange={this.updateInput} className='username'/></td>
-              </tr>
-              <tr id="row1">
-                <td id="cell1-0"><label>Password</label></td>
-                <td id="cell1-1"><input type='password' onChange={this.updateInput} className='password'/></td>
-              </tr>
-            </table>
-            <button className='SignIn-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
-        </form>
-      </div>
-      {this.state.redirect && <Redirect to="/profilepage"/>}
-      <Footer
-      path1='/signup'
-      path2='/'
-      label1='Sign Up'
-      label2="Take Me Back"
-      />
+        <div className='SignIn-action-area'>
+          <h1 className='SignIn-title' data-testid='sign-in-title'> Welcome Back! Sign In Below: </h1>
+          <form className='SignIn-form'>
+              <table id="simple-board">
+                <tbody>
+                  <tr id="row0">
+                    <td id="cell0-0">
+                      <label>
+                        Username
+                        <input type='text' onChange={this.updateInput} className='username'/>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr id="row1">
+                    <td id="cell1-0">
+                      <label>
+                        Password
+                        <input type='password' onChange={this.updateInput} className='password'/>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button className='SignIn-button' data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          </form>
+        </div>
+        {this.state.redirect && <Redirect to="/profilepage"/>}
+        <Footer
+        path1='/signup'
+        path2='/'
+        label1='Sign Up'
+        label2="Take Me Back"
+        />
       </div>
     );
   }
