@@ -1,4 +1,4 @@
-import './SignInPage.css'
+import './SignInPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import Footer from '../Footer/Footer'
@@ -36,7 +36,8 @@ class SignInPage extends Component {
     e.preventDefault()
     if (this.state.username.length && this.state.password.length) {
       let response = await userSignIn(this.state.username, this.state.password)
-      if (response && response.error) {
+      //Should this be error or errors?
+      if (!response || response.error) {
         alert('Something went wrong... try again?')
       } else {
         let userInfo = JSON.stringify(response.data.userSignIn.user)
@@ -50,41 +51,39 @@ class SignInPage extends Component {
   render() {
     return (
       <div className="SignInPage">
-      <div className='action-area'>
-        <h1 data-testid='sign-in-title'> Welcome Back! Sign In Below: </h1>
-        <form>
-          <center>
-            <table id="simple-board">
-              <tbody>
-                <tr id="row0">
-                  <td id="cell0-0">
-                    <label>
-                      Username
-                      <input type='text' onChange={this.updateInput} className='username'/>
-                    </label>
-                  </td>
-                </tr>
-                <tr id="row1">
-                  <td id="cell1-0">
-                    <label>
-                      Password
-                      <input type='password' onChange={this.updateInput} className='password'/>
-                    </label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <br/><button data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
-          </center>
-        </form>
-      </div>
-      {this.state.redirect && <Redirect to="/profilepage"/>}
-      <Footer
-      path1='/signup'
-      path2='/'
-      label1='Sign Up'
-      label2="Take Me Back"
-      />
+        <div className='SignIn-action-area'>
+          <h1 className='SignIn-prompt' data-testid='signInPrompt'> Welcome Back! Sign In Below: </h1>
+          <form className='SignIn-form'>
+              <table id="simple-board">
+                <tbody>
+                  <tr id="row0">
+                    <td id="cell0-0">
+                      <label>
+                        Username
+                        <input type='text' onChange={this.updateInput} className='username'/>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr id="row1">
+                    <td id="cell1-0">
+                      <label>
+                        Password
+                        <input type='password' onChange={this.updateInput} className='password'/>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button className='SignIn-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Submit </button>
+          </form>
+        </div>
+        {this.state.redirect && <Redirect to="/profilepage"/>}
+        <Footer
+        path1='/signup'
+        path2='/'
+        label1='Sign Up'
+        label2="Take Me Back"
+        />
       </div>
     );
   }

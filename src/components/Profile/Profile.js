@@ -1,16 +1,20 @@
-import './Profile.css'
+import './Profile.scss'
 import Footer from '../Footer/Footer'
 
 function Profile() {
   let storage = localStorage.getItem('user')
   let user = storage ? JSON.parse(storage) : null
+  let signOut = () => {
+    localStorage.clear()
+    window.location.reload()
+  }
   return (
     <div className="Profile">
       <section className='profileInfo'>
         <h1 data-testid='welcomeMessage'>{`Welcome Back ${user.firstName}! `}</h1>
         <div className='whoYouAre'>
           <label>
-            <h3>Name: </h3> 
+            <h3>Name: </h3>
             <p data-testid='name'>{user.firstName} {user.lastName}</p>
           </label>
           <br/>
@@ -18,7 +22,7 @@ function Profile() {
             <h3>Username:</h3>
             <p data-testid='username'>{user.username}</p>
           </label>
-          <img data-testid='profileImg' src={user.image}/>
+          <img className='profile-image' data-testid='profileImg' src={user.image}/>
         </div>
         <label>
           <h3>Email:</h3>
@@ -31,12 +35,13 @@ function Profile() {
           <p>{user.city}, {user.state}</p>
           <p>{user.zip}</p>
         </label>
+        <button className='sign-out-button' onClick={signOut}> Sign Out </button>
       </section>
       <Footer
         path1='/recipebook'
-        path2='/profilepage'
+        path2='/'
         label1="My Recipe Book"
-        label2='My Profile'
+        label2='Take Me Back'
         className='Profile-Footer'
       />
     </div>

@@ -1,0 +1,40 @@
+@import '../../_variables.scss';
+
+.Footer {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: $bodyCoolDark;
+  font-family: $titles;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 90;
+  opacity: .9;
+}
+.nav {
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin: 2vh 1vh 1vh 1vh;
+  color: $bodyWarmDark;
+}
+.nav:hover {
+  text-decoration: line-through;
+  color: $accentWarm;
+}
+.logo {
+  font-size: 2rem;
+  font-family: $logo;
+  text-decoration: none;
+  color: $bodyWarmDark;
+  margin: .5vh .5vh .5vh 1.5vh;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: $accentWarm;
+}

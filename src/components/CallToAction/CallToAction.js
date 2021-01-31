@@ -1,4 +1,4 @@
-import './CallToAction.css';
+import './CallToAction.scss';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer'
 //Let's add in a prop type here

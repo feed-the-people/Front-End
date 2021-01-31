@@ -1,6 +1,6 @@
 // do we want to determine an code best practices for import order and placement?
 
-import './App.css';
+import './App.scss';
 import { Component } from 'react';
 import MainPage from '../MainPage/MainPage'
 import SignInPage from '../SignIn/SignInPage'

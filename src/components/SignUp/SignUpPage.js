@@ -1,4 +1,4 @@
-import './SignUpPage.css'
+import './SignUpPage.scss'
 import {Link, Redirect} from 'react-router-dom'
 import { Component } from 'react';
 import { registerUser } from '../../APICalls.js'
@@ -72,10 +72,10 @@ class SignUpPage extends Component {
   render() {
     return (
       <div className="SignUpPage">
-        <div className='action-area'>
-          <h1 data-testid='title'>Welcome to Feed The People</h1>
-          <p data-testid='tag-line'>We need a little information from you below to make an account of
-          your own and join our community!</p>
+        <div className='SignUp-action-area'>
+          <h1>Welcome to Feed The People</h1>
+          <p>We need a little information from you below to make an account of
+          your own and join our community!</p><br/>
           <form className='SignUp-form'>
             <table id="simple-board">
               <tbody>
@@ -161,7 +161,8 @@ class SignUpPage extends Component {
                 </tr>
               </tbody>
             </table>
-            <br/><button data-testid='submit-button' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
+            <br/><button className='SignUp-submit' type='submit' disabled={this.disableForm()} onClick={this.submitForm}> Sign Me Up! </button>
+
           </form>
         </div>
         <Footer
