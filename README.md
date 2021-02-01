@@ -1,24 +1,17 @@
-#Styling Notes
+## What
+Welcome to Feed The People's front end Repository!
+We wanted to tie together recipe sharing and crowd funding in an app that allows the proceeds for any recipe to go to a none profit of the uploader's choosing.
 
-<img src="src/icons/styleMock.png" alt="style mock" width="600">
-Color Pallet HSL:
+## Who
+This was a capstone project for:  
+[Nathaniel Millard](https://github.com/nathanielmillard)  
+[Brigette Doelp](https://github.com/BrigetteDoelp)  
+[Carlyle Douglas](https://github.com/DougieDev)
 
-hsl(105, 30%, 68%)
+Build in tandem with the full team at [Feed The People](https://github.com/feed-the-people/feed-the-people)
 
-hsl(127, 18%, 71%)
+## Where
+Our app is deployed on [heroku](https://feedthepeople.herokuapp.com/)
 
-hsl(0, 31%, 88%)
 
-hsl(0, 10%, 90%)
 
-hsl(0, 0%, 24%)
-
-#### Final Font Choices
-Titles:
-font-family: 'Josefin Sans', sans-serif;
-
-Body:
-font-family: 'Lato', sans-serif;
-
-Accents:
-font-family: 'Redressed', cursive;
