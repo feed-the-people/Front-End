@@ -1,7 +1,7 @@
 import './CheckoutForm.scss';
 import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
-import { getAccessToRecipe } from '../../APICalls.js'
+import { getAccessToRecipe, getUserWithRecipes } from '../../APICalls.js'
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +41,12 @@ class CheckoutForm extends Component {
 
     let result = await getAccessToRecipe(user.id, recipeId, amount)
     this.setState({ complete: true })
-    window.location.reload()
+    let updateUser = await getUserWithRecipes(user.id)
+    let userInfo = JSON.stringify(updateUser.getUser)
+    localStorage.setItem('user', userInfo)
+    alert('Your donation is being processed!')
+    window.location.reload();
+    // setTimeout(function(){ window.location.reload() }, 1000);
   }
 
   render() {

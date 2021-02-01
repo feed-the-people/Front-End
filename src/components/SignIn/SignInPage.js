@@ -40,6 +40,7 @@ class SignInPage extends Component {
       if (!response || response.error) {
         alert('Something went wrong... try again?')
       } else {
+        console.log(response)
         let userInfo = JSON.stringify(response.data.userSignIn.user)
         localStorage.setItem('userToken', response.data.userSignIn.token)
         localStorage.setItem('user', userInfo)

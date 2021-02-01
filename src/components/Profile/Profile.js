@@ -1,3 +1,4 @@
+import { Image} from 'cloudinary-react'
 import './Profile.scss'
 import Footer from '../Footer/Footer'
 
@@ -22,7 +23,7 @@ function Profile() {
             <h3>Username:</h3>
             <p data-testid='username'>{user.username}</p>
           </label>
-          <img className='profile-image' data-testid='profileImg' src={user.image}/>
+          <Image className='profile-image' cloudName='dygnrpjv8' publicId={user.image} />
         </div>
         <label>
           <h3>Email:</h3>

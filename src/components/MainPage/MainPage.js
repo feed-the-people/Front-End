@@ -34,7 +34,7 @@ function MainPage(props) {
       localStorage.clear()
       alert('You need to sign in again')
     } else {
-      let userInfo = JSON.stringify(response.data.getUser)
+      let userInfo = JSON.stringify(response.getUser)
       localStorage.setItem('user', userInfo)
     }
   }

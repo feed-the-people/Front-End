@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { getUser } from '../../APICalls.js'
 import { Component, Redirect } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import { Image, CloudinaryContext } from 'cloudinary-react'
 
  let RecipeCard = (props) => {
   //This whole card needs a thorough comb over and I think we could be performing
@@ -49,7 +50,8 @@ import StarRatingComponent from 'react-star-rating-component';
       </header>
       <section className='bottom-section'>
         <Link to={route} className='image-link'>
-          <img className='RecipeCard-image' data-testid='recipe-image' src={props.image} />
+          {/* <img className='RecipeCard-image' data-testid='recipe-image' src={props.image} /> */}
+          <Image className='RecipeCard-image' data-testid='recipe-image' cloudName='dygnrpjv8' publicId={props.image} />
         </Link>
         <h3 className='nonprofit-name' data-testid='NPO'>{'Donations go to: ' + charityName}</h3>
         <p className='RecipeCard-story' data-testid='recipe-story'>{props.description}</p>

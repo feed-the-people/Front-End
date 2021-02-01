@@ -29,3 +29,10 @@
 .SignUpPage-footer {
   align-self: baseline;
 }
+
+#photo-preview {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 1vh;
+  object-fit: cover;
+}

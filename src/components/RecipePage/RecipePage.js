@@ -58,13 +58,14 @@ class RecipePage extends Component {
 
   updateUser = async (id) => {
     let response = await getUserWithRecipes(id)
-    let userInfo = JSON.stringify(response.data.getUser)
+    let userInfo = JSON.stringify(response.getUser)
     localStorage.setItem('user', userInfo)
   }
 
   componentDidMount(){
     let user = JSON.parse(localStorage.getItem('user'))
     if(user) {
+      this.updateUser(user.id)
       this.getRecipe(this.props.id)
     }
   }

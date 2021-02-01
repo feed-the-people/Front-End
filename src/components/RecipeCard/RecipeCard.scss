@@ -91,10 +91,10 @@
   color: $darkestShade;
 }
 
-.purchase-button{
+.full-view-button{
   @include button($accentCool, $darkestShade);
   opacity: .8;
 }
-.purchase-button:hover{
+.full-view:hover{
   opacity: 1;
 }

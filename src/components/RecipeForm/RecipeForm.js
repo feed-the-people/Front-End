@@ -1,6 +1,8 @@
 import './RecipeForm.scss'
 import { Component, Redirect } from 'react';
 import { searchNonProfits, createRecipe } from '../../APICalls.js'
+import axios from 'axios'
+import { Image, CloudinaryContext } from 'cloudinary-react'
 import Footer from '../Footer/Footer'
 
 class RecipeForm extends Component {
@@ -28,7 +30,7 @@ class RecipeForm extends Component {
   }
 
   disableForm() {
-    if (this.state.image &&
+    if (this.state.uploadedFile &&
         this.state.title &&
         this.state.description &&
         this.state.instructions &&
@@ -69,6 +71,19 @@ class RecipeForm extends Component {
     e.preventDefault()
     let storage = localStorage.getItem('user')
     let user = storage ? JSON.parse(storage) : null
+    const {uploadedFile} = this.state;
+    const formData = new FormData();
+    formData.append('file', uploadedFile);
+    formData.append('upload_preset', 'hrqc7brr');
+    console.log(formData)
+    const response = await axios.post(
+      "https://api.cloudinary.com/v1_1/dygnrpjv8/upload",
+      formData
+      );
+    console.log("It did the thing");
+    console.log(response);
+    this.setState({ image: response.data.public_id});
+
     let result = await createRecipe(
       user.id,
       this.state.image,
@@ -79,6 +94,7 @@ class RecipeForm extends Component {
       this.state.npoName,
       this.state.ingredients
     )
+    console.log(result)
     if(result.error) {
       alert('Something went wrong')
     } else {
@@ -107,6 +123,17 @@ class RecipeForm extends Component {
     this.setState({ingredients: newList})
   }
 
+  changeHandler = event => {
+    this.setState({
+      uploadedFile: event.target.files[0]
+    })
+  }
+
+  filePreview=()=>{
+    let url= URL.createObjectURL(this.state.uploadedFile)
+    return url
+  }
+
   render() {
     return (
       <div>
@@ -119,8 +146,13 @@ class RecipeForm extends Component {
           <input className='title' size='65' type='text' onChange={this.updateInput}/>
         </label>
         <label>
-          Recipe Image URL
-          <input className='image' size='65' type='text' onChange={this.updateInput}/>
+          Recipe Image
+            <input id="image" type='file'
+                            name="image"
+                            accept="image/*"
+                            multiple={false}
+                            onChange={this.changeHandler}/>
+                            {this.state.uploadedFile && <img id="photo-preview" src={this.filePreview()}/>}
         </label>
         <label>
           Recipe Description
