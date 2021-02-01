@@ -1,7 +1,7 @@
 // Queries
 
 export const getAllRecipes = () => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -38,7 +38,7 @@ export const getAllRecipes = () => {
 }
 
 export const getUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -81,7 +81,7 @@ export const getUser = (id) => {
 }
 
 export const getUserWithRecipes = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -141,7 +141,7 @@ export const getUserWithRecipes = (id) => {
 }
 
 export const boughtRecipesByUser = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -176,7 +176,7 @@ export const boughtRecipesByUser = (id) => {
 }
 
 export const recipeById = (id) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -206,7 +206,7 @@ export const recipeById = (id) => {
 }
 
 export const searchNonProfits = (searchTerm) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -229,7 +229,7 @@ export const searchNonProfits = (searchTerm) => {
 // Mutations
 
 export const registerUser = (firstName, lastName, email, street, city, state, zip, image, username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -276,7 +276,7 @@ export const registerUser = (firstName, lastName, email, street, city, state, zi
 }
 
 export const userSignIn = (username, password) => {
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
@@ -378,7 +378,7 @@ export const createRecipe = (userId, image, title, description, instructions, ch
       }
     }
   }
-  return fetch("http://localhost:8000/graphql", {
+  return fetch("https://feed-the-people-api.herokuapp.com/graphql", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify( { query:`
