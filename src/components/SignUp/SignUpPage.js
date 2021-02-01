@@ -76,7 +76,7 @@ class SignUpPage extends Component {
       );
       console.log("It did the thing")
     this.setState({ image: imageCall.data.public_id});
-    
+
     let response = await registerUser(
       this.state.firstName,
       this.state.lastName,
@@ -116,7 +116,9 @@ class SignUpPage extends Component {
             </label>
             <label>
                 Image
-              <input id="image" 
+              <input
+                id="image"
+                data-testid='image-upload' 
                 type='file'
                 name="image"
                 accept="image/*"
