@@ -74,7 +74,7 @@ describe('SignUpPage', ()=>{
     userEvent.type(imgURL, '12345')
     userEvent.type(firstName, '12345')
     userEvent.type(lastName, '12345')
-    userEvent.type(email, '12345')
+    userEvent.type(email, '12345@mail.com')
     userEvent.type(street, '12345')
     userEvent.type(city, '12345')
     userEvent.type(state, '12345')
